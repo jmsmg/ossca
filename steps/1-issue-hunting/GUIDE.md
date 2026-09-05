@@ -7,7 +7,7 @@
 | **완료 조건** | 아래 «착수 전 검증 파이프라인» 4개 항목 전부 통과 |
 | **도구** | [`scripts/hunt.py`](scripts/hunt.py) (후보 수집·일괄 심사, 이 폴더) · [`../../scripts/track.py`](../../scripts/track.py) (선점·겹침 조회, 공용) |
 | **다음 단계** | [2단계 — OSSCA 이슈 등록](../2-ossca-issue/GUIDE.md) |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/1-issue-hunting.md](../../examples/status/1-issue-hunting.md) |
 
 경로 다섯 개 + 공통 검증 + 판정 기준 + 함정.
 지금까지의 이슈가 전부 이 다섯 경로 중 하나에서 나왔다 (맨 아래 사례 매핑 참고).
@@ -34,14 +34,14 @@ status:open componentid:<NNN> modified<2026-01-01  # 오래 방치된 것부터
   - 트래커의 링크 섹션보다 Gerrit `bug:` 검색이 연결 CL 확인엔 더 정확함
 - 장점: 후보가 많다. 단점: 경쟁 있음, 설명만으론 난이도를 못 잼 → 결국 코드를 열어봐야 함
 - **스크립트**: 검색 자체는 UI에서 (결과 페이지가 로그인 XHR라 스크립트 추출 불가).
-  번호만 모으면 → `python3 ~/ossca/steps/1-issue-hunting/scripts/hunt.py triage <번호>...` 로 선점CL/OSSCA겹침/마지막활동 일괄 심사
+  번호만 모으면 → `python3 $OSSCA/steps/1-issue-hunting/scripts/hunt.py triage <번호>...` 로 선점CL/OSSCA겹침/마지막활동 일괄 심사
 
 ## 경로 2: 코드 상향 검색 (코드 → 이슈) — 백엔드 로직엔 최고
 
 팀이 **이미 하겠다고 코드에 박아둔 일**을 찾는다. 클레임 불필요, "왜 하냐" 반박 원천 차단.
 
 ```bash
-cd ~/chromium/src
+cd $CHROMIUM_SRC
 
 # ① 번호 붙은 TODO — 이슈가 살아있는지 역추적
 grep -rn "TODO(crbug.com/" sql/ storage/browser/ --include='*.h' --include='*.cc' | head -50
@@ -49,15 +49,15 @@ grep -rn "TODO(crbug.com/" sql/ storage/browser/ --include='*.h' --include='*.cc
 # ② deprecated 주석 — "deprecated and will be removed" 류
 grep -rn -i "deprecated" --include='*.h' sql/ | grep -i "remove"
 
-# ③ 만료된 milestone 인자 — chrome/VERSION의 MAJOR(현재 154)보다 작으면 이미 만료
+# ③ 만료된 milestone 인자 — chrome/VERSION의 MAJOR보다 작으면 이미 만료 (hunt.py expired 가 자동 계산)
 grep -rn "NotFatalUntil::M1" --include='*.cc' --include='*.h' <디렉토리>
-#   → M154 미만은 이미 fatal. "마이그레이션 끝났는데 정리 안 된 것"이 곧 이슈
+#   → MAJOR 미만은 이미 fatal. "마이그레이션 끝났는데 정리 안 된 것"이 곧 이슈
 
 # ④ 호출처 수 = 사이즈 추정
 grep -rn "BeginTransactionDeprecated" --include='*.cc' | wc -l
 ```
 
-**스크립트로 한 방에**: `python3 ~/ossca/steps/1-issue-hunting/scripts/hunt.py todos|deprecated|expired <디렉토리>...`
+**스크립트로 한 방에**: `python3 $OSSCA/steps/1-issue-hunting/scripts/hunt.py todos|deprecated|expired <디렉토리>...`
 → 나온 crbug 번호들을 `hunt.py triage <번호>...` 에 넣으면 1차 심사까지 끝
 
 - TODO에서 crbug 번호를 얻으면 → 이슈가 열려 있는지, 다른 사람이 잡았는지 확인 후 직행
@@ -96,16 +96,16 @@ RFC/W3C 스펙의 MUST 조항을 구현과 대조. 파서·프로토콜 코드�
 
 ## 공통: 착수 전 검증 파이프라인
 
-**전부 `~/ossca/scripts/track.py` 원커맨드로 가능** (아래 raw 명령은 참고용):
+**전부 `$OSSCA/scripts/track.py` 원커맨드로 가능** (아래 raw 명령은 참고용):
 
 ```bash
-python3 ~/ossca/scripts/track.py bug <번호>       # ① 선점 CL
-python3 ~/ossca/scripts/track.py ossca <검색어>   # ② OSSCA 겹침
-python3 ~/ossca/scripts/track.py file <경로>      # ③ 같은 파일 열린 CL
-python3 ~/ossca/scripts/track.py crbug <번호>     # 이슈 트래커 마지막 활동(답변 왔는지)
-python3 ~/ossca/scripts/track.py cl <CL번호>      # CL 상태 요약 (PS/표/attention/미해결)
-python3 ~/ossca/scripts/track.py comments <CL> [날짜]  # 새 코멘트
-python3 ~/ossca/scripts/track.py verify <CL> <PS> # 서버=로컬 검증 (해당 브랜치 체크아웃 상태에서)
+python3 $OSSCA/scripts/track.py bug <번호>       # ① 선점 CL
+python3 $OSSCA/scripts/track.py ossca <검색어>   # ② OSSCA 겹침
+python3 $OSSCA/scripts/track.py file <경로>      # ③ 같은 파일 열린 CL
+python3 $OSSCA/scripts/track.py crbug <번호>     # 이슈 트래커 마지막 활동(답변 왔는지)
+python3 $OSSCA/scripts/track.py cl <CL번호>      # CL 상태 요약 (PS/표/attention/미해결)
+python3 $OSSCA/scripts/track.py comments <CL> [날짜]  # 새 코멘트
+python3 $OSSCA/scripts/track.py verify <CL> <PS> # 서버=로컬 검증 (해당 브랜치 체크아웃 상태에서)
 ```
 
 ```bash
@@ -131,7 +131,7 @@ git log --format='%ad %an <%ae>' --date=short -8 -- <파일>
 2. **정당성이 한 줄로 서는가** — 스펙 조항 / 코드의 TODO / 크래시 리포트 / blocking 체인
 3. **리뷰어가 살아있는가** — 그 파일에 올해 커밋한 OWNERS가 있는가
 4. **사이즈가 전략에 맞는가** — Gerrit 뱃지 기준 XS<10 · S 10–49 · M 50–249.
-   호출처 수를 세면 대략 나옴. 지금 단계는 S~M로 로직 깊은 곳
+   호출처 수를 세면 대략 나옴. 처음엔 XS~S로 흐름을 한 바퀴 돌고, 그 다음 S~M로 로직 깊은 곳으로
 5. 휴면 판정: 미할당 + 연결 CL 없음 + 수개월 무활동 → 클레임 없이 직행.
    팀이 활발히 보는 이슈면 의사 타진 댓글 먼저 (무응답 ~2주면 직행 가능, CL 설명에 명시)
 
@@ -143,11 +143,11 @@ git log --format='%ad %an <%ae>' --date=short -8 -- <파일>
   (8280660이 unittest를 +311/−148 하는 걸 업로드 전에 확인한 사례)
 - **버그 번호 없는 순수 리팩토링**: 팀 승인 근거가 없으면 리뷰에서 방향 자체가 반박됨
 - **`git cl split` 대량 치환 CL의 결과물에 over-index 하지 말 것**: 기계 치환은 라인별 의도가
-  아님 (Evan이 8281077에 대해 준 교훈)
+  아님 (8282239 리뷰어가 8281077에 대해 준 교훈)
 - **이슈 설명을 그대로 믿지 말 것**: 코드를 열어 재진단부터. 443042812는 이슈의 크래시
   스택 해석이 실제 호출 구조와 달랐고, 리뷰에서 방향이 뒤집혔다
 
-## 사례 매핑
+## 사례 매핑 — 예시 이슈 7건 ([`examples/issues/`](../../examples/issues/))
 
 | 이슈/CL | 경로 |
 |---|---|
@@ -159,31 +159,7 @@ git log --format='%ad %an <%ae>' --date=short -8 -- <파일>
 | 41396598 (CurrencyFormatter) | 1. 트래커 하향 (M 사이즈 탐색) |
 | g_clock 누수, 545843242 | 5. 작업 파생 |
 
-## 현재 후보 큐 (2026-09-02 발굴 세션 갱신)
+## 후보 큐
 
-- **① 545843242** (Link 헤더 exactly-one, 545645933 쌍둥이) — **진단 완료 → `~/ossca/issues/545843242.md`**, 선점 없음 (OSSCA 히트는 우리 #369의
-  본문 언급). ToT `link-header-selection.https.window-expected.txt`가 이 버그의 [FAIL] 기록 중 →
-  수정+baseline 삭제 한 세트, 8336867과 동일 패턴. **8336867 머지 후 착수 추천** (같은 함수 충돌 방지)
-- **② quota 만료 M148 정리 (~156곳)** — Evan Stade가 2026-02 CL 7601393(리뷰 Steve Becker)로 넣은
-  DCHECK→CHECK 이행 잔여물. 현재 M155라 전부 만료. dcheck-to-check 프로젝트가 활발하고 deadline bump
-  CL도 존재 → 함부로 지우지 말고 **8282239 머지 즈음 Evan에게 "제거 CL 환영이냐" 한 줄 문의 후 진행**
-  (리뷰어 정렬 완벽: 넣은 사람 = 우리 리뷰어 2명)
-- **③ payments 신규 후보 3건** (triage 통과, 코드 진단 전):
-  40681786 에러 문자열 이동(3곳·594일) / 41342247 converter 단위 테스트(1730일) /
-  40121328 sanity check 이동(2361일)
-- **④ sql/database.cc:675 만료 M141 1곳** — Evan의 2025-06 커밋(Bug 425322236) 잔여물. CL C에 동봉 후보
-- **⑤ g_clock_for_testing 픽스처 누수** — 크로미움 트래커에 새 이슈 등록부터 (원인 규명 완료)
-- tryjob 권한 신청 — 머지 3개 확보로 자격 됨
-
-**탈락 기록** (재조사 방지): 507327886 플래그 미런칭 게이트 / 40891923 리버트 반복 지뢰밭 /
-473666511·377242771 활발한 팀 프로젝트(CL 73·146건) / 433551601·396030877·40177656 선점 CL 존재
-
-## 이전 후보 큐
-
-- **545843242** — 545645933 쌍둥이 (Link 헤더 exactly-one 검증). 픽스처 이미 숙지
-- **g_clock_for_testing 누수** — quota_database_unittest.cc:68, 원인 규명 완료. 이슈 신규 등록감
-- CL B (favicon, 호출처 5곳) / CL C (sql 메서드 삭제, `Fixed: 40831207`) — 8282239 머지 후
-- tryjob 권한 신청 — 머지 3개 확보로 자격 됨
-- (2026-09-01 hunt.py 발굴) **storage/browser/quota의 만료 NotFatalUntil::M148 157곳** —
-  quota_manager_impl.cc 84곳 등. M154에서 이미 fatal이라 인자 제거가 정리 수순.
-  단, 착수 전 git blame으로 원 bug 번호와 팀의 제거 방침(일괄 제거 CL이 이미 도는지) 확인 필요
+착수 안 한 후보와 **탈락 기록(재조사 방지)**은 이 단계의 [STATUS.md](STATUS.md) «후보 큐»에 적는다. 발굴 세션마다 갱신.
+실제로 쌓였던 모습: [`examples/status/1-issue-hunting.md`](../../examples/status/1-issue-hunting.md) 하단.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""이슈 후보 수집 + 1차 심사 원커맨드 (track.py의 앞단).
+"""이슈 후보 수집 + 1차 심사 원커맨드 (track.py의 앞단). 설정은 루트 config.env (SETUP.md).
 
 사용법:
   hunt.py todos <디렉토리>...        번호 붙은 TODO(crbug.com/N) 수집 (경로2: 코드 상향)
@@ -8,16 +8,14 @@
   hunt.py tracker <쿼리>             이슈 트래커 검색 추출 시도 — 보통 0건 (결과가 로그인 XHR 렌더링).
                                      실전은: UI에서 번호만 수집 → hunt.py triage 로 일괄 심사
   hunt.py triage <번호>...           후보 일괄 심사: 선점 CL / OSSCA 겹침 / 마지막 활동
-  hunt.py spring <라벨> [repo]       Spring 저장소의 열린 이슈를 라벨로 수집 (기본 spring-projects/spring-boot)
-                                     미할당·waiting-for-triage 아님 순으로 표시
 """
 import os, re, signal, subprocess, sys, urllib.parse
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
-# 공용 track.py는 ~/ossca/scripts/ (이 파일 기준 ../../../scripts)
+# 공용 track.py 는 $OSSCA/scripts/ (이 파일 기준 ../../../scripts). 설정(config.env)도 거기서 읽힘
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "..", "scripts"))
-import track  # http/gerrit 재사용
+import track  # http/gerrit/설정 재사용
 
-SRC = "/home/seonggoc/chromium/src"
+SRC = track.SRC  # config.env 의 CHROMIUM_SRC
 
 def git_grep(pattern, dirs, glob=("*.h", "*.cc")):
     specs = [f":(glob){d.rstrip('/')}/**/{g}" for d in dirs for g in glob]
@@ -79,7 +77,7 @@ def cmd_triage(*nums):
     print(f"일괄 심사 {len(nums)}건 — [선점CL / OSSCA겹침 / 마지막활동]")
     for n in nums:
         cls = track.gerrit(f"/changes/?q=bug:{n}")
-        q = urllib.parse.quote(f"repo:OSSCA-chromium/contributions {n}")
+        q = urllib.parse.quote(f"repo:{track.OSSCA_REPO} {n}")
         import json as _j
         gh = _j.loads(track.http(f"https://api.github.com/search/issues?q={q}&per_page=5"))
         overlap = gh.get("total_count", "?")
@@ -99,24 +97,7 @@ def cmd_triage(*nums):
             detail.append(f"OSSCA {overlap}건: #{it['number']}({it['user']['login']}) — 본인 것/단순 언급일 수 있으니 확인")
         print(f"  {n}: {verdict}  [CL {len(cls)} / OSSCA {overlap} / 활동 {act}] {' — ' + '; '.join(detail) if detail else ''}")
 
-def cmd_spring(label, repo="spring-projects/spring-boot"):
-    import json as _j
-    q = urllib.parse.quote(label)
-    d = _j.loads(track.http(f"https://api.github.com/repos/{repo}/issues?labels={q}&state=open&per_page=60"))
-    rows = []
-    for i in d:
-        if "pull_request" in i: continue
-        labels = [l["name"] for l in i["labels"] if l["name"] != label]
-        status = [l for l in labels if l.startswith("status:")]
-        rows.append((bool(i.get("assignee")), bool(status), i, labels))
-    rows.sort(key=lambda r: (r[0], r[1]))  # 미할당 + status 라벨 없는 것 먼저
-    print(f"{repo} [{label}] 열린 이슈 {len(rows)}건 (미할당·상태라벨 없음 우선):")
-    for assigned, has_status, i, labels in rows:
-        mark = "✓" if not assigned and not has_status else ("담당자" if assigned else "상태")
-        extra = ", ".join(l for l in labels if not l.startswith("type:"))[:45]
-        print(f"  {mark:3} #{i['number']} {i['title'][:62]} (댓글 {i['comments']}, {i['created_at'][:10]}) {extra}")
-
-CMDS = {"todos": cmd_todos, "spring": cmd_spring, "deprecated": cmd_deprecated, "expired": cmd_expired,
+CMDS = {"todos": cmd_todos, "deprecated": cmd_deprecated, "expired": cmd_expired,
         "tracker": cmd_tracker, "triage": cmd_triage}
 
 if __name__ == "__main__":

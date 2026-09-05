@@ -2,20 +2,42 @@
 """이슈/CL 추적 원커맨드 — 토큰 절약용 요약 출력.
 
 사용법:
+  track.py config                   config.env 에서 읽힌 설정값 확인 (SETUP.md 3번)
   track.py cl <CL번호>              Gerrit CL 상태 요약 (PS, 리뷰어, 표, attention, 최근 메시지)
   track.py bug <crbug번호>          해당 버그에 연결된 CL 목록 (선점 확인)
   track.py file <경로>              그 파일을 건드리는 열린 CL (충돌 예보)
   track.py ossca <검색어>           OSSCA contributions 저장소 이슈/PR 검색 (겹침 확인)
   track.py crbug <crbug번호>        이슈 트래커 활동 타임스탬프 (답변 왔는지)
   track.py comments <CL번호> [날짜] 그 날짜(기본 오늘) 이후 달린 코멘트
-  track.py verify <CL번호> <PS>     서버 패치셋 = 로컬 HEAD 검증 (~/chromium/src에서)
+  track.py verify <CL번호> <PS>     서버 패치셋 = 로컬 HEAD 검증 ($CHROMIUM_SRC 에 해당 브랜치를 체크아웃한 상태에서)
+
+설정: 저장소 루트의 config.env (config.env.example 을 복사해 만든다). 파일 값이 환경변수보다 우선하고, 파일에 없는 키만 환경변수/기본값을 쓴다.
 """
-import json, re, signal, subprocess, sys, urllib.parse, urllib.request
+import json, os, re, signal, subprocess, sys, urllib.parse, urllib.request
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 from datetime import datetime, timezone
 
+ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))  # 저장소 루트 (= $OSSCA)
+CONFIG_KEYS = ("CHROMIUM_SRC", "CHROMIUM_OUT", "CONTRIBUTIONS_DIR", "GITHUB_USER",
+               "OSSCA_REPO", "MENTOR_EMAIL", "TEST_FLAGS")
+
+def load_config(path=os.path.join(ROOT, "config.env")):
+    """config.env 의 `export KEY="value"` 줄을 읽어 환경변수에 넣는다 (파일 값이 우선 — 셸 러너의 source 와 같은 동작)."""
+    if not os.path.exists(path):
+        return
+    for line in open(path, encoding="utf-8"):
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        k = k.strip().removeprefix("export ").strip()
+        v = os.path.expandvars(v.strip().strip('"').strip("'"))
+        os.environ[k] = v
+
+load_config()
+SRC = os.path.expanduser(os.environ.get("CHROMIUM_SRC", "~/chromium/src"))
+OSSCA_REPO = os.environ.get("OSSCA_REPO", "OSSCA-chromium/contributions")
 GERRIT = "https://chromium-review.googlesource.com"
-SRC = "/home/seonggoc/chromium/src"
 
 def http(url, ua=False):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"} if ua else {})
@@ -26,6 +48,18 @@ def gerrit(path):
 
 def who(a):  # 계정 → 짧은 표기
     return a.get("email") or a.get("name") or "?"
+
+def cmd_config():
+    cfg = os.path.join(ROOT, "config.env")
+    print(f"config.env: {cfg} — " + ("있음" if os.path.exists(cfg) else "없음! config.env.example 을 복사해 만들 것"))
+    for k in CONFIG_KEYS:
+        v = os.environ.get(k)
+        note = ""
+        if k in ("CHROMIUM_SRC", "CONTRIBUTIONS_DIR") and v:
+            note = "  ✓" if os.path.isdir(os.path.expanduser(v)) else "  ✗ 디렉토리 없음"
+        elif k == "CHROMIUM_OUT" and v:
+            note = "  ✓" if os.path.isdir(os.path.join(SRC, v)) else "  ✗ 빌드 디렉토리 없음 (CHROMIUM_SRC 기준)"
+        print(f"  {k:18} = {v if v is not None else '(미설정 — 기본값/빈 값 사용)'}{note}")
 
 def cmd_cl(n):
     d = gerrit(f"/changes/{n}?o=CURRENT_REVISION&o=DETAILED_LABELS&o=DETAILED_ACCOUNTS&o=MESSAGES")
@@ -57,7 +91,7 @@ def cmd_file(path):
         print(f"  {c['_number']} {c['subject'][:70]} — {who(c['owner'])} ({c['updated'][:10]})")
 
 def cmd_ossca(term):
-    q = urllib.parse.quote(f"repo:OSSCA-chromium/contributions {term}")
+    q = urllib.parse.quote(f"repo:{OSSCA_REPO} {term}")
     d = json.loads(http(f"https://api.github.com/search/issues?q={q}&per_page=20"))
     if "items" not in d:
         print("API 오류:", str(d)[:200]); return
@@ -91,6 +125,8 @@ def cmd_comments(n, since=None):
         print(f"    {c.get('message', '')[:250]}")
 
 def cmd_verify(n, ps):
+    if not os.path.isdir(os.path.join(SRC, ".git")):
+        print(f"CHROMIUM_SRC 가 git 체크아웃이 아님: {SRC} — config.env 확인"); return
     ref = f"refs/changes/{str(n)[-2:]}/{n}/{ps}"
     def git(*a):
         return subprocess.run(["git", "-C", SRC] + list(a), capture_output=True, text=True)
@@ -106,10 +142,11 @@ def cmd_verify(n, ps):
     print("메시지 diff: " + ("자동 라인(R=/Change-Id)만 — 정상 ✓" if ok and extra else
                              "완전 동일 ✓" if not extra else "차이 있음! → " + " | ".join(extra[:5])))
 
-CMDS = {"cl": cmd_cl, "bug": cmd_bug, "file": cmd_file, "ossca": cmd_ossca,
+CMDS = {"config": cmd_config, "cl": cmd_cl, "bug": cmd_bug, "file": cmd_file, "ossca": cmd_ossca,
         "crbug": cmd_crbug, "comments": cmd_comments, "verify": cmd_verify}
 
 if __name__ == "__main__":
-    if len(sys.argv) < 3 or sys.argv[1] not in CMDS:
+    cmd = sys.argv[1] if len(sys.argv) > 1 else None
+    if cmd not in CMDS or (cmd != "config" and len(sys.argv) < 3):
         print(__doc__.strip()); sys.exit(1)
-    CMDS[sys.argv[1]](*sys.argv[2:])
+    CMDS[cmd](*sys.argv[2:])

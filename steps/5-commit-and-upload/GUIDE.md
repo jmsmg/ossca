@@ -6,9 +6,9 @@
 | **출력** | Gerrit CL 번호 + PS1, 리뷰어 지정, WIP 해제 |
 | **완료 조건** | `track.py verify <CL> <PS>`로 서버 패치셋 = 로컬 HEAD 확인 |
 | **다음 단계** | [6단계 — 리뷰 대응](../6-review/GUIDE.md) · [7단계 — 기여 기록](../7-contribution-record/GUIDE.md) (업로드 직후 병행) |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/5-commit-and-upload.md](../../examples/status/5-commit-and-upload.md) |
 
-> ⚠️ **`git cl upload`는 원격 공개다. 사용자 승인 없이 실행하지 않는다.**
+> ⚠️ **`git cl upload`는 원격 공개다 — 멘티 본인이 직접 실행한다.** AI 에이전트는 사용자 승인 없이 실행하지 않는다.
 
 ---
 
@@ -58,7 +58,7 @@ git cl upload -r <리뷰어> --send-mail  # 리뷰어 지정 + WIP 없이 바로
   이때 메시지 전용 PS가 하나 더 생긴다 (코드 PS + 메시지 PS 쌍)
 - 업로드 후 서버=로컬 검증 (해당 브랜치 체크아웃 상태에서):
   ```bash
-  python3 ~/ossca/scripts/track.py verify <CL번호> <PS>
+  python3 $OSSCA/scripts/track.py verify <CL번호> <PS>
   ```
 
 ### `track.py` 서브커맨드
@@ -82,8 +82,8 @@ git log --format='%an %ae' -10 -- <파일>
 ```
 
 - **payments는 예외**: 초기 리뷰는 개인이 아니라 **`chrome-payments-reviews@google.com`** 알리아스로 지정
-  (darwinyang이 8336867에서 안내, 2026-09-01). OWNERS: smcgruer@, slobodan@, darwinyang@ (chromium.org)
-- 멘토(eui-sang.lim@samsung.com): docs 폴더면 리뷰어에, 그 외 폴더면 CC에 추가
+  (8336867 리뷰에서 payments OWNER가 안내). 다른 팀도 `OWNERS` 파일에 알리아스가 적혀 있으면 그쪽을 먼저
+- 멘토(`$MENTOR_EMAIL`): docs 폴더면 리뷰어에, 그 외 폴더면 CC에 추가
 - 리뷰어를 정했으면 GitHub 이슈 댓글로 멘토에게 먼저 확인받는 것이 프로그램 절차
 
 ## CQ / tryjob
@@ -95,5 +95,5 @@ git log --format='%an %ae' -10 -- <파일>
 ## 기타
 
 - 첫 기여라면 `src/AUTHORS`에 이름·이메일 추가 (알파벳 순, Gerrit/git 이메일과 동일)
-- git 계정: Seonggon Cho <jmsmg1@me.com> — Gerrit 가입 이메일과 동일해야 함
-- gitcookies 인증 경고 발생 중 → 언젠가 `git cl creds-check`로 전환 필요
+- git 계정(`user.name` / `user.email`)은 Gerrit 가입 이메일과 동일해야 함 — [SETUP.md 1번](../../SETUP.md)
+- gitcookies 인증 경고가 뜨면 `git cl creds-check`로 전환

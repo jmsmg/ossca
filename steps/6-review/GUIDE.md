@@ -6,9 +6,9 @@
 | **출력** | 새 PS + 답글, 최종적으로 CQ+2 / 머지 |
 | **완료 조건** | Gerrit CL이 MERGED |
 | **다음 단계** | [8단계 — 머지 후 마무리](../8-after-merge/GUIDE.md) |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/6-review.md](../../examples/status/6-review.md) |
 
-> ⚠️ **Gerrit 댓글 게시(Send)는 원격 공개다. 사용자 승인 없이 실행하지 않는다.**
+> ⚠️ **Gerrit 댓글 게시(Send)는 원격 공개다 — 멘티 본인이 직접 한다.** AI 에이전트는 답글 문안까지만, 사용자 승인 없이 Send하지 않는다.
 
 ---
 
@@ -29,7 +29,7 @@
 
 ## -1을 받았을 때 — 태도가 결과를 바꾼 사례
 
-443042812에서 Stephen McGruer(payments OWNER)가 PS1에 Code-Review **-1**.
+443042812에서 payments OWNER(smcgruer@)가 PS1에 Code-Review **-1** ([예시 기록](../../examples/issues/443042812.md)).
 요지는 "수정 방식뿐 아니라 **원래 버그 리포트 자체가 틀렸다**"였다.
 
 리뷰어가 든 근거:
@@ -64,7 +64,7 @@ crbug에도 오귀속 분석을 코멘트로 남겼다.
 ## 대기 중 확인
 
 ```bash
-python3 ~/ossca/scripts/track.py cl <CL번호>            # 표·attention·최근 메시지
-python3 ~/ossca/scripts/track.py comments <CL번호>      # 오늘 달린 코멘트
-python3 ~/ossca/scripts/track.py crbug <crbug번호>      # 이슈 트래커 쪽 답변
+python3 $OSSCA/scripts/track.py cl <CL번호>            # 표·attention·최근 메시지
+python3 $OSSCA/scripts/track.py comments <CL번호>      # 오늘 달린 코멘트
+python3 $OSSCA/scripts/track.py crbug <crbug번호>      # 이슈 트래커 쪽 답변
 ```

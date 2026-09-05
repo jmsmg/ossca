@@ -6,7 +6,7 @@
 | **출력** | 3곳의 상태가 전부 최신: crbug · contributions repo · OSSCA 이슈 |
 | **완료 조건** | 아래 체크리스트 5개 전부 |
 | **다음 단계** | 다음 사이클 [1단계](../1-issue-hunting/GUIDE.md) — 또는 시리즈의 다음 CL은 [3단계](../3-branch-and-fix/GUIDE.md)부터 |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/8-after-merge.md](../../examples/status/8-after-merge.md) |
 
 머지가 끝이 아니다. **여기서 안 닫으면 계속 열린 채로 남는다** — 실제로 가장 자주 밀리는 단계.
 
@@ -22,12 +22,12 @@
 - [ ] **3. OSSCA GitHub 이슈 Status → `반영 완료`**
 - [ ] **4. `issues/<crbug>.md` 마감** — 상단 상태 줄을 `✅ 완료`로, 진행 체크리스트 전부 체크,
       **«이 사이클에서 배운 것»** 섹션 작성
-- [ ] **5. `../../README.md` 갱신** — 상태 요약표 + **CL 사이즈 이력** 표에 한 줄 추가
+- [ ] **5. [`BOARD.md`](../../BOARD.md) 갱신** — 이슈×단계 보드 · 상태 요약표 + **CL 사이즈 이력** 표에 한 줄 추가
       (사이즈는 Gerrit 뱃지 기준: XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000)
 
 ## 회고 — 「배운 것」에 무엇을 적나
 
-`issues/<crbug>.md` 맨 아래에 다음 CL에 실제로 적용될 것만 적는다. 지금까지 나온 것들:
+`issues/<crbug>.md` 맨 아래에 다음 CL에 실제로 적용될 것만 적는다. 예시 기록([`examples/issues/`](../../examples/issues/))에서 나온 것들:
 
 - (372283556) 작은 CL로 전체 흐름을 한 바퀴 도는 것이 먼저. include 정리 CL은
   "사용처가 없다"를 스스로 증명하는 조사가 본 작업
@@ -38,4 +38,4 @@
 ## 시리즈라면
 
 CL A가 머지돼야 CL B가 성립하는 구조면, 8단계를 마치는 즉시 **3단계로 되돌아간다**
-(1·2단계는 이미 통과한 이슈이므로 생략). 40831207이 이 모양: A(quota) ✅ → B(favicon) → C(sql 삭제).
+(1·2단계는 이미 통과한 이슈이므로 생략). [40831207](../../examples/issues/40831207.md)이 이 모양: A(quota) ✅ → B(favicon) → C(sql 삭제).

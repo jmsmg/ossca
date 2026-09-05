@@ -6,14 +6,14 @@
 | **출력** | 로컬 브랜치 하나 = CL 하나, 회귀 테스트 + 수정 |
 | **완료 조건** | 테스트가 수정 전 실패 → 수정 후 통과가 로그로 증명됨 |
 | **다음 단계** | [4단계 — 빌드 및 테스트](../4-build-and-test/GUIDE.md) |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/3-branch-and-fix.md](../../examples/status/3-branch-and-fix.md) |
 
 ---
 
 ## 브랜치
 
 ```bash
-cd ~/chromium/src
+cd $CHROMIUM_SRC
 git new-branch <설명>-<crbug번호>     # 예: spc-delegate-guard-443042812
 ```
 
@@ -24,7 +24,7 @@ git new-branch <설명>-<crbug번호>     # 예: spc-delegate-guard-443042812
 
 ## 착수 전 5분: 호출처를 직접 따라간다
 
-**443042812에서 가장 비싸게 배운 것.** "delegate가 파괴될 수 있다"는 가설로 가드 + 회귀 테스트를
+**443042812에서 가장 비싸게 배운 것** ([예시 기록](../../examples/issues/443042812.md)). "delegate가 파괴될 수 있다"는 가설로 가드 + 회귀 테스트를
 만들고 15시간 43분 풀빌드까지 돌렸는데, 리뷰어가 호출처 분석 한 번으로 전제를 무너뜨렸다.
 `Create()`의 호출처를 `git grep` 한 번만 했어도 5분 안에 알 수 있었다.
 
@@ -50,7 +50,7 @@ git log -L :함수명:<파일>              # 그 함수가 언제 왜 이렇게
 4. 통과 확인
 
 - 테스트가 불변식을 정말 지키는지 의심되면 **변이 테스트**: 지키려는 코드를 일부러 빼고
-  테스트가 실패하는지 확인 (8282239에서 사용, 러너 `~/ossca/steps/4-build-and-test/scripts/mutation_test.sh`)
+  테스트가 실패하는지 확인 (8282239에서 사용 — 드라이버 `$OSSCA/steps/4-build-and-test/scripts/mutation_test.sh`, 변이 스크립트 예시 `examples/scripts/mutate_quota_commit.py`)
 - test fixture의 헬퍼가 `EXPECT_CALL` 기대를 거는 경우 주의 — 미충족 기대로 오탐 가능
 - 동작 불변 리팩토링이면 기존 테스트 전원 통과가 곧 검증 (40681786)
 
@@ -59,7 +59,7 @@ git log -L :함수명:<파일>              # 그 함수가 언제 왜 이렇게
 한 crbug에 TODO/작업이 여러 개 걸려 있으면 **CL 시리즈**로 나눈다. 리뷰 단위를 작게 유지하고
 앞 CL이 머지돼야 뒤 CL이 성립하는 순서를 만든다.
 
-- 40831207: CL A(quota) → CL B(favicon) → CL C(sql 메서드 삭제)
+- 40831207: CL A(quota) → CL B(favicon) → CL C(sql 메서드 삭제) ([예시 기록](../../examples/issues/40831207.md))
 - 40681786: 에러 문자열 이동(1/3) → 나머지 TODO
 
 **범위 밖은 명시적으로 남긴다.** 이슈 문구가 "error message"만 말하면 `log.Warn()` 13곳은 건드리지

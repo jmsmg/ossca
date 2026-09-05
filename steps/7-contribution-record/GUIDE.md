@@ -5,24 +5,25 @@
 | **입력** | 업로드된 CL 번호 ([5단계](../5-commit-and-upload/GUIDE.md)) — **업로드 직후 병행** |
 | **출력** | `data/contributions/<CL번호>.md` + PR (`status: in review`) |
 | **완료 조건** | CI 통과 + PR 머지 |
-| **작업 위치** | `~/contributions` (fork: jmsmg, upstream: OSSCA-chromium) |
+| **작업 위치** | `$CONTRIBUTIONS_DIR` (origin: 내 fork `$GITHUB_USER`, upstream: OSSCA-chromium) |
 | **다음 단계** | [8단계 — 머지 후 마무리](../8-after-merge/GUIDE.md) |
-| **현황** | [STATUS.md](STATUS.md) |
+| **현황** | [STATUS.md](STATUS.md) · 예시 [examples/status/7-contribution-record.md](../../examples/status/7-contribution-record.md) |
 
-> ⚠️ **`git push` / PR 생성은 원격 공개다. 사용자 승인 없이 실행하지 않는다.**
+> ⚠️ **`git push` / PR 생성은 원격 공개다 — 멘티 본인이 직접 한다.** AI 에이전트는 기록 파일·로컬 커밋까지만, 사용자 승인 없이 push하지 않는다.
 
 ---
 
 ## 절차
 
 ```bash
-cd ~/contributions
+cd $CONTRIBUTIONS_DIR
 git checkout main && git pull
 git checkout -b <YYMMDD>-add-<CL번호> upstream/main
 cp data/contributions/template.md data/contributions/<CL번호>.md   # 내용 채우기, 템플릿 주석 전부 제거
 npm run validate:data && npm run lint:md
 git add . && git commit -m "contributions: Add <CL번호>"
 git push origin <브랜치>
+# PR 생성: https://github.com/OSSCA-chromium/contributions/compare/main...$GITHUB_USER:<브랜치>
 ```
 
 - 파일명은 **Chromium Review ID** (= CL 번호)
@@ -53,7 +54,7 @@ git push origin <브랜치>
 npm ci → npm test → npm run lint → npm run validate:data → npm run lint:md → npm run build
 ```
 
-## 사이트 구조 메모 (`~/contributions/CLAUDE.md` 요약)
+## 사이트 구조 메모 (`$CONTRIBUTIONS_DIR/CLAUDE.md` 요약)
 
 - `data/` 아래 마크다운이 **source of truth**. `src/lib/*` 로더가 빌드 타임에 `fs` + `gray-matter`로 읽는다
 - 정적 export(GitHub Pages)라 런타임 서버가 없다 → 정렬·필터·검색은 전부 클라이언트 컴포넌트(`'use client'`)

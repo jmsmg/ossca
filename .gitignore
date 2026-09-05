@@ -1,2 +1,10 @@
+# 개인 환경 설정 — config.env.example 을 복사해 만든다 (경로·계정이 들어가므로 커밋하지 않음)
+config.env
+
+# 빌드·테스트 산출물 (steps/4-build-and-test/logs/)
 *.log
 *.marker
+*_mutation_backup/
+
+# Python 캐시
+__pycache__/
