@@ -18,6 +18,7 @@ OSSCA Chromium 멘토링 프로그램에서 Chromium 이슈 하나를 **발굴 �
 ossca/
 ├── README.md                 ← 이 파일
 ├── SETUP.md                  ← 개인 세팅 (계정 · 경로 · config.env · 빌드 환경) — 처음 한 번
+├── CLAUDE.md (= AGENTS.md)   ← AI 에이전트가 세션마다 자동으로 읽는 규칙·읽기 순서
 ├── WORKFLOW.md               ← 워크플로우 지도 (8단계 개요 + 단계 횡단 규칙 + 도구)
 ├── BOARD.md                  ← 내 이슈×단계 보드, CL 사이즈 이력 (템플릿 — 채워 쓴다)
 ├── config.env.example        ← 경로·계정 설정 예시 → 복사해 config.env (커밋되지 않음)
@@ -45,9 +46,22 @@ ossca/
 
 ## AI 코딩 에이전트와 함께 쓸 때
 
-이 워크플로우는 Claude Code 같은 에이전트에게 GUIDE를 읽히고 같이 작업하는 방식으로 만들어졌다. 그래서 다음 규칙이 곳곳에 박혀 있다 (혼자 써도 무해하다):
+이 워크플로우는 Claude Code 같은 에이전트에게 GUIDE를 읽히고 같이 작업하는 방식으로 만들어졌다.
+에이전트가 지킬 규칙과 읽기 순서는 [`CLAUDE.md`](CLAUDE.md)에 있고, Claude Code는 이 파일을 세션마다 **자동으로 읽는다**
+(`AGENTS.md`는 같은 파일의 심볼릭 링크 — Codex · Cursor 등 다른 도구용). 그래서 에이전트에게는 지금 하고 싶은 일만 말하면 된다:
+
+| 상황 | 이렇게 말한다 |
+|---|---|
+| 세팅 직후 첫 세션 | `config.env 채웠어. track.py config로 확인하고 1단계 이슈 발굴부터 시작하자` |
+| 이어서 하는 세션 | `BOARD.md와 STATUS 보고 지금 어디까지 왔는지 파악한 뒤 다음 액션 제안해` |
+| 특정 단계로 바로 | `crbug 12345678을 3단계부터 진행해` |
+| 리뷰 코멘트가 왔을 때 | `track.py comments <CL>로 새 코멘트 읽고, 지적을 코드로 직접 검증한 뒤 답글 문안 만들어` |
+| 머지된 뒤 | `CL <번호> 머지됐어. 8단계 체크리스트대로 정리하고 BOARD 갱신해` |
+
+에이전트가 지키는 규칙 (혼자 써도 무해하다):
 
 - **원격 공개는 사람이 직접** — `git cl upload`, Gerrit 댓글 Send, `git push`, PR 생성, OSSCA 이슈 등록·댓글. 에이전트는 문안·드래프트까지만 만든다
+- **커밋 메시지에 AI 흔적 금지** — `Co-authored-by` / `Claude` / `Generated` 라인 없음 (5단계에 검사 명령)
 - 러너 스크립트 첫 줄의 `unset CLAUDECODE ...` — 에이전트 환경변수가 남아 있으면 autoninja가 `--quiet`로 돌아 로그에 점만 찍힌다
 
 ## 관련 링크

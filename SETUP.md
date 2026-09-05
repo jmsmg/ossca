@@ -88,7 +88,18 @@ python3 $OSSCA/scripts/track.py bug 545645933   # Gerrit 조회가 되는지 (�
 
 채워진 모습은 [`examples/`](examples/README.md).
 
-## 6. 이 저장소를 다시 공유하려면
+## 6. AI 에이전트를 쓴다면
+
+Claude Code를 `$OSSCA`에서 열면 루트의 [`CLAUDE.md`](CLAUDE.md)가 자동으로 읽힌다 (다른 도구는 `AGENTS.md`, 같은 파일).
+규칙 설명을 따로 붙일 필요 없이 지금 할 일만 말한다 — 첫 세션이면:
+
+```
+config.env 채웠어. track.py config로 확인하고 1단계 이슈 발굴부터 시작하자
+```
+
+에이전트가 원격 공개(`git cl upload`, 댓글, push, PR, 이슈 등록)를 하려 들면 거절하고 직접 한다. 상황별 한 줄은 [README](README.md#ai-코딩-에이전트와-함께-쓸-때).
+
+## 7. 이 저장소를 다시 공유하려면
 
 - `config.env`는 `.gitignore`에 있어 안 올라간다. `BOARD.md` · `steps/*/STATUS.md` · `issues/` · `drafts/`는 **내 기록이 담기는 파일**이니 공유 전에 비우거나 `examples/`처럼 분리한다
 - 개인 식별자 점검 (이름 · 이메일 · 홈 경로 · GitHub 아이디):
