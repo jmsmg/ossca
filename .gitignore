@@ -1,2 +1,3 @@
 *.log
 *.marker
+__pycache__/

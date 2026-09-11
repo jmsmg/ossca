@@ -1,0 +1,47 @@
+TOTAL 23  (A=Time/TimeDelta::From* on ColumnInt64, B=bare base::Microseconds(ColumnInt64) → TimeDelta 후보)
+    9 components/history
+    5 components/autofill
+    4 net/extras
+    1 chrome/browser
+    1 components/affiliations
+    1 components/blocklist
+    1 components/password_manager
+    1 content/browser
+
+A chrome/browser/extensions/activity_log/fullstream_ui_policy.cc:194: base::Time::FromInternalValue(query.ColumnInt64(
+A components/affiliations/core/browser/affiliation_database.cc:264: base::Time::FromInternalValue(statement.ColumnInt64(
+A components/autofill/core/browser/webdata/payments/payments_autofill_table.cc:968: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(s.ColumnInt64(
+A components/autofill/core/browser/webdata/payments/payments_autofill_table.cc:1149: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(s.ColumnInt64(
+A components/autofill/core/browser/webdata/payments/payments_autofill_table.cc:1192: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds((s.ColumnInt64(
+A components/autofill/core/browser/webdata/payments/payments_autofill_table.cc:1327: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(s.ColumnInt64(
+A components/autofill/core/browser/webdata/payments/payments_autofill_table.cc:1493: base::Time::FromDeltaSinceWindowsEpoch(         base::Milliseconds(s.ColumnInt64(
+B components/blocklist/opt_out_blocklist/sql/opt_out_store_sql.cc:276: base::Microseconds(statement.ColumnInt64(
+A components/history/core/browser/download_database.cc:468: base::Time::FromInternalValue(statement_main.ColumnInt64(
+A components/history/core/browser/download_database.cc:479: base::Time::FromInternalValue(statement_main.ColumnInt64(
+A components/history/core/browser/download_database.cc:482: base::Time::FromInternalValue(statement_main.ColumnInt64(
+A components/history/core/browser/journeys/journeys_database.cc:47: base::Time::FromDeltaSinceWindowsEpoch(       base::Microseconds(s.ColumnInt64(
+A components/history/core/browser/journeys/journeys_database.cc:265: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(s_entries.ColumnInt64(
+A components/history/core/browser/journeys/journeys_database.cc:313: base::Time::FromDeltaSinceWindowsEpoch(               base::Microseconds(s_entries.ColumnI
+A components/history/core/browser/keyword_search_term.cc:29: base::Time::FromInternalValue(statement.ColumnInt64(
+B components/history/core/browser/visit_annotations_database.cc:456: base::Microseconds(statement.ColumnInt64(
+B components/history/core/browser/visit_annotations_database.cc:457: base::Microseconds(statement.ColumnInt64(
+A components/password_manager/core/browser/password_store/password_notes_table.cc:46: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(s->ColumnInt64(
+A content/browser/declarative_performance_observer/declarative_performance_observer_store.cc:120: base::Time::FromDeltaSinceWindowsEpoch(             base::Microseconds(statement.ColumnInt
+A net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc:1320: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(smt.ColumnInt64(
+A net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc:1325: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(smt.ColumnInt64(
+A net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc:1442: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(endpoint_groups_stateme
+A net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc:1444: base::Time::FromDeltaSinceWindowsEpoch(         base::Microseconds(endpoint_groups_stateme
+
+=== 쓰기 9곳 (09-05 재검증에서 추가; 다중행 BindInt64) ===
+W components/history/core/browser/journeys/journeys_database.cc:195  BindInt64(5, creation_time.ToDeltaSinceWindowsEpoch().InMicroseconds()) → BindTime
+W components/history/core/browser/journeys/journeys_database.cc:218  BindInt64(1, visit_time.ToDeltaSinceWindowsEpoch().InMicroseconds()) → BindTime
+W components/history/core/browser/visit_annotations_database.cc:330  BindInt64(2, duration_since_last_visit.InMicroseconds()) → BindTimeDelta
+W components/history/core/browser/visit_annotations_database.cc:333  BindInt64(4, total_foreground_duration.InMicroseconds()) → BindTimeDelta
+W components/history/core/browser/visit_annotations_database.cc:412  BindInt64(1, duration_since_last_visit.InMicroseconds()) → BindTimeDelta
+W components/history/core/browser/visit_annotations_database.cc:415  BindInt64(3, total_foreground_duration.InMicroseconds()) → BindTimeDelta
+W components/password_manager/core/browser/password_store/insecure_credentials_table.cc:110  ToDeltaSinceWindowsEpoch().InMicroseconds() → BindTime
+W content/browser/declarative_performance_observer/declarative_performance_observer_store.cc:143  Time::Now().ToDeltaSinceWindowsEpoch().InMicroseconds() → BindTime
+W content/browser/declarative_performance_observer/declarative_performance_observer_store.cc:183  Time::Now().ToDeltaSinceWindowsEpoch().InMicroseconds() → BindTime
+
+제외: payments_autofill_table.cc:1493 (Milliseconds 직렬화 — ColumnTime과 불일치)
+읽기 매핑: FromInternalValue / FromDeltaSinceWindowsEpoch(Microseconds) / Time()+Microseconds → ColumnTime; bare Microseconds→TimeDelta 인자 → ColumnTimeDelta

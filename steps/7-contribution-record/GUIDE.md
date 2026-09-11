@@ -29,6 +29,9 @@ git push origin <브랜치>
 - frontmatter는 `status: in review`로 시작 → 머지되면 8단계에서 `merged`로 갱신
 - PR 제목: `contributions: Add <CL번호>`
 - PR 본문: `## Summary` + `## 관련 이슈` (OSSCA 이슈 번호 + gerrit 링크)
+- **이 PR에는 `Closes #<OSSCA이슈>`를 쓰지 않는다.** 이 PR은 CL 업로드 시점에 나가고 곧 머지되는데,
+  그때 OSSCA 이슈가 닫히면 Chromium CL은 아직 리뷰 중인 상태로 이슈만 닫힌다.
+  자동 닫기는 [8단계](../8-after-merge/GUIDE.md)의 `status: merged` PR에서 한다
 - **로컬 커밋은 한 줄이면 된다** — upstream 로그의 본문과 `(#PR번호)`는 squash merge가 자동으로 만든다
 
 ## 이 저장소의 커밋 메시지 규칙 (Gerrit과 다름!)
