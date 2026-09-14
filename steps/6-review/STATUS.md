@@ -24,9 +24,9 @@
 |---|---|---|---|
 | 1 | 8377022 | ✅ **PS2 로컬 완성 (09-11, Mac)** — 브랜치 `quota-db-test-clock-leak` HEAD, 57/57·319/319. **PS2 업로드됨(09-11 14:27 KST, 서버=로컬 파일 동일 ✓)**. 설명도 갱신됨 → **PS3(설명만 변경, 05:31 UTC), 서버=로컬 파일·메시지 완전 동일 ✓**. 남은 것: 답글 2건(드래프트 하단) → 그러면 어텐션 evanstade@ | 없음 |
 | 2 | 8377550 | evanstade@ 답글(09-11 16:20): enum 문장 남겨도 무방, 스레드 resolved, **CR+1 유지**. 미해결 0/4. 비커미터 규칙(커미터 2명 +1) → ✅ **09-14 stevebe@microsoft.com 리뷰어 추가 + 안내 메시지(사용자)**, 어텐션 stevebe@. stevebe@ +1 오면 evanstade@/stevebe@ 가 CQ | — |
-| 3 | 8366188 | **gab@ CR+1 + CQ+2 (09-11 18:27) → CV 거부**: "not satisfying Code-Review and Review-Enforcement" (비커미터 = 커미터 2명 +1). ✅ **09-14 battre@chromium.org 리뷰어 추가 + 안내 메시지(사용자)**, 어텐션 battre@·gab@. battre@ +1 오면 gab@ 재CQ | — |
+| 3 | 8366188 | ✅ **머지 09-14 11:17 UTC** — battre@ 추가 후 3시간 만에 +1·CQ+2, CV 제출(`fdce3e159a88b`, PS2). → 8단계 | — |
 | 4 | 8349386 | smcgruer@ LGTM(09-10) 후 PS5 리베이스 완료, **CQ 아직 안 돌림(4일)**, 표도 없음. 09-16까지 없으면 «Rebased in PS5 — could you run the CQ?» 핑. 두 번째 +1 은 gwsq 봇/Chrome Payments Reviews 가 채워 줄 가능성 | — |
-| 5 | 8382856 | mahmadi@ 추가(09-11) 후 응답 없음(주말 포함 3일). 대기 | — |
+| 5 | 8382856 | **manukh@ 복귀 — +1 «lgtm» (09-14 18:03)**. 두 번째 +1은 mahmadi@ 차례(어텐션 mahmadi@·우리). 대기 | — |
 | 6 | 8397391 | **rdevlin.cronin@ CR+1 LGTM (09-14 17:56 UTC)**, 어텐션 우리. ✅ 09-15 andreaorru@ 추가(사용자), 어텐션 andreaorru@. +1 오면 CQ | — |
 
 ```bash
