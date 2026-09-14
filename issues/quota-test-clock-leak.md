@@ -6,7 +6,7 @@
 
 - crbug: **없음** — 원 코드에도 버그가 등록돼 있지 않고, 우리가 직접 찾음. `Bug: none`
 - Gerrit: https://crrev.com/c/8377022 (브랜치 `quota-db-test-clock-leak`, 커밋 `0bce70f9916b6`)
-- OSSCA 이슈: 미등록 → **「직접 찾은 이슈 등록」 템플릿** 사용 (crbug가 없으므로)
+- OSSCA 이슈: **#421** (2026-09-11 등록, 「직접 찾은 이슈 등록」 템플릿)
 - 발굴 경로: **다른 CL 검증 중 우연히** — quota M148 정리(`quota-expired-notfatal-m148`)의 테스트가 깨져 원인을 쫓다 발견
 
 ## 어떻게 찾았나
@@ -40,6 +40,15 @@ void TearDown() override { ASSERT_TRUE(temp_directory_.Delete()); }   // 되돌�
 
 증거가 전부 맞물렸다: 단독 실행은 통과(선행 테스트가 없으므로) · 배치에서만 크래시 ·
 스택이 `QuotaDatabase` 생성자 근처(인라인된 `GetNow()`의 오귀속) · main에서도 동일.
+
+## Mac 재현 (2026-09-11)
+
+Mac(M5, arm64) 새 체크아웃(main `6c393c0b5b9c6`, 패치 없음)에서 `storage_unittests --gtest_filter='*Quota*'` 배치 305개를 돌리자
+`[298/305] QuotaConfigs/QuotaManagerImplParamTest.ReportedQuotaConfigurability/Incognito_Static_FlagEnabled (CRASHED)`.
+시그널은 리눅스의 `SIGSEGV SEGV_MAPERR 0x10`이 아니라 **`SIGBUS BUS_ADRALN`(홀수 주소)** — 해제된 클럭의 vtable 쓰레기값을 따라간 것으로 같은 원인이다.
+스택도 동일하게 `QuotaDatabase::QuotaDatabase()` → `EnsureDatabaseOpened()` → `UpdateOrCreateBucket()`(중간에 perfetto 프레임으로 오귀속).
+같은 그룹 8개만 단독 실행하면 8/8 통과 → 배치 의존 재현이 Mac에서도 그대로. **PS2(mock time 판) 검증 기준: 같은 `*Quota*` 필터 305/305.**
+로그: `steps/4-build-and-test/logs/quota_smoke.log`(배치) · `quota_single.log`(단독)
 
 ## 수정 — 왜 한 줄이 아니라 API 변경인가
 
@@ -91,8 +100,11 @@ static base::AutoReset<const base::Clock*> SetClockForTesting(const base::Clock*
 - [x] 원인 규명 + 재현 + 최소 수정 검증
 - [x] 설계 조사 (스타일 가이드·관행 분포·선례) 후 AutoReset 채택
 - [x] CL 8377022 업로드 (evanstade@ 리뷰어, stevebe@ CC)
-- [ ] OSSCA 이슈 등록 — **「직접 찾은 이슈 등록」 템플릿** (crbug 없음)
-- [ ] 7단계 기여 기록 PR
+- [x] **PS2(mock time 판) Mac에서 완성·검증 (09-11)** — 57/57 · 319/319 · 크래시 0
+- [x] PS2 업로드 → `git cl upload`가 옛 설명을 재사용해 `git cl description -n +`로 PS3(설명만) → 답글 2건 게시·Resolved (09-11 05:56 UTC). 어텐션 evanstade@
+- [ ] 배운 것: mock time은 시계 드리프트를 없애므로 **드리프트에 기대 통과하던 경계 테스트가 드러난다** (`Stale` 400일 exclusive 비교)
+- [x] OSSCA 이슈 등록 — **#421** (09-11)
+- [x] 7단계 기여 기록 PR — **#424** (09-11 제출, 멘토 리뷰 대기)
 
 
 ---

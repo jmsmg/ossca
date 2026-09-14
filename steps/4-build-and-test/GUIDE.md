@@ -1,4 +1,4 @@
-# 4단계 — 빌드 및 테스트 (4코어 박스)
+# 4단계 — 빌드 및 테스트 (Mac M5 10코어·16GB — 2026-09-11부터. 그 전 기록은 4코어 리눅스 박스)
 
 | | |
 |---|---|
@@ -11,7 +11,8 @@
 | **다음 단계** | [5단계 — 커밋 및 업로드](../5-commit-and-upload/GUIDE.md) |
 | **현황** | [STATUS.md](STATUS.md) |
 
-풀빌드 15시간+ 짜리 박스다. **빌드를 최소화하는 것이 이 단계의 전부.**
+예전 4코어 박스는 풀빌드 15시간+였다. Mac은 훨씬 빠르지만 RAM 16GB라 **빌드를 최소화하는 원칙은 그대로.**
+Mac 특이사항(2026-09-11): Xcode 26은 Metal 툴체인이 빠져 있어 첫 빌드가 ANGLE 셰이더 단계에서 죽는다 → `xcodebuild -downloadComponent MetalToolchain` 한 번(완료). 스왑이 심하면 `autoninja -j 6`. **에이전트 셸에서 띄운 tmux 세션은 에이전트 세션이 재시작되면 같이 죽는다**(09-11 extprefs 빌드가 9분 만에 중단) → **python `start_new_session` 으로 분리해도 세션 재시작 때 `interrupt by signal` 로 같이 죽는다(09-11 17:04 재확인).** 결론: **1시간 넘는 빌드는 사용자가 자기 Terminal 에서 tmux 로 직접 띄운다.** 에이전트는 로그·마커 파일만 읽어 결과를 확인한다. 명령: `tmux new -s build` → `caffeinate -i -s ~/ossca/steps/4-build-and-test/scripts/extprefs_chain_mac.sh` (러너가 `-j 6`, 로그·마커 기록). 16GB 라 `-j 6` 이 스왑 폭주를 막는다.
 
 ---
 
@@ -32,7 +33,9 @@ autoninja -C out/Default components_unittests 2>&1 | tee $L/cbuild.log
 # 성공 판정: 로그 끝 "Build Succeeded"
 ```
 
-## 테스트 실행 — ozone 플래그 필수
+## 테스트 실행 — ozone 플래그 (리눅스 헤드리스 전용, Mac에선 불필요)
+
+**Mac(2026-09-11~)에서는 `--ozone-platform=headless`를 쓰지 않는다.** 러너 스크립트에서 전부 제거했다. 아래는 리눅스 서버 시절 기록.
 
 ```bash
 out/Default/<타깃> --ozone-platform=headless --gtest_filter='<필터>'

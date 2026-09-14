@@ -1,0 +1,32 @@
+[storage] Drop QuotaDatabase's test clock in favor of mock time
+
+QuotaDatabase::GetNow() consulted a file-local test clock that
+SetClockForTesting() installed and that every caller had to clear
+again. QuotaDatabaseTest set one in its constructor and never cleared
+it, so once the fixture was destroyed the global pointed at freed
+memory, and the next test in the same process that reached GetNow()
+made a virtual call through it. This reproduces on ToT: running the
+quota tests in storage_unittests as one batch crashes in
+QuotaManagerImplParamTest.ReportedQuotaConfigurability (SIGSEGV on
+Linux, SIGBUS on arm64 Mac) right after QuotaDatabaseTest, and the same
+test passes when run on its own.
+
+The clock is not needed. QuotaManagerImplTest already runs with
+TimeSource::MOCK_TIME, so base::Time::Now() is the mock clock there:
+the two call sites that installed task_environment_.GetMockClock() were
+no-ops, and the rest only advanced a SimpleTestClock, which
+TaskEnvironment::AdvanceClock() does directly. QuotaDatabaseTest never
+runs a RunLoop, so switching its SingleThreadTaskEnvironment to
+MOCK_TIME only freezes Time::Now().
+
+Remove g_clock_for_testing and SetClockForTesting() entirely and let
+GetNow() return base::Time::Now(). One test needed a real change:
+QuotaDatabaseTest.Stale probed the 400-day stale cutoff at exactly 400
+days, which the exclusive comparison only accepted because wall-clock
+time moved between two Now() calls. With mock time the test now steps
+past the cutoff explicitly.
+
+R=evanstade@microsoft.com
+
+Bug: none
+Change-Id: I4b40039d3b7df68f9f14bd6f9535f6747a3df750

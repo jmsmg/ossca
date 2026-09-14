@@ -5,8 +5,8 @@ cd ~/chromium/src || exit 1
 rm -f $L/quota_done.marker
 autoninja -C out/Default storage_unittests > $L/quotabuild.log 2>&1
 if grep -q "Build Succeeded" $L/quotabuild.log; then
-  out/Default/storage_unittests --ozone-platform=headless --gtest_filter='*QuotaDatabase*' > $L/quota_test2.log 2>&1
-  out/Default/storage_unittests --ozone-platform=headless --gtest_filter='*Quota*' > $L/quota_test3.log 2>&1
+  out/Default/storage_unittests --gtest_filter='*QuotaDatabase*' > $L/quota_test2.log 2>&1
+  out/Default/storage_unittests --gtest_filter='*Quota*' > $L/quota_test3.log 2>&1
   echo "OK" > $L/quota_done.marker
 else
   echo "BUILD_FAILED" > $L/quota_done.marker

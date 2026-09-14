@@ -24,7 +24,7 @@ p.write_text(s.replace(old, new))
 PY
 
 autoninja -C out/Default storage_unittests > "$L/mutation_build.log" 2>&1
-out/Default/storage_unittests --ozone-platform=headless \
+out/Default/storage_unittests \
   --gtest_filter='*LongRunningTransactionIsReopenedAfterCommit*' \
   > "$L/mutation_test.log" 2>&1
 echo "mutation_exit=$?" > "$L/mutation_done.marker"
@@ -32,7 +32,7 @@ echo "mutation_exit=$?" > "$L/mutation_done.marker"
 # 원복
 cp /tmp/quota_database.cc.orig "$F"
 autoninja -C out/Default storage_unittests >> "$L/mutation_build.log" 2>&1
-out/Default/storage_unittests --ozone-platform=headless \
+out/Default/storage_unittests \
   --gtest_filter='*LongRunningTransactionIsReopenedAfterCommit*' \
   > "$L/restored_test.log" 2>&1
 echo "restored_exit=$?" >> "$L/mutation_done.marker"

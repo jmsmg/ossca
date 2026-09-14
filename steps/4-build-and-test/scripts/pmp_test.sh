@@ -7,6 +7,6 @@ autoninja -C out/Default components_unittests 2>&1 | tee "$L/pmp_build.log"
 if ! grep -q "Build Succeeded" "$L/pmp_build.log"; then
   echo "BUILD_FAILED" > "$L/pmp_done.marker"; exit 1
 fi
-out/Default/components_unittests --ozone-platform=headless \
+out/Default/components_unittests \
   --gtest_filter='*ManifestParser*' 2>&1 | tee "$L/pmp_test.log" | tail -6
 echo "DONE" > "$L/pmp_done.marker"

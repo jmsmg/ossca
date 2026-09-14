@@ -19,6 +19,7 @@
 
 | [8377022](https://crrev.com/c/8377022) | [storage] Make QuotaDatabase::SetClockForTesting() restore the clock | S (+24/−26, 4파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `ee6b2fd5b8367`, verify 동일 ✓) |
 
+| [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S (−82, 3파일) | `Bug: none` | rdevlin.cronin@ (CC anunoy@) | ✅ 업로드 2026-09-14 (Mac 커밋 `e54665a5dd6bd`, presubmit 0 경고, `--send-mail`) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L (+154/−160, 10파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `cee29292ec148`, verify 동일 ✓) |
 
 사이즈 = Gerrit 뱃지 기준(변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.

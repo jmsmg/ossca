@@ -10,7 +10,7 @@ if ! grep -q "Build Succeeded" "$L/quotabuild.log"; then
   echo "BUILD_FAILED" > "$L/quota_done.marker"; echo "===== BUILD_FAILED ====="; exit 1
 fi
 echo "===== [2/2] tests ====="
-out/Default/storage_unittests --ozone-platform=headless --gtest_filter='*QuotaDatabase*' 2>&1 | tee "$L/quota_test2.log" | tail -4
-out/Default/storage_unittests --ozone-platform=headless --gtest_filter='*Quota*' 2>&1 | tee "$L/quota_test3.log" | tail -4
+out/Default/storage_unittests --gtest_filter='*QuotaDatabase*' 2>&1 | tee "$L/quota_test2.log" | tail -4
+out/Default/storage_unittests --gtest_filter='*Quota*' 2>&1 | tee "$L/quota_test3.log" | tail -4
 echo "OK" > "$L/quota_done.marker"
 echo "===== 완료: OK ====="

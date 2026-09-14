@@ -18,9 +18,9 @@ if ! grep -q "Build Succeeded" "$L/quotabuild.log"; then
 fi
 
 echo "===== [3/3] tests ====="
-out/Default/storage_unittests --ozone-platform=headless \
+out/Default/storage_unittests \
   --gtest_filter='*QuotaDatabase*' 2>&1 | tee "$L/quota_test2.log" | tail -5
-out/Default/storage_unittests --ozone-platform=headless \
+out/Default/storage_unittests \
   --gtest_filter='*Quota*' 2>&1 | tee "$L/quota_test3.log" | tail -5
 echo "OK" > "$L/quota_done.marker"
 echo "===== 완료 ====="

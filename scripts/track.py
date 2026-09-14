@@ -11,12 +11,12 @@
   track.py verify <CL번호> <PS>     서버 패치셋 = 로컬 HEAD 검증 (~/chromium/src에서)
   track.py who <리뷰어이메일>       그 사람의 Gerrit 활동 요일·시간 분포 (언제 재촉해도 되는지)
 """
-import json, re, signal, subprocess, sys, urllib.parse, urllib.request
+import json, os, re, signal, subprocess, sys, urllib.parse, urllib.request
 signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 from datetime import datetime, timezone
 
 GERRIT = "https://chromium-review.googlesource.com"
-SRC = "/home/seonggoc/chromium/src"
+SRC = os.path.expanduser("~/chromium/src")
 
 def http(url, ua=False):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"} if ua else {})

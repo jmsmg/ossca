@@ -12,7 +12,7 @@ echo "===== [2/3] build components_unittests ====="
 autoninja -C out/Default components_unittests 2>&1 | tee "$L/pmd4_build.log"
 if ! grep -q "Build Succeeded" "$L/pmd4_build.log"; then echo "BUILD_FAILED" > "$L/pmd4_done.marker"; exit 1; fi
 echo "===== [3/3] tests ====="
-out/Default/components_unittests --ozone-platform=headless \
+out/Default/components_unittests \
   --gtest_filter='PaymentMethodManifestDownloaderTest.*' 2>&1 | tee "$L/pmd4_test.log" | tail -6
 if [ "${PIPESTATUS[0]}" -ne 0 ]; then echo "TEST_FAILED" > "$L/pmd4_done.marker"; exit 1; fi
 echo "DONE" > "$L/pmd4_done.marker"

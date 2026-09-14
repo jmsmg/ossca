@@ -10,7 +10,7 @@ echo "===== [1/3] build components_unittests base_unittests ====="
 autoninja -C out/Default components_unittests base_unittests 2>&1 | tee "$L/pnf_build.log"
 if ! grep -q "Build Succeeded" "$L/pnf_build.log"; then echo "BUILD_FAILED" > "$L/pnf_done.marker"; exit 1; fi
 echo "===== [2/3] components_unittests PrefService* ====="
-out/Default/components_unittests --ozone-platform=headless \
+out/Default/components_unittests \
   --gtest_filter='PrefService*' 2>&1 | tee "$L/pnf_prefs_test.log" | tail -6
 p1=${PIPESTATUS[0]}
 echo "===== [3/3] base_unittests Check* (enum 변경 검증) ====="

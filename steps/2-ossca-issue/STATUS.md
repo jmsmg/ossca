@@ -17,6 +17,12 @@
 
 **다음 액션**
 
+- ✅ **직접 찾은 이슈 3건 등록 완료 (2026-09-11, `gh issue create`, 라벨 2026+self-issues, self-assign)**:
+  - **#421** `drafts/quota-test-clock-leak.md` → CL 8377022 — Status `gerrit 리뷰 중`으로 놓을 것
+  - **#422** `drafts/quota-expired-notfatal-m148.md` → CL 8377550 — Status `gerrit 리뷰 중`으로 놓을 것
+  - **#423** `drafts/extension-prefs-expired-migration.md` → ✅ CL 8397391 업로드(09-14), 진행 코멘트 게시 — Status **`gerrit 리뷰 중`으로 변경할 것**
+  본문에 CL 링크·상태가 이미 들어 있어 진행 코멘트는 다음 변화(PS/머지/기록 PR) 때부터 남긴다
+
 **진행 코멘트 해소 (2026-09-10).** CONTRIBUTING의 «진행하며 작업 내용을 이슈 댓글로 남기기»를
 그동안 한 번도 안 하다가 #400·#401·#403·#416 네 곳에 한꺼번에 남겼다.
 

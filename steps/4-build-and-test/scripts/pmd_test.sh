@@ -7,6 +7,6 @@ autoninja -C out/Default components_unittests 2>&1 | tee "$L/pmd_build.log"
 if ! grep -q "Build Succeeded" "$L/pmd_build.log"; then
   echo "BUILD_FAILED" > "$L/pmd_done.marker"; exit 1
 fi
-out/Default/components_unittests --ozone-platform=headless \
+out/Default/components_unittests \
   --gtest_filter='PaymentMethodManifestDownloaderTest.*' 2>&1 | tee "$L/pmd_test.log" | tail -6
 echo "DONE" > "$L/pmd_done.marker"
