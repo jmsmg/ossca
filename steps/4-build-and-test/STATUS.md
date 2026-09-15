@@ -38,6 +38,8 @@
 `chrome/browser/extensions/extension_prefs_unittest.cc`에 있다. 수정한 디렉터리가 아니라 **테스트가 사는
 디렉터리**로 타깃을 고른다. `unit_tests`는 chrome 전체라 `components_unittests`보다 빌드가 크다.
 
+**09-15** — Xcode 27.0/SDK 27 로 첫 빌드: `net_unittests` 14m56s(5,895스텝, `-j 6`) ✓, NEL store 27/27 ✓. `unit_tests`+`base_unittests` 전 트리(81,890스텝) 진행 중.
+
 **Mac 첫 기록(09-11)** — `storage_unittests` 26분(기본 병렬도, 스왑 2GB) · `unit_tests` **3시간 23분**(`-j 6`, 36,619스텝) · 테스트는 러너 `extprefs_chain_mac.sh` 방식(사용자 tmux + 마커)으로. 4코어 리눅스(풀빌드 15h+)보다 훨씬 빠르지만 `unit_tests`급은 여전히 반나절 계획으로.
 
 **다음 액션** — CL B 착수 시 `pmd_test.sh`를 복사해 favicon 타깃/필터로 러너를 만든다.

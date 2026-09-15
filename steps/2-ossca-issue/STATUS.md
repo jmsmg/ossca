@@ -17,6 +17,8 @@
 
 **다음 액션**
 
+- ✅ **#439** 등록(09-15, 직접 찾은 이슈 템플릿) — 만료 M144 signin 정리. Status `멘티 작업 진행 중`으로 놓을 것(보드). ColumnTime CL 2(net/extras)는 시리즈 이슈 **#416**에 진행 코멘트로
+
 - ✅ **직접 찾은 이슈 3건 등록 완료 (2026-09-11, `gh issue create`, 라벨 2026+self-issues, self-assign)**:
   - **#421** `drafts/quota-test-clock-leak.md` → CL 8377022 — Status `gerrit 리뷰 중`으로 놓을 것
   - **#422** `drafts/quota-expired-notfatal-m148.md` → CL 8377550 — Status `gerrit 리뷰 중`으로 놓을 것

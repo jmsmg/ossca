@@ -31,6 +31,14 @@
 
 | 후보 | 크기 | 특징 |
 |---|---|---|
+| **★ `kResetDecoderForNonIDR` 킬스위치 제거** — `media/gpu/mac/video_toolbox_h264_accelerator.cc` (09-15 «Remove after M<n>» 재스캔) | XS | "Kill-switch: Remove after M145 is stable", 10 마일스톤 경과. **Mac 전용 파일 1개**라 여기서 그대로 빌드·테스트. 버그 번호 없음(`Bug: none`). OWNERS media/gpu(dalecurtis·eugene·liberato·andrescj). ⚠️ eugene@가 같은 파일에 열린 CL 8400064(09-15) — 리뷰어로 eugene@ 지정하고 «같이 넣을지» 묻는 것도 방법 |
+| **★ WebAuthn iCloud Keychain 플래그 3개 제거** — `device/fido/public/features.{cc,h}` + `chrome/browser/webauthn/chrome_authenticator_request_delegate.cc` | S | `kWebAuthnICloudKeychainForGoogle`·`ForActiveWithDrive`·`ForInactiveWithDrive` — "Enabled in M118. Remove in or after M121", 34 마일스톤 경과. about_flags·enums 등록 없음. OWNERS device/fido(kenrb·martinkr·nsatragno·derinel). delegate 파일은 활발(열린 CL 48건)이라 충돌 잦음 → 올린 뒤 오래 묵히지 말 것 |
+| `kMediaStreamAccurateDroppedFrameCount` 제거 (crbug 432367602) | XS | "Remove after M143". media_switches.{cc,h} + blink mediastream compositor 1곳. 원 CL 6766143 머지됨, 열린 CL 0. OWNERS media + blink/mediastream(hbos·tommi) 2그룹 |
+| `kSuspendMediaForFrozenFrames` 제거 (crbug 41161335) | S | "Remove in M143 after it goes stable". media_switches + blink WebMediaPlayerImpl(+unittest) 4파일. 버그에 CL 18건 이력(전부 옛것), 339일 무활동 |
+| `kWebCodecsDecoderFlushOptimizations` 킬스위치 제거 | S~M | "Kill-switch to be removed after M145 stable". blink/webcodecs 디코더 브로커+테스트 7파일. OWNERS webcodecs(dalecurtis·tguilbert·eugene) — media와 겹치는 사람들 |
+| `startup_browser_creator_impl.cc` Lacros 잔재 (crbug 40216113) | XS | TODO "Remove by M104" 붙은 `ShouldLoadProfileWithoutWindow` 재검사 + NOTREACHED. 버그는 FIXED(Lacros 온보딩), Lacros 자체가 사라짐. OWNERS chrome/browser/ui/startup(dgn·nicolaso·ydago) |
+| `extension_service.cc` 강제설치 재활성화 우회 제거 (crbug 40144051) | XS | 2022-05 CL(nicolaso@) "safe to remove in M107" — 48 마일스톤 경과. crbug 내용은 미확인(파서 실패). rdevlin.cronin@ 관계 있음 |
+| reading_list `distillation_size_` 제거 (crbug 40894644) | S~M | "Remove after M115" — 필드+접근자+생성자 인자+**proto 필드(reserved 처리 필요)**+테스트 5곳. 선점 0. 저장 포맷이 걸려 신중 |
 | **★ sql ColumnTime 시리즈 CL 2 — `net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc` 8곳** (09-15 재스캔) | XS~S | 읽기 4(`FromDeltaSinceWindowsEpoch(Microseconds(ColumnInt64))`→`ColumnTime`) + 쓰기 4(`BindInt64(…InMicroseconds())`→`BindTime`), 한 파일. per-file OWNER **ricea@**(09-11 활동) 단독 → 두 번째는 net/OWNERS nidhijaju@·bashi@(둘 다 09-14 활동). 열린 CL 충돌 없음(전부 2026-01 이전 stale). 타깃 `net_unittests`(Mac 미빌드). `Bug: 40176243` part 2 |
 | **★ 만료 `NotFatalUntil` M144 — signin 3곳 + enum 항목** (09-15 재스캔) | XS | `dice_web_signin_interceptor.cc` 2곳 + `turn_sync_on_helper.cc` 1곳이 트리 전체 사용처의 전부 → **M143(8366188)과 같은 «인자 제거 + `M144 = 144,` 삭제» 완전 정리**. 원 CL 6842550(rsult@, 2025-08-14)의 TODO가 «crbug.com/435076172 — 크래시 없으면 일반 CHECK로»라고 직접 지시. OWNERS `components/signin/DESKTOP_OWNERS`. ⚠️ `base/` 헤더 변경 = 전 트리 재빌드(Mac에서도 수 시간) |
 | 40284947 `PacResultElementToProxyServer` 제거 | M | 09-15 재확인: 프로덕션 호출처는 자기 래퍼 1곳, 나머지 **테스트 호출처 ~37곳**(net mac/win/공용 테스트, services/network, services/proxy_resolver_win — OWNER 3그룹). Mac 테스트는 이제 로컬 빌드 가능하나 **win 파일은 불가** → 여전히 트라이잡 권한 확보 후. 선점 0·OSSCA 0·823일 무활동 |
@@ -44,6 +52,8 @@
 | 41342247 converter 단위 테스트 · 40121328 sanity check 이동 | ? | triage 통과, 코드 진단 전 |
 | ~~`g_clock_for_testing` 픽스처 누수~~ | — | ✅ **09-10 착수·업로드** [CL 8377022](https://crrev.com/c/8377022) → `issues/quota-test-clock-leak.md`. quota M148 검증 중 크래시로 드러남 |
 | `kSandboxExternalProtocolBlocked` 플래그 제거 | 중 | M106 만료(49 경과)지만 **enterprise policy와 얽혀** 별도 절차 필요 |
+
+**09-15 quota TODO 점검**: 40179024(`SetStorageKeyLastAccessTime` 제거)는 기본 버킷 경로가 히스토그램 때문에 일부러 쓰고 있어 기계적 제거 불가 → evanstade@에게 물어볼 거리 · 40273188(`DeleteHostData`)는 Android site settings가 아직 사용 → CookiesTreeModel 폐기 뒤 · 40184305는 SpecialStoragePolicy가 아직 Origin 기반 → 불가 · 40058632(CHECK→DCHECK 복귀)는 판단 필요.
 
 **09-15 재스캔에서 제외한 것**: M139 5곳(viz·media/renderers·media/capture/chromeos — OWNER 3그룹, CrOS 전용 파일은 로컬 빌드 불가) · M142 6곳(5그룹) · M138/M140/M145 (10~13파일에 흩어짐) · journeys CL 1.5 (hempjudith@가 09-11 먼저 옮김)
 
