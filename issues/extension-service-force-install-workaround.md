@@ -1,12 +1,12 @@
 # [자체 발굴] extension_service의 만료된 강제설치 재활성화 우회 제거 (M107)
 
-**상태: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). **검증 완료(09-15 05:35)**: 1단계 실패 확인 ✓ → 2단계 5/5 ✓ → `ExtensionServiceTest.*` 191/191 ✓. origin/main(345d761d, 09-14) 리베이스 충돌 없음 → 커밋 **`455e826cf4aa7`**. 남은 것: 업로드(사용자 승인).**
+**상태: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). **검증 완료(09-15 05:35)**: 1단계 실패 확인 ✓ → 2단계 5/5 ✓ → `ExtensionServiceTest.*` 191/191 ✓. origin/main(345d761d, 09-14) 리베이스 충돌 없음 → 커밋 **`455e826cf4aa7`**. **업로드 완료 CL 8410065** (09-15 05:50). 다음: 7단계 기록 PR + 리뷰 대기.**
 
 ## 링크
 
 - crbug: **40144051** (접근 제한 — 원 CL의 `Bug: 1114778`과 같은 이슈) → `Bug: 40144051`
 - 원 CL: https://crrev.com/c/3665201 (nicolaso@, 2022-05-25, M104) «[Extensions] Re-enable force-installed extensions»
-- Gerrit: (미업로드)
+- Gerrit: **https://crrev.com/c/8410065** (PS1 2026-09-15 05:50 리눅스, 리뷰어 rdevlin.cronin@·andreaorru@, CC nicolaso@). 프리서브밋 경고 1: 새 테스트의 `base::RunLoop().RunUntilIdle()` — «RunUntil()이나 Quit()을 쓰라». 같은 파일의 기존 테스트(`UserInstalledExtensionThenRequiredByPolicyOnRestart`)와 같은 패턴이라 PS1은 그대로 두고 리뷰어 반응을 본다. 경로가 동기라 지워도 될 가능성 높음(재검증은 리베이스된 트리 재빌드 필요)
 - OSSCA 이슈: **#443** (2026-09-15 등록)
 - 발굴 경로: **2. 코드 상향** — 09-15 «Remove … in M<n>» 만료 주석 스윕
 
@@ -41,7 +41,7 @@
 - [x] 넓은 필터 `ExtensionServiceTest.*` — ✅ **191/191**, 실패 0·크래시 0, 43초 (05:35, `logs/extsvc_wide_test.log`)
 - [x] `git cl format`(변경 없음) + 커밋 **`7693492e59b10`** (+11/−14, 2파일, AI 흔적 0) — 09-15 05:25
 - [x] origin/main(345d761d) 리베이스 충돌 없음 → `455e826cf4aa7` (+11/−14)
-- [ ] 업로드 (승인 대기) — 리뷰어 rdevlin.cronin@ + andreaorru@ (extensions OWNERS), CC nicolaso@(원 작성자)
+- [x] 업로드 ✅ 09-15 **CL 8410065** PS1, `track.py verify` 서버=로컬 ✓ — 리뷰어 rdevlin.cronin@ + andreaorru@ (extensions OWNERS), CC nicolaso@(원 작성자)
 
 ## 충돌 예보
 
