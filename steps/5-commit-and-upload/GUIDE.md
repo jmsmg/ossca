@@ -47,7 +47,7 @@ git log -1 --format=%B | grep -iE 'co-authored|claude|generated'
 
 ```bash
 git cl format                          # 변경이 생기면 git commit --amend --no-edit
-git cl upload -r <리뷰어> --send-mail  # 리뷰어 지정 + WIP 없이 바로 리뷰 시작
+git cl upload -r <OWNER1>,<OWNER2> --send-mail  # 리뷰어는 **항상 커미터 2명** + WIP 없이 바로 리뷰 시작
 ```
 
 - WIP로 올라갔으면 Gerrit UI에서 **Start Review**
@@ -100,6 +100,16 @@ git log --format='%an %ae' -10 -- <파일>
 - 첫 기여라면 `src/AUTHORS`에 이름·이메일 추가 (알파벳 순, Gerrit/git 이메일과 동일)
 - git 계정: Seonggon Cho <jmsmg1@me.com> — Gerrit 가입 이메일과 동일해야 함
 - gitcookies 인증 경고 발생 중 → 언젠가 `git cl creds-check`로 전환 필요
+
+## 리뷰어는 처음부터 두 명 (2026-09-15 규칙)
+
+비커미터의 CL은 Gerrit submit requirement상 **커미터 두 명의 Code-Review +1**이 있어야 CQ가 돈다
+(«If the author is a Chromium committer, code review is required from one other committer. Otherwise, code review is required from two committers»).
+8366188에서 리뷰어 한 명이 +1·CQ+2를 눌렀는데도 CV가 거부해 3일을 잃었고, 두 번째 리뷰어를 추가하자 3시간 만에 머지됐다.
+
+- 업로드 때 `-r`에 **OWNERS 두 명**을 넣는다 (한 명은 그 파일을 최근에 만진 사람, 한 명은 같은 OWNERS의 활동 중인 사람 — `track.py who`로 확인)
+- 봇이 자동 배정하는 디렉토리(payments의 gwsq)라도 결과가 한 명이면 직접 추가한다
+- 커미터가 되면 이 규칙은 «다른 커미터 한 명»으로 줄어든다 (WORKFLOW.md 커미터 메모)
 
 ## 트라이잡 권한 요청 (2026-09-07 발송)
 
