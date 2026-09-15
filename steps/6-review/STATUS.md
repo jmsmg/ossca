@@ -25,11 +25,11 @@
 | 1 | 8377022 | ✅ **PS2 로컬 완성 (09-11, Mac)** — 브랜치 `quota-db-test-clock-leak` HEAD, 57/57·319/319. **PS2 업로드됨(09-11 14:27 KST, 서버=로컬 파일 동일 ✓)**. 설명도 갱신됨 → **PS3(설명만 변경, 05:31 UTC), 서버=로컬 파일·메시지 완전 동일 ✓**. 남은 것: 답글 2건(드래프트 하단) → 그러면 어텐션 evanstade@ | 없음 |
 | 2 | 8377550 | evanstade@ 답글(09-11 16:20): enum 문장 남겨도 무방, 스레드 resolved, **CR+1 유지**. 미해결 0/4. 비커미터 규칙(커미터 2명 +1) → ✅ **09-14 stevebe@microsoft.com 리뷰어 추가 + 안내 메시지(사용자)**, 어텐션 stevebe@. stevebe@ +1 오면 evanstade@/stevebe@ 가 CQ | — |
 | 3 | 8366188 | ✅ **머지 09-14 11:17 UTC** — battre@ 추가 후 3시간 만에 +1·CQ+2, CV 제출(`fdce3e159a88b`, PS2). → 8단계 | — |
-| 4 | 8349386 | smcgruer@ LGTM(09-10) 후 표·CQ 없음 5일 → ✅ **09-15 nikifork@ 두 번째 리뷰어 추가 + 핑 메시지**(REST), 어텐션 smcgruer@·nikifork@. 두 +1 오면 CQ | — |
+| 4 | 8349386 | ⚠️ **nikifork@ 미해결 지적(09-15): 스펙에 «1개 아니면 실패» 없음, 첫 매치+break 가 스펙, crbug 는 Jetski 환각 의심** → 09-16 검증 결과 **지적이 맞음**(스펙 원문·2019년 이후 불변·crbug 본문에 «verify if spec bug or Chrome bug» 명시). WPT 단언만 모순. **사용자 결정 필요** (`issues/545843242.md` 하단 판단 후보 ①②③). 어텐션 우리 | — |
 | 5 | 8382856 | **manukh@ 복귀 — +1 «lgtm» (09-14 18:03)**. 두 번째 +1은 mahmadi@ 차례(어텐션 mahmadi@·우리). 대기 | — |
 | 9 | 8410466 | #440 킬스위치 — **eugene@ +1 (업로드 23분 뒤, 8400064 순서 언급 없음)**. dalecurtis@ +1 대기 → CQ | — |
 | 7 | 8410045 | ColumnTime CL 2 — **nidhijaju@ +1 «lgtm, thanks» (업로드 19분 뒤)**. ricea@ +1 대기 → CQ | — |
-| 8 | 8409786 | M144 signin — 09-15 PS1, alexilin@·gab@ 대기 | — |
+| 8 | 8409786 | M144 signin — **gab@ +1 + Owners-Override+1 (09-15 13:38)**. alexilin@ +1 대기 | — |
 | 6 | 8397391 | **rdevlin.cronin@ CR+1 LGTM (09-14 17:56 UTC)**, 어텐션 우리. ✅ 09-15 andreaorru@ 추가(사용자), 어텐션 andreaorru@. +1 오면 CQ | — |
 
 ```bash
