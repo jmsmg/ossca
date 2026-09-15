@@ -28,12 +28,15 @@ ossca/
 
 ## 관련 위치
 
-- Chromium 체크아웃: `~/chromium/src` (빌드: `out/Default`, release component build) — **2026-09-11부터 이 Mac에서 빌드·테스트.** 리눅스 서버는 퇴역(ssh 불통)
+- Chromium 체크아웃: `~/chromium/src` (빌드: `out/Default`, release component build) — **2026-09-15부터 두 머신에서 빌드·테스트.** Mac(M5 10코어, 09-11~)과 리눅스 박스(`seonggoc`, 4코어 16GB, 09-15 복귀 — ssh 불통이었던 그 서버). 체크아웃·브랜치는 머신별로 따로다(Gerrit 경유로만 합쳐짐)
+- **두 머신 운용 규칙 (09-15)**: 어느 머신에서 무엇을 돌리는지는 **이 저장소(README 보드 + `steps/*/STATUS.md` + `issues/*.md`)가 유일한 공유 상태**다. 착수·빌드 시작·검증 결과·커밋 해시가 생길 때마다 **바로 커밋하고 push**한다(`git pull --rebase` 먼저). 보드의 «지금 어디» 칸에 머신 이름(Mac/리눅스)을 적는다
+  - Mac: M144 signin 전 트리 빌드(`unit_tests`+`base_unittests`) → 끝나면 #440 킬스위치, CL 2 net/extras 업로드
+  - 리눅스: base 233e625e 증분 빌드로 XS 이슈 — #443 extension_service(진행 중) → #442 startup Lacros 잔재
 - OSSCA 기여 기록 repo: `~/contributions` (fork: jmsmg, upstream: OSSCA-chromium)
 - OSSCA 이슈 페이지: https://github.com/OSSCA-chromium/contributions/issues
 - 기여 기록 사이트: https://ossca-chromium.github.io/contributions/
 
-## 이슈 × 단계 보드 (2026-09-11 기준)
+## 이슈 × 단계 보드 (2026-09-15 기준)
 
 범례: ✅ 완료 · 🔄 진행 중 · ⏳ 대기(상대 응답) · ⬜ 미착수 · ➖ 해당 없음 · ❓ 원격 재확인 필요
 
@@ -52,11 +55,11 @@ ossca/
 | (자체 발굴) quota 만료 M148 153곳 | ✅ 09-09 | ✅ #422 | ✅ | ✅ 313/313 | ✅ 8377550 | ⏳ | ✅ #425 | ⬜ | 6 — **PS2(설명 축소) + 답글 완료(09-11)**, CR+1 유지. 어텐션 수동 추가 필요. 남은 것: 리뷰어 CQ · 기록 PR 미제출 · OSSCA 이슈 미등록 |
 | [40176243](https://crbug.com/40176243)·40251269 (sql ColumnTime) CL 1 | ✅ 09-05 | ✅ #416 | ✅ | ✅ 281/281 | ✅ 8382856 | ⏳ | ⏳ #417 | ⬜ | 6 — CL 8382856(09-09) manukh@ 리뷰 대기 **(26일 무활동 리뷰어 — OWNERS 추가 검토)** · 기록 PR #417 제출 |
 | 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ⬜ | ⬜ | ⬜ | ⬜ | 5 — 검증 통과(09-15). M144 전 트리 빌드 끝나면 업로드 |
-| (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — 전 트리 재빌드 중 (81,890스텝, 09-15 오전 시작) |
+| (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **Mac** 전 트리 재빌드 중 (81,890스텝, 09-15 오전 시작) |
 | (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 — M144 빌드 끝나면 착수 (XS, Mac 전용) |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (S) |
-| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (XS) |
-| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (XS) |
+| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 — **리눅스** 예정, #443 검증 뒤 같은 트리에서. 호출처 확인 완료(`issues/40216113.md`) |
+| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | 🔄 | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **리눅스** 브랜치 `extension-service-force-install-workaround`(base 233e625e). 블록 −12 삭제, 1단계 증분 빌드 중(09-15 04:40~, `extsvc_step1`). 기존 테스트가 이 블록에 의존 → 실제 경로로 재작성 예정 (`issues/extension-service-force-install-workaround.md`) |
 | (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | 🔄 +1 1/2 | ✅ #437 | ⬜ | 6 — rdevlin.cronin@ **LGTM +1**(09-14). andreaorru@ 추가(09-15) → +1 대기. 기록 PR #437 CI pass |
 
 **밀린 것 (2026-09-14 실측)**

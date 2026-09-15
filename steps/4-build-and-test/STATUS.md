@@ -1,13 +1,18 @@
 # 4단계 현황 — 빌드 및 테스트
 
-> 🔄 **진행 중 (09-10 23:53~)**: extensions 만료 마이그레이션 제거 검증 — tmux `extprefs`, `scripts/extprefs_test.sh`, 마커 `logs/extprefs_done.marker`.
-> 타깃은 `unit_tests`(테스트가 `chrome/browser/extensions` 쪽), 필터 `ExtensionPrefs*`
+> 🔄 **진행 중 — 두 머신 (09-15)**
+> - **Mac**: M144 signin(#439) 전 트리 재빌드 `unit_tests`+`base_unittests`, 81,890스텝, 09-15 오전 시작. 사용자 tmux
+> - **리눅스**: #443 extension_service — `scripts/extsvc_force_test.sh extsvc_step1 'ExtensionServiceTest.ExternalExtension*'`,
+>   로그 `logs/extsvc_step1_{build,test}.log`, 마커 `logs/extsvc_step1_done.marker`. base 233e625e 증분(1,447스텝), 04:40 시작.
+>   1단계 = 블록만 삭제하고 기존 테스트가 깨지는지 확인 → 2단계 `extsvc_step2` = 테스트 재작성 후 통과 확인
+>
+> ✅ 09-11 Mac: extensions M113(`extprefs`) 28/28 → CL 8397391
 >
 > ✅ 09-10 마친 것: 545843242 PS5 리베이스 검증(`pmd4` 52,085스텝, 44/44) · quota M148(`qm148` **313/313**) ·
 > quota 테스트 클럭 AutoReset(**321/321**) · 40176243 CL 1 history ColumnTime(`hct` 30,065스텝, **281/281**)
 
 > 범례: ✅ 완료 · 🔄 진행 중 · ⏳ 대기(상대 응답) · ⬜ 미착수 · ➖ 해당 없음 · ❓ 원격 재확인 필요
-> 갱신: 2026-09-10 · 출처: `../../README.md` 요약표 + `../../issues/*.md` 상단 상태 줄
+> 갱신: 2026-09-15 · 출처: `../../README.md` 요약표 + `../../issues/*.md` 상단 상태 줄
 
 | CL | 타깃 | 러너 (`scripts/`) | 로그 (`logs/`) | 상태 |
 |---|---|---|---|---|
@@ -21,7 +26,9 @@
 | (40176243 CL 1) | `components_unittests` | `history_coltime_test.sh` (tmux `hct`) | `hct_build.log`, `hct_test.log`, `hct_done.marker` | ✅ 09-08 통과 — 30,065스텝, **281/281** |
 | (quota 테스트 클럭) | `storage_unittests` | `quota_m148_test.sh` 재사용 | `qm148_test_run1_preexisting.log` | ✅ 09-10 **321/321** — main이 같은 필터로 크래시하던 것을 고쳤다 |
 | 8349386 PS5 (545843242) | `components_unittests` | `pmd4_sync_test.sh` (tmux `pmd4`) | `pmd4_build.log`, `pmd4_test.log`, `pmd4_done.marker` | ✅ 09-10 리베이스 재검증 — 52,085스텝, **44/44** |
-| (extensions M113) | `unit_tests` | `extprefs_test.sh` (tmux `extprefs`) | `extprefs_build.log`, `extprefs_test.log`, `extprefs_done.marker` | 🔄 09-10 23:53~ 빌드 중 |
+| (extensions M113) | `unit_tests` | `extprefs_test.sh` (tmux `extprefs`) | `extprefs_build.log`, `extprefs_test.log`, `extprefs_done.marker` | ✅ 09-11 Mac 28/28 (리눅스 판은 09-11 06:35 완주, `unit_tests` 바이너리가 base 233e625e로 남아 있어 09-15 증분 빌드의 출발점) |
+| (#443 extension_service M107) | `unit_tests` | `extsvc_force_test.sh <태그> <필터>` (리눅스) | `extsvc_step1_*`, `extsvc_step2_*` | 🔄 09-15 리눅스 1단계 빌드 중 |
+| (#442 startup Lacros 잔재) | `unit_tests` (`StartupBrowserCreator*`) | `extsvc_force_test.sh` 재사용 예정 (리눅스) | — | ⬜ #443 뒤 |
 | (438680281) | `components_unittests` + `base_unittests` | `prefs_notfatal_test.sh` (tmux `pnf`) | `pnf_build.log`, `pnf_prefs_test.log`, `pnf_check_test.log`, `pnf_done.marker` | ✅ 09-07 통과 — 13h23m29s / 33,412스텝, 47/47 + 26/26 |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
