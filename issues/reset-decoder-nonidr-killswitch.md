@@ -1,6 +1,6 @@
 # [자체 발굴] kResetDecoderForNonIDR 킬스위치 제거 — VideoToolboxH264Accelerator (Mac 전용)
 
-**상태: 3단계 완료(09-15, Mac) — 브랜치 `reset-decoder-nonidr-killswitch`, 1파일 +1/−7. 4단계 `media_unittests` 빌드·테스트 대기(러너 `killswitch_test_mac.sh`). OSSCA #440.**
+**상태: 3단계 완료(09-15, Mac) — 브랜치 `reset-decoder-nonidr-killswitch`, 1파일 +1/−10. 4단계 `media_unittests` 빌드·테스트 대기(러너 `killswitch_test_mac.sh`). OSSCA #440.**
 
 ## 링크
 
