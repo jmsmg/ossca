@@ -27,6 +27,8 @@
 | 3 | 8366188 | ✅ **머지 09-14 11:17 UTC** — battre@ 추가 후 3시간 만에 +1·CQ+2, CV 제출(`fdce3e159a88b`, PS2). → 8단계 | — |
 | 4 | 8349386 | smcgruer@ LGTM(09-10) 후 표·CQ 없음 5일 → ✅ **09-15 nikifork@ 두 번째 리뷰어 추가 + 핑 메시지**(REST), 어텐션 smcgruer@·nikifork@. 두 +1 오면 CQ | — |
 | 5 | 8382856 | **manukh@ 복귀 — +1 «lgtm» (09-14 18:03)**. 두 번째 +1은 mahmadi@ 차례(어텐션 mahmadi@·우리). 대기 | — |
+| 7 | 8410045 | ColumnTime CL 2 — 09-15 PS1, ricea@·nidhijaju@ 대기 | — |
+| 8 | 8409786 | M144 signin — 09-15 PS1, alexilin@·gab@ 대기 | — |
 | 6 | 8397391 | **rdevlin.cronin@ CR+1 LGTM (09-14 17:56 UTC)**, 어텐션 우리. ✅ 09-15 andreaorru@ 추가(사용자), 어텐션 andreaorru@. +1 오면 CQ | — |
 
 ```bash

@@ -1,11 +1,11 @@
 # [자체 발굴] 만료 NotFatalUntil::M144 — signin 3곳 + enum 항목 삭제
 
-**상태: 4단계 검증 완료(09-15, Mac) — `unit_tests`+`base_unittests` 전 트리 빌드 4h46m/59,127스텝 ✓ · `DiceWebSigninInterceptor*:TurnSyncOnHelper*` 95/95 ✓ · `CheckTest.*:CheckDeathTest.*` 26/26 ✓. 브랜치 `expired-notfatal-m144-signin` 커밋 `bb98018e65923`. **업로드 허가 대기.** OSSCA #439.**
+**상태: 4단계 검증 완료(09-15, Mac) — `unit_tests`+`base_unittests` 전 트리 빌드 4h46m/59,127스텝 ✓ · `DiceWebSigninInterceptor*:TurnSyncOnHelper*` 95/95 ✓ · `CheckTest.*:CheckDeathTest.*` 26/26 ✓. 브랜치 `expired-notfatal-m144-signin` 커밋 `bb98018e65923`. **CL 8409786 업로드 완료(09-15).** OSSCA #439 — 진행 코멘트 허가 대기.**
 
 ## 링크
 
 - crbug: 435076172 — **접근 제한(보안) 이슈**라 열람 불가. 원 CL 6842550의 TODO가 인용. CL에는 `Bug: 435076172`로 참조(허용됨)
-- Gerrit: 미업로드
+- Gerrit: **https://crrev.com/c/8409786** (09-15 PS1, 리뷰어 alexilin@ signin + gab@ base OWNER)
 - OSSCA 이슈: #439 (2026-09-15, 「직접 찾은 이슈 등록」)
 - 발굴 경로: 2. 코드 상향 — 09-15 ToT 재스캔에서 «M144 = 트리 전체 3곳, 전부 signin» 확인
 
@@ -35,5 +35,5 @@
 - [x] OSSCA #439 등록 (09-15)
 - [x] 브랜치·수정·format·커밋
 - [x] 4단계 빌드·테스트 — ✅ 09-15 Mac 전 트리 4h46m, signin 95/95, CheckTest 26/26
-- [ ] 5단계 업로드 (리뷰어 2명)
+- [x] 5단계 업로드 — ✅ **CL 8409786** (09-15, presubmit 0 경고, `-r alexilin@,gab@ --send-mail`)
 - [ ] 7단계 기록 PR
