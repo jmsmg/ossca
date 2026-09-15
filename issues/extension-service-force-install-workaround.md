@@ -1,6 +1,6 @@
 # [자체 발굴] extension_service의 만료된 강제설치 재활성화 우회 제거 (M107)
 
-**상태: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). 검증 진행 중.**
+**상태: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). 1단계(삭제만) 테스트 실패 확인 ✓ → 2단계(테스트 재작성) 빌드 중.**
 
 ## 링크
 
@@ -36,8 +36,8 @@
 
 - [x] 호출처·이력 확인 (원 CL 3665201, 정상 경로 external_provider_manager.cc)
 - [x] 블록 삭제 (−12)
-- [ ] 1단계: 삭제만 하고 기존 테스트 실행 → 실패 확인 (`logs/extsvc_step1_*`)
-- [ ] 2단계: 테스트를 실제 경로로 재작성 → 통과 (`logs/extsvc_step2_*`)
+- [x] 1단계: 삭제만 하고 기존 테스트 실행 → ✅ **예상대로 실패** (09-15 05:15, 빌드 28m23s/422스텝). `ExternalExtensionBecomesEnabledIfForceInstalled`만 4987·4988·4989행 3개 EXPECT 실패, 같은 필터의 나머지 4개 통과 (`logs/extsvc_step1_test.log`)
+- [ ] 2단계: 테스트를 실제 경로로 재작성(+13/−2, `OnExternalExtensionUpdateUrlFound(info, true)` + `RunUntilIdle`, `mark_acknowledged=false`라 승인은 `OnExtensionLoaded` 경로로 검증) → 🔄 빌드 중 05:20~ (`logs/extsvc_step2_*`)
 - [ ] 넓은 필터 `ExtensionServiceTest.*` 통과
 - [ ] `git cl format` + 커밋 (AI 흔적 0)
 - [ ] origin/main 리베이스 후 업로드 — 리뷰어 rdevlin.cronin@ + andreaorru@ (extensions OWNERS), CC nicolaso@(원 작성자)
