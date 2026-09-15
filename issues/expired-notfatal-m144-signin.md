@@ -1,6 +1,6 @@
 # [자체 발굴] 만료 NotFatalUntil::M144 — signin 3곳 + enum 항목 삭제
 
-**상태: 3단계 완료 — 브랜치 `expired-notfatal-m144-signin`, 커밋 `bb98018e65923` (3파일 +3/−12). 4단계 빌드(전 트리 재빌드) 대기. OSSCA #439 (09-15).**
+**상태: 4단계 검증 완료(09-15, Mac) — `unit_tests`+`base_unittests` 전 트리 빌드 4h46m/59,127스텝 ✓ · `DiceWebSigninInterceptor*:TurnSyncOnHelper*` 95/95 ✓ · `CheckTest.*:CheckDeathTest.*` 26/26 ✓. 브랜치 `expired-notfatal-m144-signin` 커밋 `bb98018e65923`. **업로드 허가 대기.** OSSCA #439.**
 
 ## 링크
 
@@ -34,6 +34,6 @@
 - [x] 발굴 + 선점(연결 CL: 원 CL 1건뿐) + OSSCA 겹침 0
 - [x] OSSCA #439 등록 (09-15)
 - [x] 브랜치·수정·format·커밋
-- [ ] 4단계 빌드·테스트 (전 트리)
+- [x] 4단계 빌드·테스트 — ✅ 09-15 Mac 전 트리 4h46m, signin 95/95, CheckTest 26/26
 - [ ] 5단계 업로드 (리뷰어 2명)
 - [ ] 7단계 기록 PR

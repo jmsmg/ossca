@@ -1,7 +1,7 @@
 # 4단계 현황 — 빌드 및 테스트
 
 > 🔄 **진행 중 — 두 머신 (09-15)**
-> - **Mac**: M144 signin(#439) 전 트리 재빌드 `unit_tests`+`base_unittests`, 81,890스텝, 09-15 오전 시작. 사용자 tmux
+> - **Mac**: ✅ M144 signin(#439) 전 트리 재빌드 완료 4h46m, 테스트 전부 통과. CL 2 net/extras도 27/27 ✓. 둘 다 업로드 허가 대기
 > - **리눅스**: #443 extension_service — `scripts/extsvc_force_test.sh extsvc_step1 'ExtensionServiceTest.ExternalExtension*'`,
 >   로그 `logs/extsvc_step1_{build,test}.log`, 마커 `logs/extsvc_step1_done.marker`. base 233e625e 증분.
 >   1단계 ✅ 05:15 — 422스텝 28m, 블록만 지우니 `ExternalExtensionBecomesEnabledIfForceInstalled` 1개만 실패(의존 증명) → 2단계 `extsvc_step2` ✅ 05:22 재작성 테스트 포함 5/5 → `extsvc_wide` ✅ 05:35 **191/191**. 이어서 #442 `startup_nw` ✅ 05:40 **14/14** (4스텝). **리눅스 두 건 검증 완료, 업로드 승인 대기.** ⚠️ 두 브랜치를 origin/main(345d761d)에 리베이스해서 이 박스의 `out/Default`는 이제 base 233e625e와 어긋남 — 다음 증분 빌드는 커진다
@@ -45,7 +45,7 @@
 `chrome/browser/extensions/extension_prefs_unittest.cc`에 있다. 수정한 디렉터리가 아니라 **테스트가 사는
 디렉터리**로 타깃을 고른다. `unit_tests`는 chrome 전체라 `components_unittests`보다 빌드가 크다.
 
-**09-15** — Xcode 27.0/SDK 27 로 첫 빌드: `net_unittests` 14m56s(5,895스텝, `-j 6`) ✓, NEL store 27/27 ✓. `unit_tests`+`base_unittests` 전 트리(81,890스텝) 진행 중.
+**09-15** — Xcode 27.0/SDK 27 로 첫 빌드: `net_unittests` 14m56s(5,895스텝, `-j 6`) ✓, NEL store 27/27 ✓. `unit_tests`+`base_unittests` 전 트리 **4h46m/59,127스텝 ✓**, signin 95/95 ✓, CheckTest 26/26 ✓ (09-15 오후). 러너 `two_cls_mac.sh`, 마커 `two_cls_done.marker` 전부 0.
 
 **Mac 첫 기록(09-11)** — `storage_unittests` 26분(기본 병렬도, 스왑 2GB) · `unit_tests` **3시간 23분**(`-j 6`, 36,619스텝) · 테스트는 러너 `extprefs_chain_mac.sh` 방식(사용자 tmux + 마커)으로. 4코어 리눅스(풀빌드 15h+)보다 훨씬 빠르지만 `unit_tests`급은 여전히 반나절 계획으로.
 
