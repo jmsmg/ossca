@@ -19,6 +19,7 @@
 | (crbug 없음) quota 테스트 클럭 | `quota-db-test-clock-leak` | ✅ 09-10 — 커밋 `0bce70f9916b6` (+24/−26, 4파일). `SetClockForTesting`을 `base::AutoReset` 반환으로 |
 | (crbug 없음) 만료 M148 quota | `quota-expired-notfatal-m148` | ✅ 09-10 — 커밋 `35bb0a1907705` (+154/−160, 10파일). `, base::NotFatalUntil::M148` 153곳 제거. TDD 예외(동작 불변) |
 | (crbug 없음) 만료 M113 extensions | `extension-prefs-drop-installtime-migration` | ✅ 09-10 — 커밋 `134e015c8c3e4` (−82, 3파일). **순수 삭제**. 착수 시 범위가 2함수 → 1함수로 축소 |
+| (crbug 없음) #440 kResetDecoderForNonIDR 킬스위치 | `reset-decoder-nonidr-killswitch` (**Mac**) | ✅ 09-15 — 1파일 +1/−7, gn check OK. 4단계 대기 |
 | (crbug 없음) #443 extension_service M107 | `extension-service-force-install-workaround` (**리눅스**, base 233e625e) | ✅ 09-15 — 커밋 `7693492e59b10` → 리베이스 후 `455e826cf4aa7` (+11/−14, 2파일). 블록 −12 + 테스트를 `OnExternalExtensionUpdateUrlFound()` 실제 경로로 재작성. TDD: 삭제만으로 기존 테스트 실패 확인 → 재작성 후 통과 |
 | 40216113 #442 startup Lacros 잔재 | `startup-no-window-recheck-40216113` (**리눅스**, 예정) | ✅ 09-15 — 커밋 `d0b436539c379` → 리베이스 후 `cc96915b87a16` (−8, 1파일). 재검사 블록 + 미사용 include 2개. TDD 예외(동작 불변) |
 
