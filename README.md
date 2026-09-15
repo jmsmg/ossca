@@ -58,8 +58,8 @@ ossca/
 | (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **Mac** 전 트리 재빌드 중 (81,890스텝, 09-15 오전 시작) |
 | (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 — M144 빌드 끝나면 착수 (XS, Mac 전용) |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (S) |
-| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 — **리눅스** 예정, #443 검증 뒤 같은 트리에서. 호출처 확인 완료(`issues/40216113.md`) |
-| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | 🔄 | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **리눅스** 브랜치 `extension-service-force-install-workaround`(base 233e625e). 블록 −12 삭제, 1단계 증분 빌드 중(09-15 04:40~, `extsvc_step1`). 기존 테스트가 이 블록에 의존 → 실제 경로로 재작성 예정 (`issues/extension-service-force-install-workaround.md`) |
+| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3→4 — **리눅스** 커밋 `d0b436539c379`(−8) 완료, `unit_tests` 검증은 #443 넓은 필터 뒤 (`issues/40216113.md`) |
+| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | 🔄 | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **리눅스** 커밋 `7693492e59b10`(+11/−14). 1단계: 블록만 지우면 기존 테스트 실패(의존 증명) ✓ · 2단계: 테스트를 `OnExternalExtensionUpdateUrlFound` 경로로 재작성 5/5 ✓ · `ExtensionServiceTest.*` 실행 중 → 통과하면 리베이스·업로드 승인 요청 (`issues/extension-service-force-install-workaround.md`) |
 | (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | 🔄 +1 1/2 | ✅ #437 | ⬜ | 6 — rdevlin.cronin@ **LGTM +1**(09-14). andreaorru@ 추가(09-15) → +1 대기. 기록 PR #437 CI pass |
 
 **밀린 것 (2026-09-14 실측)**

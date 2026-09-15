@@ -39,7 +39,7 @@
 - [x] 1단계: 삭제만 하고 기존 테스트 실행 → ✅ **예상대로 실패** (09-15 05:15, 빌드 28m23s/422스텝). `ExternalExtensionBecomesEnabledIfForceInstalled`만 4987·4988·4989행 3개 EXPECT 실패, 같은 필터의 나머지 4개 통과 (`logs/extsvc_step1_test.log`)
 - [ ] 2단계: 테스트를 실제 경로로 재작성(+13/−2, `OnExternalExtensionUpdateUrlFound(info, true)` + `RunUntilIdle`, `mark_acknowledged=false`라 승인은 `OnExtensionLoaded` 경로로 검증) → ✅ **5/5 통과** (05:22, 빌드 2스텝 59s, `logs/extsvc_step2_test.log`)
 - [ ] 넓은 필터 `ExtensionServiceTest.*` — 🔄 실행 중 (`logs/extsvc_wide_*`)
-- [ ] `git cl format` + 커밋 (AI 흔적 0)
+- [x] `git cl format`(변경 없음) + 커밋 **`7693492e59b10`** (+11/−14, 2파일, AI 흔적 0) — 09-15 05:25
 - [ ] origin/main 리베이스 후 업로드 — 리뷰어 rdevlin.cronin@ + andreaorru@ (extensions OWNERS), CC nicolaso@(원 작성자)
 
 ## 충돌 예보
