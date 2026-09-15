@@ -17,7 +17,7 @@ signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "..", "scripts"))
 import track  # http/gerrit 재사용
 
-SRC = "/home/seonggoc/chromium/src"
+SRC = os.path.expanduser("~/chromium/src")
 
 def git_grep(pattern, dirs, glob=("*.h", "*.cc")):
     specs = [f":(glob){d.rstrip('/')}/**/{g}" for d in dirs for g in glob]

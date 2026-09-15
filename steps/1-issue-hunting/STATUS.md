@@ -22,7 +22,7 @@
 
 | 후보 | 상태 |
 |---|---|
-| **sql ColumnTime 시리즈** (32곳/12파일) | 🔄 **CL 1 업로드** [8382856](https://crrev.com/c/8382856) (history 3파일 10곳, manukh@ 리뷰 대기). **CL 1.5~5 남음**: journeys 5곳 → net/extras 4 → password_manager·affiliations 3 → 소형 4 → autofill 4 + `statement.h` TODO 삭제(`Fixed:`) |
+| **sql ColumnTime 시리즈** (32곳/12파일) | 🔄 **CL 1 업로드** [8382856](https://crrev.com/c/8382856) (history 3파일 10곳, manukh@ 리뷰 대기). **CL 1.5(journeys)는 소멸** — hempjudith@가 09-11 `[Journeys] Align journeys databases with SQL guidelines`(d993d98687d12)로 이미 옮김. **남은 것(09-15 origin/main 재스캔)**: net/extras/sqlite 4곳 → affiliations 1 → extensions activity_log 1·blocklist 1·declarative_performance_observer 3 → autofill payments 4 + `statement.h` TODO 삭제(`Fixed:`). password_manager 는 사라짐 |
 | 만료 `NotFatalUntil` M143 `pref_service.cc` | ✅ **CL [8366188](https://crrev.com/c/8366188) 업로드**, gab@ 리뷰 대기 |
 | **만료 M148 — `storage/browser/quota` 153곳/10파일** | ✅ **CL [8377550](https://crrev.com/c/8377550) 업로드** (커밋 `35bb0a1907705`, +154/−160, L), evanstade@ 리뷰 대기. **CL 2**(트리 잔여 4곳 + enum `M148 = 148,` 삭제)는 후속 |
 | **만료 M113 — `extension_prefs` install_time 마이그레이션** | 🔄 **09-10 착수** — 브랜치 `extension-prefs-drop-installtime-migration`, 커밋 `134e015c8c3e4` (3파일 −82, 순수 삭제). 빌드·테스트 중(tmux `extprefs`). 범위가 **2개 → 1개**로 줄었다 → `issues/extension-prefs-expired-migration.md` |
@@ -31,9 +31,11 @@
 
 | 후보 | 크기 | 특징 |
 |---|---|---|
-| **★ 40284947 `PacResultElementToProxyServer` 제거** | S~M | 프로덕션 호출처가 이미 1곳(자기 래퍼)뿐이라 «끝내는 조건» 충족, 816일 무활동. ⚠️ mac/win 테스트가 Linux 빌드 불가 → **트라이잡 권한 확보 후가 유리** |
+| **★ sql ColumnTime 시리즈 CL 2 — `net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc` 8곳** (09-15 재스캔) | XS~S | 읽기 4(`FromDeltaSinceWindowsEpoch(Microseconds(ColumnInt64))`→`ColumnTime`) + 쓰기 4(`BindInt64(…InMicroseconds())`→`BindTime`), 한 파일. per-file OWNER **ricea@**(09-11 활동) 단독 → 두 번째는 net/OWNERS nidhijaju@·bashi@(둘 다 09-14 활동). 열린 CL 충돌 없음(전부 2026-01 이전 stale). 타깃 `net_unittests`(Mac 미빌드). `Bug: 40176243` part 2 |
+| **★ 만료 `NotFatalUntil` M144 — signin 3곳 + enum 항목** (09-15 재스캔) | XS | `dice_web_signin_interceptor.cc` 2곳 + `turn_sync_on_helper.cc` 1곳이 트리 전체 사용처의 전부 → **M143(8366188)과 같은 «인자 제거 + `M144 = 144,` 삭제» 완전 정리**. 원 CL 6842550(rsult@, 2025-08-14)의 TODO가 «crbug.com/435076172 — 크래시 없으면 일반 CHECK로»라고 직접 지시. OWNERS `components/signin/DESKTOP_OWNERS`. ⚠️ `base/` 헤더 변경 = 전 트리 재빌드(Mac에서도 수 시간) |
+| 40284947 `PacResultElementToProxyServer` 제거 | M | 09-15 재확인: 프로덕션 호출처는 자기 래퍼 1곳, 나머지 **테스트 호출처 ~37곳**(net mac/win/공용 테스트, services/network, services/proxy_resolver_win — OWNER 3그룹). Mac 테스트는 이제 로컬 빌드 가능하나 **win 파일은 불가** → 여전히 트라이잡 권한 확보 후. 선점 0·OSSCA 0·823일 무활동 |
 | 40831207 CL B (favicon) | M | ⏸ jpgravel@ 답변 대기 — batching mode(8291668)로 갈지 scoped Transaction으로 갈지 |
-| 만료 `NotFatalUntil` M146 `varint_coding.cc` 2곳 | XS | 리뷰어 정렬 완벽(Evan Stade·Steve Becker)이나 **crbug 459129408이 ASSIGNED** → 선점 문의 먼저 |
+| 만료 `NotFatalUntil` M146 `varint_coding.cc` 2곳 | XS | crbug 459129408은 evanstade@의 IDB DCHECK→CHECK 프로젝트(ASSIGNED, CL 14건, 마지막 02-27). evanstade@가 지금 우리 리뷰어이니 **8377550 머지 뒤 답글 한 줄로 물어보면 됨** |
 | 만료 `NotFatalUntil` M147 `actor_metrics.cc` 10곳 | XS | **공개 crbug 없음**(내부 `b:`), `chrome/browser/actor`는 신생·활발 |
 | component_updater 만료 항목 6개 | XS | 안전하지만 가치가 작다. 리뷰어가 "놔둬도 무해"라 할 수 있음 |
 | `SharedMemoryMapping::memory()` 제거 (355451178) | 대 | 선점 0·602일 휴면이나 **대체가 비기계적**이고 `base/` API라 호출처가 전 트리에 흩어짐 |
@@ -42,6 +44,8 @@
 | 41342247 converter 단위 테스트 · 40121328 sanity check 이동 | ? | triage 통과, 코드 진단 전 |
 | ~~`g_clock_for_testing` 픽스처 누수~~ | — | ✅ **09-10 착수·업로드** [CL 8377022](https://crrev.com/c/8377022) → `issues/quota-test-clock-leak.md`. quota M148 검증 중 크래시로 드러남 |
 | `kSandboxExternalProtocolBlocked` 플래그 제거 | 중 | M106 만료(49 경과)지만 **enterprise policy와 얽혀** 별도 절차 필요 |
+
+**09-15 재스캔에서 제외한 것**: M139 5곳(viz·media/renderers·media/capture/chromeos — OWNER 3그룹, CrOS 전용 파일은 로컬 빌드 불가) · M142 6곳(5그룹) · M138/M140/M145 (10~13파일에 흩어짐) · journeys CL 1.5 (hempjudith@가 09-11 먼저 옮김)
 
 ### 별건
 
