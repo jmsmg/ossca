@@ -31,7 +31,7 @@ ossca/
 - Chromium 체크아웃: `~/chromium/src` (빌드: `out/Default`, release component build) — **2026-09-15부터 두 머신에서 빌드·테스트.** Mac(M5 10코어, 09-11~)과 리눅스 박스(`seonggoc`, 4코어 16GB, 09-15 복귀 — ssh 불통이었던 그 서버). 체크아웃·브랜치는 머신별로 따로다(Gerrit 경유로만 합쳐짐)
 - **두 머신 운용 규칙 (09-15)**: 어느 머신에서 무엇을 돌리는지는 **이 저장소(README 보드 + `steps/*/STATUS.md` + `issues/*.md`)가 유일한 공유 상태**다. 착수·빌드 시작·검증 결과·커밋 해시가 생길 때마다 **바로 커밋하고 push**한다(`git pull --rebase` 먼저). 보드의 «지금 어디» 칸에 머신 이름(Mac/리눅스)을 적는다
   - Mac: M144 signin 전 트리 빌드(`unit_tests`+`base_unittests`) → 끝나면 #440 킬스위치, CL 2 net/extras 업로드
-  - 리눅스: base 233e625e 증분 빌드로 XS 이슈 — #443 extension_service(진행 중) → #442 startup Lacros 잔재
+  - 리눅스: XS 이슈 두 건 검증 완료(09-15 05:40) — #443 `455e826cf4aa7` · #442 `cc96915b87a16`, 둘 다 origin/main 리베이스 완료, **업로드 승인 대기**. 다음 후보 #441 WebAuthn(device/fido, S)
 - OSSCA 기여 기록 repo: `~/contributions` (fork: jmsmg, upstream: OSSCA-chromium)
 - OSSCA 이슈 페이지: https://github.com/OSSCA-chromium/contributions/issues
 - 기여 기록 사이트: https://ossca-chromium.github.io/contributions/
@@ -58,8 +58,8 @@ ossca/
 | (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | 4 — **Mac** 전 트리 재빌드 중 (81,890스텝, 09-15 오전 시작) |
 | (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 — M144 빌드 끝나면 착수 (XS, Mac 전용) |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (S) |
-| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | 🔄 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3→4 — **리눅스** 커밋 `d0b436539c379`(−8) 완료, `unit_tests` 빌드·`StartupBrowserCreator*` 실행 중(05:36~) (`issues/40216113.md`) |
-| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ⬜ | ⬜ | ⬜ | ⬜ | 5 대기 — **리눅스** 커밋 `7693492e59b10`(+11/−14). 1단계: 블록만 지우면 기존 테스트 실패(의존 증명) ✓ · 2단계: 테스트를 `OnExternalExtensionUpdateUrlFound` 경로로 재작성 5/5 ✓ · `ExtensionServiceTest.*` **191/191** ✓ — 검증 완료, 리베이스·업로드 승인 대기 (`issues/extension-service-force-install-workaround.md`) |
+| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ✅ | ✅ 14/14 | ⬜ | ⬜ | ⬜ | ⬜ | 5 대기 — **리눅스** 커밋 `cc96915b87a16`(리베이스 완료, −8). `StartupBrowserCreator*` 14/14 ✓. 업로드 승인 대기, 리뷰어 dgn@·nicolaso@ (`issues/40216113.md`) |
+| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ⬜ | ⬜ | ⬜ | ⬜ | 5 대기 — **리눅스** 커밋 `455e826cf4aa7`(리베이스 완료, +11/−14). 1단계: 블록만 지우면 기존 테스트 실패(의존 증명) ✓ · 2단계: 테스트를 `OnExternalExtensionUpdateUrlFound` 경로로 재작성 5/5 ✓ · `ExtensionServiceTest.*` **191/191** ✓ — 검증 완료, 리베이스·업로드 승인 대기 (`issues/extension-service-force-install-workaround.md`) |
 | (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | 🔄 +1 1/2 | ✅ #437 | ⬜ | 6 — rdevlin.cronin@ **LGTM +1**(09-14). andreaorru@ 추가(09-15) → +1 대기. 기록 PR #437 CI pass |
 
 **밀린 것 (2026-09-14 실측)**
