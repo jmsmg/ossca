@@ -54,9 +54,9 @@ ossca/
 | (자체 발굴) quota 테스트 클럭 댕글링 | ✅ 09-10 | ✅ #421 | ✅ | ✅ | ✅ PS3 | ⏳ | ✅ #424 | ⬜ | **PS2 로컬 완성(09-11, Mac)** — mock time 판, 57/57·319/319, 크래시 0. **PS2/PS3 업로드 + 답글 2건 게시(09-11)** → evanstade@ 응답 대기. OSSCA 이슈는 여전히 미등록 |
 | (자체 발굴) quota 만료 M148 153곳 | ✅ 09-09 | ✅ #422 | ✅ | ✅ 313/313 | ✅ 8377550 | ⏳ | ✅ #425 | ⬜ | 6 — **PS2(설명 축소) + 답글 완료(09-11)**, CR+1 유지. 어텐션 수동 추가 필요. 남은 것: 리뷰어 CQ · 기록 PR 미제출 · OSSCA 이슈 미등록 |
 | [40176243](https://crbug.com/40176243)·40251269 (sql ColumnTime) CL 1 | ✅ 09-05 | ✅ #416 | ✅ | ✅ 281/281 | ✅ 8382856 | ⏳ | ⏳ #417 | ⬜ | 6 — CL 8382856(09-09) manukh@ 리뷰 대기 **(26일 무활동 리뷰어 — OWNERS 추가 검토)** · 기록 PR #417 제출 |
-| 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ⏳ | 🔄 | ⬜ | 6 — **CL 8410045**(09-15) ricea@·nidhijaju@ 대기. #416 코멘트·기록 PR 허가 대기 |
+| 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ⏳ | 🔄 | ⬜ | 6 — **CL 8410045**(09-15) nidhijaju@ +1, ricea@ 대기. #416 코멘트·기록 PR 허가 대기 |
 | (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | ✅ 95/95·26/26 | ✅ 8409786 | ⏳ | 🔄 | ⬜ | 6 — **CL 8409786**(09-15) alexilin@·gab@ 대기. #439 코멘트·기록 PR 허가 대기 |
-| (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ⏳ | 🔄 | ⬜ | 6 — **CL 8410466**(09-15) eugene@·dalecurtis@ 대기. #440 코멘트·기록 PR 허가 대기 |
+| (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ⏳ | 🔄 | ⬜ | 6 — **CL 8410466**(09-15) eugene@ +1, dalecurtis@ 대기. #440 코멘트·기록 PR 허가 대기 |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ | 3 대기 (S) |
 | [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ✅ | ✅ 14/14 | ✅ 8410085 | ⬜ | ⬜ | ⬜ | 6 — **리눅스** 09-15 **CL 8410085** PS1 업로드(dgn@·nicolaso@). 커밋 `cc96915b87a16`. 기록 PR 미제출 (`issues/40216113.md`) |
 | (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ✅ 8410065 | ⬜ | ⬜ | ⬜ | 6 — **리눅스** 09-15 **CL 8410065** PS1 업로드(rdevlin.cronin@·andreaorru@, CC nicolaso@). 커밋 `455e826cf4aa7`. 1단계: 블록만 지우면 기존 테스트 실패(의존 증명) ✓ · 2단계: 테스트를 `OnExternalExtensionUpdateUrlFound` 경로로 재작성 5/5 ✓ · `ExtensionServiceTest.*` **191/191** ✓ — 검증 완료, 리베이스·업로드 승인 대기 (`issues/extension-service-force-install-workaround.md`) |
