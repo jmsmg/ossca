@@ -17,6 +17,8 @@
 
 **다음 액션**
 
+- ✅ **09-15 4건 추가 등록** (사용자 지시 «1, 2랑 XS 다 추가»): **#440** kResetDecoderForNonIDR 킬스위치(media/gpu/mac) · **#441** WebAuthn iCloud Keychain 플래그 3개(device/fido) · **#442** [40216113] Lacros 잔재(chrome/browser/ui/startup, crbug 템플릿) · **#443** extension_service 강제설치 우회(extensions). 전부 Status `멘티 작업 진행 중`으로 놓을 것(보드). 드래프트 `drafts/{reset-decoder-nonidr-killswitch,webauthn-icloud-keychain-flags,40216113,extension-service-force-install-workaround}.md`
+
 - ✅ **#439** 등록(09-15, 직접 찾은 이슈 템플릿) — 만료 M144 signin 정리. Status `멘티 작업 진행 중`으로 놓을 것(보드). ColumnTime CL 2(net/extras)는 시리즈 이슈 **#416**에 진행 코멘트로
 
 - ✅ **직접 찾은 이슈 3건 등록 완료 (2026-09-11, `gh issue create`, 라벨 2026+self-issues, self-assign)**:
