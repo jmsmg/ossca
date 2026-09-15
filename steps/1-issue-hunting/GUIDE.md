@@ -443,3 +443,16 @@ sql/ 최근 커밋은 jpgravel@ 25건(5월 이후)으로 압도적. OWNERS: evan
 - (2026-09-01 hunt.py 발굴) **storage/browser/quota의 만료 NotFatalUntil::M148 157곳** —
   quota_manager_impl.cc 84곳 등. M154에서 이미 fatal이라 인자 제거가 정리 수순.
   단, 착수 전 git blame으로 원 bug 번호와 팀의 제거 방침(일괄 제거 CL이 이미 도는지) 확인 필요
+
+
+## 착수 전 원문 검증 (2026-09-16 규칙 — 8349386에서 배움)
+
+버그·TODO·이슈가 스펙이나 문서를 **인용**하면, 그 인용문이 원문에 실제로 있는지 착수 전에 직접 확인한다.
+
+- 스펙: ED 원문 URL을 열어 해당 알고리즘 단계를 읽는다. 문장 검색(`curl -sL <url> | grep`)과 스펙 저장소 커밋 이력까지 본다
+- 헤더 주석·TODO: `git show origin/main:<파일>`로 원문을 읽는다
+- WPT가 근거면 그 테스트가 스펙과 일치하는지 교차 확인한다
+- 버그 본문에 «written by jetski», «AI가 작성», «verify before fixing» 같은 표시가 있으면 **전제를 의심**한다
+- 드래프트 «Documents»에는 인용을 옮기지 말고 **출처 링크 + 내가 읽은 원문**을 적는다
+
+사례: crbug 545843242가 인용한 «If manifest_links's size is not 1, then return failure»는 스펙에 없는 문장이었다(AI 생성). 드래프트와 CL 8349386이 그대로 옮겼고, LGTM 뒤 두 번째 리뷰어가 스펙을 읽고 잡아냈다.
