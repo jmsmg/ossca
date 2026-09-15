@@ -101,6 +101,10 @@ git log --format='%an %ae' -10 -- <파일>
 - git 계정: Seonggon Cho <jmsmg1@me.com> — Gerrit 가입 이메일과 동일해야 함
 - gitcookies 인증 경고 발생 중 → 언젠가 `git cl creds-check`로 전환 필요
 
+## `git cl upload -m` 은 커버 메시지가 아니다 (2026-09-15 실수)
+
+`-m/--message` 는 **새 CL 의 설명(커밋 메시지)** 을 통째로 대체한다. 8410466 에서 커버 문장을 `-m` 으로 넣어 CL 제목이 «Small cleanup: …» 이 되고 해시태그도 `small-cleanup` 으로 붙었다. 복구: `git cl description -n +`(PS2) + REST 로 hashtags 교체 + 커버 메시지는 `POST /a/changes/<n>/revisions/current/review` 의 `message`. **리뷰어에게 남길 말은 업로드 뒤 별도 메시지로.**
+
 ## 리뷰어는 처음부터 두 명 (2026-09-15 규칙)
 
 비커미터의 CL은 Gerrit submit requirement상 **커미터 두 명의 Code-Review +1**이 있어야 CQ가 돈다

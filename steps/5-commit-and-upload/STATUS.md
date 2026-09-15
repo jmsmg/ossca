@@ -19,6 +19,7 @@
 
 | [8377022](https://crrev.com/c/8377022) | [storage] Make QuotaDatabase::SetClockForTesting() restore the clock | S (+24/−26, 4파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `ee6b2fd5b8367`, verify 동일 ✓) |
 
+| [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | XS (+1/−10, 1파일) | `Bug: 451536366` | eugene@, dalecurtis@ | ✅ 업로드 2026-09-15 (Mac; `-m` 오용으로 PS1 설명 오염 → PS2 복구) |
 | [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | S (+27/−40, 1파일) | `Bug: 40176243` | ricea@, nidhijaju@ | ✅ 업로드 2026-09-15 (Mac, presubmit 0 경고) |
 | [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | XS (+3/−12, 3파일) | `Bug: 435076172` | alexilin@, gab@(base) | ✅ 업로드 2026-09-15 (Mac, 전 트리 빌드 검증) |
 | [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S (−82, 3파일) | `Bug: none` | rdevlin.cronin@ (CC anunoy@) | ✅ 업로드 2026-09-14 (Mac 커밋 `e54665a5dd6bd`, presubmit 0 경고, `--send-mail`) |

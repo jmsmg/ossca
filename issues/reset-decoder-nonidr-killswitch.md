@@ -1,11 +1,11 @@
 # [자체 발굴] kResetDecoderForNonIDR 킬스위치 제거 — VideoToolboxH264Accelerator (Mac 전용)
 
-**상태: 4단계 검증 완료(09-15, Mac) — `media_unittests` 빌드 19m16s/7,917스텝 ✓, `VideoToolboxH264Accelerator*` 8/8 ✓. 브랜치 `reset-decoder-nonidr-killswitch` 커밋 `643a8a33b8b7e` (+1/−10). **업로드 허가 대기.** OSSCA #440.**
+**상태: 4단계 검증 완료(09-15, Mac) — `media_unittests` 빌드 19m16s/7,917스텝 ✓, `VideoToolboxH264Accelerator*` 8/8 ✓. 브랜치 `reset-decoder-nonidr-killswitch` 커밋 `643a8a33b8b7e` (+1/−10). **CL 8410466 업로드 완료(09-15).** OSSCA #440 — 진행 코멘트·기록 PR 허가 대기.**
 
 ## 링크
 
 - crbug: 없음. 플래그가 보호하던 원 수정의 버그는 https://crbug.com/451536366 → `Bug: 451536366`
-- Gerrit: 미업로드
+- Gerrit: **https://crrev.com/c/8410466** (09-15, PS2 = 로컬 HEAD; PS1은 `-m` 실수로 설명이 커버 문장이 됐던 것을 `git cl description -n +`로 복구, 해시태그 small-cleanup→media, 커버 메시지는 REST로 게시)
 - OSSCA 이슈: #440 (2026-09-15)
 - 발굴 경로: 코드 상향 — 09-15 «Remove after M<n>» 만료 주석 스윕(97건) 중 Mac 전용 파일 하나에 닫힌 킬스위치
 
@@ -33,5 +33,5 @@
 - [x] 발굴 + 선점 확인(플래그 이름 든 열린 CL 0) + OSSCA #440
 - [x] 브랜치·수정·format·gn check·커밋 (09-15)
 - [x] 4단계 — ✅ 09-15 media_unittests 19m16s, VideoToolboxH264Accelerator* 8/8
-- [ ] 5단계 업로드 (허가 후)
+- [x] 5단계 업로드 — ✅ **CL 8410466** (09-15, 리뷰어 eugene@·dalecurtis@, presubmit 0 경고)
 - [ ] 7단계 기록 PR
