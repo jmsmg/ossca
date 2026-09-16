@@ -22,5 +22,6 @@
 | (crbug 없음) #440 kResetDecoderForNonIDR 킬스위치 | `reset-decoder-nonidr-killswitch` (**Mac**) | ✅ 09-15 — 1파일 +1/−10, gn check OK. 4단계 대기 |
 | (crbug 없음) #443 extension_service M107 | `extension-service-force-install-workaround` (**리눅스**, base 233e625e) | ✅ 09-15 — 커밋 `7693492e59b10` → 리베이스 후 `455e826cf4aa7` (+11/−14, 2파일). 블록 −12 + 테스트를 `OnExternalExtensionUpdateUrlFound()` 실제 경로로 재작성. TDD: 삭제만으로 기존 테스트 실패 확인 → 재작성 후 통과 |
 | 40216113 #442 startup Lacros 잔재 | `startup-no-window-recheck-40216113` (**리눅스**, 예정) | ✅ 09-15 — 커밋 `d0b436539c379` → 리베이스 후 `cc96915b87a16` (−8, 1파일). 재검사 블록 + 미사용 include 2개. TDD 예외(동작 불변) |
+| (crbug 없음) #441 WebAuthn iCloud Keychain 플래그 3개 | `webauthn-icloud-keychain-flags` (**Mac**) | ✅ 09-16 — 커밋 `79633a3c0442d` (+8/−40, 3파일). 기본 켜진 플래그 3개 선언·정의 삭제 + `ShouldCreateInICloudKeychain()` 5분기 → «google.com ∨ iCloud Drive → true, 아니면 WithoutDrive 플래그 2개». gn check OK. TDD 예외(동작 불변) |
 
 **다음 액션** — extensions CL 검증 통과 후 업로드. 그 다음은 sql ColumnTime CL 1.5(journeys 5곳). 40831207 CL B는 보류. 사용자가 crbug 40831207에 방향 문의 게시 → 답변 오면 재정의. 그 전까지 «수정» 작업은 09-05 발굴한 **sql ColumnTime/ColumnTimeDelta 마이그레이션** (1단계 GUIDE 09-05 절) → 착수 가능.
