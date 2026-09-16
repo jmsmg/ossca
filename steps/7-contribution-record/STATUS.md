@@ -29,3 +29,5 @@
 python3 ~/ossca/scripts/track.py ossca 8351543
 python3 ~/ossca/scripts/track.py ossca 8349386
 ```
+
+**09-16 (Mac)** — 8412192(#441) 기록 커밋을 `~/contributions` 브랜치 `260916-add-8412192`(upstream/main 21f5b0a63 기반)에 준비. 푸시·PR은 허가 대기. 같은 대기열: `260915-add-8409786` · `260915-add-8410045` · `260915-add-8410466` (옛 main 기반이지만 파일 추가뿐이라 충돌 없음). PR 본문 형식은 #437(Summary + 관련 이슈 crbug/OSSCA/Gerrit) 그대로.
