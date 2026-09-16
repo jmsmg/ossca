@@ -42,8 +42,7 @@
 들어 있어서인데, 실제로는 `CHECK_EQ`의 인자를 뺀 것이고 등록은 건드리지 않았다. 경고문 자체가 "This may be a false positive"라고 적고 있다.
 
 
-**함정 3 (8412192) — `-s`/`--send-mail` 없이 올리면 새 CL이 WIP로 올라간다.** 리뷰어·해시태그는 붙지만 attention set이 비고 알림이 안 간다. 초회 업로드는 `git cl upload -s -T -r a@,b@ --hashtag=x`. WIP가 됐으면 `git cl upload -s -t "..."`로 새 패치셋을 올리면 `%ready,notify=ALL`로 풀린다.
-**함정 4 — 재업로드는 로컬 커밋 메시지를 안 쓴다.** 두 번째 업로드부터 git cl은 Gerrit에 있는 설명을 그대로 쓰므로, 메시지를 고쳤으면 `git cl description -n +`로 따로 밀어야 한다. 서버 경고 «too many message lines longer than 72 characters»는 이걸로 잡는다.
+**8412192 (09-16) — GUIDE 50행에 이미 있던 `--send-mail`을 빼먹고 올려 PS1이 WIP로 갔다.** git cl은 새 CL을 기본 WIP로 올린다(`git_cl.py` 2208행 주석). PS2를 `-s`로 올려 `%ready,notify=ALL`로 풀었고, 재업로드가 서버 설명을 재사용하는 것(GUIDE 54행)도 알면서 다시 겪어 PS3를 `git cl description -n +`로 밀었다. **교훈: 단계 명령을 만들기 전에 그 단계 GUIDE를 먼저 연다.**
 
 **미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
 **tryjob 권한** — 2026-09-07 smcgruer@에게 추천 요청 메일 발송, 회신 대기. 그때까지 CQ는 리뷰어가 실행.
