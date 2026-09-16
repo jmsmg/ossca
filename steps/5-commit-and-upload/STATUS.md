@@ -20,6 +20,7 @@
 | [8377022](https://crrev.com/c/8377022) | [storage] Make QuotaDatabase::SetClockForTesting() restore the clock | S (+24/−26, 4파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `ee6b2fd5b8367`, verify 동일 ✓) |
 
 | [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | XS (+1/−10, 1파일) | `Bug: 451536366` | eugene@, dalecurtis@ | ✅ 업로드 2026-09-15 (Mac; `-m` 오용으로 PS1 설명 오염 → PS2 복구) |
+| [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S (+8/−40, 3파일) | `Bug: none` | derinel@, nsatragno@ | ✅ 업로드 2026-09-16 (Mac; `-s` 없이 올려 PS1이 **WIP** → PS2 `-s`로 ready+알림, PS3 `git cl description -n +`로 72자 재정렬) |
 | [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | S (+27/−40, 1파일) | `Bug: 40176243` | ricea@, nidhijaju@ | ✅ 업로드 2026-09-15 (Mac, presubmit 0 경고) |
 | [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | XS (+3/−12, 3파일) | `Bug: 435076172` | alexilin@, gab@(base) | ✅ 업로드 2026-09-15 (Mac, 전 트리 빌드 검증) |
 | [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S (−82, 3파일) | `Bug: none` | rdevlin.cronin@ (CC anunoy@) | ✅ 업로드 2026-09-14 (Mac 커밋 `e54665a5dd6bd`, presubmit 0 경고, `--send-mail`) |
@@ -39,6 +40,10 @@
 **오탐 사례 (8366188)** — `components/prefs/pref_service.cc`에서 줄을 지우면 presubmit이
 «Discovered possible removal of preference registrations»를 띄운다. 삭제된 줄에 `PrefRegistry::RegisteredPrefType::kInt64`가
 들어 있어서인데, 실제로는 `CHECK_EQ`의 인자를 뺀 것이고 등록은 건드리지 않았다. 경고문 자체가 "This may be a false positive"라고 적고 있다.
+
+
+**함정 3 (8412192) — `-s`/`--send-mail` 없이 올리면 새 CL이 WIP로 올라간다.** 리뷰어·해시태그는 붙지만 attention set이 비고 알림이 안 간다. 초회 업로드는 `git cl upload -s -T -r a@,b@ --hashtag=x`. WIP가 됐으면 `git cl upload -s -t "..."`로 새 패치셋을 올리면 `%ready,notify=ALL`로 풀린다.
+**함정 4 — 재업로드는 로컬 커밋 메시지를 안 쓴다.** 두 번째 업로드부터 git cl은 Gerrit에 있는 설명을 그대로 쓰므로, 메시지를 고쳤으면 `git cl description -n +`로 따로 밀어야 한다. 서버 경고 «too many message lines longer than 72 characters»는 이걸로 잡는다.
 
 **미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
 **tryjob 권한** — 2026-09-07 smcgruer@에게 추천 요청 메일 발송, 회신 대기. 그때까지 CQ는 리뷰어가 실행.

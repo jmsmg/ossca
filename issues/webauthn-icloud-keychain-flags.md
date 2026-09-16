@@ -1,11 +1,11 @@
 # [자체 발굴] WebAuthn iCloud Keychain 롤아웃 플래그 3개 제거 — device/fido + chrome/browser/webauthn
 
-**상태: 4단계 검증 완료(09-16, Mac) — `unit_tests` 빌드 3h34m38s/37,212스텝 ✓, `ChromeAuthenticatorRequestDelegate*` 6/6 ✓ (`ShouldCreateInICloudKeychain` 포함). 브랜치 `webauthn-icloud-keychain-flags` 커밋 `79633a3c0442d` (+8/−40, 3파일). 5단계 업로드 허가 대기. OSSCA #441.**
+**상태: 4단계 검증 완료(09-16, Mac) — `unit_tests` 빌드 3h34m38s/37,212스텝 ✓, `ChromeAuthenticatorRequestDelegate*` 6/6 ✓ (`ShouldCreateInICloudKeychain` 포함). 브랜치 `webauthn-icloud-keychain-flags` 커밋 `79633a3c0442d` (+8/−40, 3파일). **CL 8412192 업로드 완료(09-16, PS3).** OSSCA #441 — 진행 코멘트·기록 PR 허가 대기.**
 
 ## 링크
 
 - crbug: 없음 → `Bug: none`
-- Gerrit: (업로드 전)
+- Gerrit: **https://crrev.com/c/8412192** (09-16; PS1은 `-s` 없이 올려 WIP → PS2 `-s`로 ready, PS3 설명 72자 재정렬)
 - OSSCA 이슈: #441 (2026-09-15)
 - 발굴 경로: 코드 상향 — 09-15 «Remove after M<n>» 만료 주석 스윕 중 `device/fido/public/features.cc`의 «Enabled in M118. Remove in or after M121» 셋
 
@@ -34,5 +34,5 @@
 - [x] 발굴 + 선점 확인(플래그 이름 든 열린 CL 0) + OSSCA #441 (09-15)
 - [x] 브랜치·수정·format·gn check·커밋 (09-16, `79633a3c0442d`)
 - [x] 4단계 — ✅ 09-16 unit_tests 3h34m38s/37,212스텝, ChromeAuthenticatorRequestDelegate* 6/6
-- [ ] 5단계 업로드 — 리뷰어 derinel@·nsatragno@ (허가 후)
+- [x] 5단계 업로드 — ✅ **CL 8412192** (09-16, 리뷰어 derinel@·nsatragno@, presubmit 0 경고)
 - [ ] 7단계 기록 PR
