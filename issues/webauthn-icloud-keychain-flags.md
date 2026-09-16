@@ -1,6 +1,6 @@
 # [자체 발굴] WebAuthn iCloud Keychain 롤아웃 플래그 3개 제거 — device/fido + chrome/browser/webauthn
 
-**상태: 3단계 완료(09-16, Mac) — 브랜치 `webauthn-icloud-keychain-flags` 커밋 `79633a3c0442d` (+8/−40, 3파일), gn check OK. 4단계 러너 작성, 사용자 tmux 실행 대기. OSSCA #441.**
+**상태: 4단계 검증 완료(09-16, Mac) — `unit_tests` 빌드 3h34m38s/37,212스텝 ✓, `ChromeAuthenticatorRequestDelegate*` 6/6 ✓ (`ShouldCreateInICloudKeychain` 포함). 브랜치 `webauthn-icloud-keychain-flags` 커밋 `79633a3c0442d` (+8/−40, 3파일). 5단계 업로드 허가 대기. OSSCA #441.**
 
 ## 링크
 
@@ -18,7 +18,7 @@
 ## 검증 계획
 
 - 헤더 상태 함정: 현재 `out/Default`는 09-15 `unit_tests`(M144 브랜치, 59,127스텝) 뒤에 `media_unittests`(main 헤더, 7,917스텝)를 돌려 **섞인 상태**. `base/*.o`는 main 헤더(15:38), `chrome/browser/*`는 M144 헤더(14:37)
-  → main 기반 브랜치로 `unit_tests`를 돌리면 chrome 쪽 ~5만 스텝 재빌드. 대신 검증 전용 브랜치 **`verify-441-with-m144`**(= #441 커밋 + M144 `6698162bab7d8` cherry-pick)에서 돌리면 base 쪽 ≤8천 스텝만 재빌드
+  → main 기반 브랜치로 `unit_tests`를 돌리면 chrome 쪽 ~5만 스텝 재빌드. 대신 검증 전용 브랜치 **`verify-441-with-m144`**(= #441 커밋 + M144 `6698162bab7d8` cherry-pick)에서 돌리면 base 쪽 ≤8천 스텝만 재빌드 **— 라고 예상했으나 실제 37,212스텝/3h34m**. 오늘 브랜치를 오가며 `base/not_fatal_until.h`의 mtime이 바뀐 탓에 `check.h`를 포함하는 파일이 전부 다시 빌드됐다(siso도 mtime 기준). 결론: M144 CL이 랜딩해 main에 들어오기 전엔 어느 브랜치든 `unit_tests`는 3.5시간
 - 러너 `steps/4-build-and-test/scripts/webauthn_flags_test_mac.sh` (사용자 tmux) — verify 브랜치 checkout → `unit_tests` 증분 → `ChromeAuthenticatorRequestDelegate*` → 원 브랜치 복귀. 마커 `logs/webauthn_done.marker`
 - 업로드는 깨끗한 `webauthn-icloud-keychain-flags`에서
 
@@ -33,6 +33,6 @@
 
 - [x] 발굴 + 선점 확인(플래그 이름 든 열린 CL 0) + OSSCA #441 (09-15)
 - [x] 브랜치·수정·format·gn check·커밋 (09-16, `79633a3c0442d`)
-- [ ] 4단계 — 러너 대기
+- [x] 4단계 — ✅ 09-16 unit_tests 3h34m38s/37,212스텝, ChromeAuthenticatorRequestDelegate* 6/6
 - [ ] 5단계 업로드 — 리뷰어 derinel@·nsatragno@ (허가 후)
 - [ ] 7단계 기록 PR
