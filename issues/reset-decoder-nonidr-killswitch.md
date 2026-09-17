@@ -34,4 +34,4 @@
 - [x] 브랜치·수정·format·gn check·커밋 (09-15)
 - [x] 4단계 — ✅ 09-15 media_unittests 19m16s, VideoToolboxH264Accelerator* 8/8
 - [x] 5단계 업로드 — ✅ **CL 8410466** (09-15, 리뷰어 eugene@·dalecurtis@, presubmit 0 경고)
-- [ ] 7단계 기록 PR
+- [x] 7단계 기록 PR — ✅ **#453** (09-17, `contributions: Add 8410466`)
