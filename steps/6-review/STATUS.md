@@ -39,3 +39,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 
 - 8282239는 5일 묵혀 리베이스 충돌이 났었다. **대기 중인 두 CL도 오래 묵으면 ToT 리베이스 필요.**
 - 리뷰 라운드에서 바뀐 판단은 `../../issues/<crbug>.md`에 기록할 것.
+
+**09-17 06:09~06:13 — 제출 요청 댓글 5건 게시 (사용자 직접, Gerrit UI)** — 8382856 · 8409786 · 8397391 · 8410466 · 8410085. 전부 PATCHSET_LEVEL, 문안 «Thanks for the reviews! I don't have CQ access yet, so could one of you submit this when you get a chance?». attention set은 +1 준 리뷰어 둘에게 이동 확인. 8382856에서는 사용자가 Commit-Queue+2를 직접 눌렀으나 06:10 CQ 봇이 즉시 회수(비커미터) — 예상된 동작, 부작용 없음. 리눅스 세션 참고: 8410085도 포함됨.
