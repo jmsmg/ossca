@@ -53,14 +53,14 @@ ossca/
 | [438680281](https://crbug.com/438680281) (만료 M143 정리) | ✅ 09-07 | ✅ #403 | ✅ | ✅ | ✅ | ✅ | ✅ #405 | 🔄 | 8 — **CL 8366188 머지(09-14, `fdce3e159a88b`)**. `status: merged` PR **#438** 제출(`Closes #403`), 멘토 머지 대기 |
 | (자체 발굴) quota 테스트 클럭 댕글링 | ✅ 09-10 | ✅ #421 | ✅ | ✅ | ✅ PS3 | ⏳ | ✅ #424 | ⬜ | **PS2 로컬 완성(09-11, Mac)** — mock time 판, 57/57·319/319, 크래시 0. **PS2/PS3 업로드 + 답글 2건 게시(09-11)** → evanstade@ 응답 대기. OSSCA 이슈는 여전히 미등록 |
 | (자체 발굴) quota 만료 M148 153곳 | ✅ 09-09 | ✅ #422 | ✅ | ✅ 313/313 | ✅ 8377550 | ⏳ | ✅ #425 | ⬜ | 6 — **PS2(설명 축소) + 답글 완료(09-11)**, CR+1 유지. 어텐션 수동 추가 필요. 남은 것: 리뷰어 CQ · 기록 PR 미제출 · OSSCA 이슈 미등록 |
-| [40176243](https://crbug.com/40176243)·40251269 (sql ColumnTime) CL 1 | ✅ 09-05 | ✅ #416 | ✅ | ✅ 281/281 | ✅ 8382856 | ⏳ | ⏳ #417 | ⬜ | 6 — CL 8382856(09-09) manukh@ 리뷰 대기 **(26일 무활동 리뷰어 — OWNERS 추가 검토)** · 기록 PR #417 제출 |
+| [40176243](https://crbug.com/40176243)·40251269 (sql ColumnTime) CL 1 | ✅ 09-05 | ✅ #416 | ✅ | ✅ 281/281 | ✅ 8382856 | ✅ 머지 09-17 | ⏳ #417 | 🔄 | 8 — CL 1 **머지 09-17** (`2c16217b7e515`, manukh@ CQ). merged PR 준비(시리즈라 Closes 없음). CL 2 8410045 리뷰 중 |
 | 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ⏳ | ✅ #452 | ⬜ | 6 — **CL 8410045**(09-15) nidhijaju@ +1, ricea@ 대기. 기록 PR **#452**(09-17). #416 코멘트 09-17 |
-| (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | ✅ 95/95·26/26 | ✅ 8409786 | ⏳ | ✅ #451 | ⬜ | 6 — **CL 8409786**(09-15) alexilin@·gab@ **+1 둘**, 제출 요청 대기. 기록 PR **#451**(09-17). #439 코멘트 09-17 |
-| (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ⏳ | ✅ #453 | ⬜ | 6 — **CL 8410466**(09-15) eugene@·dalecurtis@ **+1 둘**, 제출 요청 대기. 기록 PR **#453**(09-17). #440 코멘트 09-17 |
+| (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | ✅ 95/95·26/26 | ✅ 8409786 | ✅ 머지 09-17 | ✅ #451 | 🔄 | 8 — **머지 09-17** (`37ac4ebc43de5`, alexilin@ CQ). 기록 PR #451 머지. merged PR(`Closes #439`) 허가 대기 |
+| (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ✅ 머지 09-17 | ✅ #453 | 🔄 | 8 — **머지 09-17** (`0a61d4d13c9e4`, eugene@ CQ). 기록 PR #453 머지. merged PR(`Closes #440`) 허가 대기 |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ✅ 09-16 | ✅ 09-16 | ✅ 8412192 | ⬜ | ✅ #450 | ⬜ | 6 리뷰 대기 — **Mac** 09-16 **CL 8412192** PS3 (derinel@·nsatragno@). #441 코멘트 09-17 (S) |
-| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ✅ | ✅ 14/14 | ✅ 8410085 | ⬜ | ⬜ | ⬜ | 6 — **리눅스** 09-15 **CL 8410085** PS1 업로드(dgn@·nicolaso@). 커밋 `cc96915b87a16`. 기록 PR 미제출 (`issues/40216113.md`) |
+| [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ✅ | ✅ 14/14 | ✅ 8410085 | ✅ 머지 09-17 | 🔄 merged로 직접 | 🔄 | 8 — **머지 09-17** (`1e5c4ad3d899d`, dgn@ CQ, 리눅스 CL). 기록 파일 없음 → `status: merged`로 추가 + `Closes #442` 허가 대기 |
 | (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ✅ 8410065 | ⬜ | ⬜ | ⬜ | 6 — **리눅스** 09-15 **CL 8410065** PS1 업로드(rdevlin.cronin@·andreaorru@, CC nicolaso@). 커밋 `455e826cf4aa7`. 1단계: 블록만 지우면 기존 테스트 실패(의존 증명) ✓ · 2단계: 테스트를 `OnExternalExtensionUpdateUrlFound` 경로로 재작성 5/5 ✓ · `ExtensionServiceTest.*` **191/191** ✓ — 검증 완료, 리베이스·업로드 승인 대기 (`issues/extension-service-force-install-workaround.md`) |
-| (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | 🔄 +1 1/2 | ✅ #437 | ⬜ | 6 — rdevlin.cronin@ **LGTM +1**(09-14). andreaorru@ 추가(09-15) → +1 대기. 기록 PR #437 CI pass |
+| (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | ✅ 머지 09-17 | ✅ #437 | 🔄 | 8 — **머지 09-17** (`7a77a41779ef2`, finnur@ CQ). 기록 PR #437 머지. merged PR(`Closes #423`) 허가 대기 |
 
 **밀린 것 (2026-09-14 실측)**
 
@@ -116,8 +116,12 @@ I. **OSSCA 이슈 정리** — #403 은 PR #438 머지에도 안 닫힘(수동 c
 | [8366188](https://crrev.com/c/8366188) | [prefs] Remove expired NotFatalUntil::M143 from PrefService type checks | XS | +4/−5 (9줄) | 2 | 머지 (2026-09-14) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L | +154/−160 (314줄) | 10 | 리뷰 중 (PS2, evanstade +1, stevebe 대기) |
 | [8377022](https://crrev.com/c/8377022) | [storage] Drop QuotaDatabase's test clock in favor of mock time | M | +41/−107 (148줄) | 5 | 리뷰 중 (PS5, evanstade +1, stevebe 대기) |
-| [8382856](https://crrev.com/c/8382856) | [history] Migrate to sql::Statement time accessors | S | +14/−18 (32줄) | 3 | 리뷰 중 (PS1, manukh +1, mahmadi 대기) |
-| [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S | +0/−82 (82줄) | 3 | 리뷰 중 (PS1, rdevlin.cronin +1, andreaorru 대기) |
+| [8382856](https://crrev.com/c/8382856) | [history] Migrate to sql::Statement time accessors | S | +14/−18 (32줄) | 3 | 머지 (2026-09-17) |
+| [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S | +0/−82 (82줄) | 3 | 머지 (2026-09-17) |
+| [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | S | +3/−12 (15줄) | 3 | 머지 (2026-09-17) |
+| [8410085](https://crrev.com/c/8410085) | [startup] Remove the expired --no-startup-window re-check | XS | +0/−8 (8줄) | 1 | 머지 (2026-09-17) |
+| [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | S | +1/−10 (11줄) | 1 | 머지 (2026-09-17) |
+| [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S | +8/−40 (48줄) | 3 | 리뷰 중 (PS3, derinel·nsatragno 대기) |
 
 사이즈 = Gerrit 뱃지 기준 (변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
 docs 링크 수정 → include 정리 → 불변식 강제(CHECK) → 자료구조 리팩토링(RAII 트랜잭션) 순으로

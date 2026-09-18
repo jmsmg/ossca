@@ -1,6 +1,6 @@
 # [자체 발굴] kResetDecoderForNonIDR 킬스위치 제거 — VideoToolboxH264Accelerator (Mac 전용)
 
-**상태: 4단계 검증 완료(09-15, Mac) — `media_unittests` 빌드 19m16s/7,917스텝 ✓, `VideoToolboxH264Accelerator*` 8/8 ✓. 브랜치 `reset-decoder-nonidr-killswitch` 커밋 `643a8a33b8b7e` (+1/−10). **CL 8410466 업로드 완료(09-15).** OSSCA #440 — 진행 코멘트·기록 PR 허가 대기.**
+**상태: ✅ 완료 — CL 8410466 머지 (2026-09-17 22:54 UTC, PS3, `0a61d4d13c9e4`, eugene@ CQ). 기록 PR #453 머지. 8단계: merged PR(`Closes #440`) 허가 대기 · 보드 Status `반영 완료`(사용자).**
 
 ## 링크
 
@@ -35,3 +35,11 @@
 - [x] 4단계 — ✅ 09-15 media_unittests 19m16s, VideoToolboxH264Accelerator* 8/8
 - [x] 5단계 업로드 — ✅ **CL 8410466** (09-15, 리뷰어 eugene@·dalecurtis@, presubmit 0 경고)
 - [x] 7단계 기록 PR — ✅ **#453** (09-17, `contributions: Add 8410466`)
+- [x] 6단계 — eugene@ +1(09-15) · dalecurtis@ +1(09-16) · 제출 요청 댓글 09-17 06:13 → eugene@ CQ+2 20:26 → 머지 22:54 UTC (`0a61d4d13c9e4`)
+- [ ] 8단계 — merged PR(`Closes #440`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+
+## 이 사이클에서 배운 것
+
+- 킬스위치 제거는 «플래그가 항상 켜져 있었는가»와 «about_flags·enums·fieldtrial 등록이 없는가» 두 가지만 확인하면 위험이 없다. 만료 주석 스윕이 이런 XS를 꾸준히 공급한다.
+- 플랫폼 전용 코드는 그 플랫폼에서만 검증된다. Mac 전용 후보를 Mac에, 공용 후보를 캐시 있는 쪽에 배정하니 큐가 넓어졌다.
+- `git cl upload -m`은 커버 메시지가 아니라 CL 설명을 통째로 대체한다. PS1 제목이 오염돼 `git cl description -n +`로 복구했다. 리뷰어에게 할 말은 업로드 뒤 별도 메시지로.

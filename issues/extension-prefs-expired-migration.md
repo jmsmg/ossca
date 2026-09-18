@@ -1,6 +1,6 @@
 # [자체 발굴] extension_prefs의 만료된 install_time 마이그레이션 제거
 
-**상태: 09-11 Mac에서 재작성 — 브랜치 `extension-prefs-drop-installtime-migration`, 커밋 `e54665a5dd6bd` (3파일 −82, 서버 판 134e015c8c3e4와 동일 규모). **검증 완료(09-11 21:31)**: 오브젝트 컴파일 ✓ · `unit_tests` 빌드 ✓ (3시간 23분, 36,619스텝, `-j 6`) · `unit_tests --gtest_filter='ExtensionPrefs*'` **28/28** ✓ (로그 `steps/4-build-and-test/logs/extprefs_*.log`). **업로드 대기.**
+**상태: ✅ 완료 — CL 8397391 머지 (2026-09-17 11:03 UTC, PS2, `7a77a41779ef2`, finnur@ CQ). 기록 PR #437 머지. 8단계: merged PR(`Closes #423`) 허가 대기 · 보드 Status `반영 완료`(사용자).**
 
 ## 링크
 
@@ -59,4 +59,11 @@ void ExtensionPrefs::MigrateDeprecatedDisableReasons() {
 - [x] 7단계 기여 기록 PR — ✅ **#437** (사용자 09-14 23:22 KST 제출, CI pass; 제목의 줄바꿈 오타는 에이전트가 `gh pr edit`로 수정)
 - [x] 리뷰 1라운드: **rdevlin.cronin@ CR+1 «Thank you for the cleanup! LGTM!»** (09-14 17:56 UTC, 9시간 만에)
 - [x] 두 번째 리뷰어 andreaorru@chromium.org 추가 (09-15, 사용자) → 어텐션 andreaorru@. +1 오면 CQ 요청
-- [ ] OSSCA #423 Status → `gerrit 리뷰 중` (보드, 사용자)
+- [x] 6단계 — rdevlin.cronin@ +1(09-14) · finnur@ 추가(09-16, OOO 대체가 아닌 추가) → +1 · 제출 요청 댓글 09-17 06:12 → finnur@ CQ+2 10:24 → 머지 11:03 UTC (`7a77a41779ef2`)
+- [ ] 8단계 — merged PR(`Closes #423`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+
+## 이 사이클에서 배운 것
+
+- 순수 삭제 CL의 본작업은 «다른 호출처·등록이 0»을 스스로 증명하는 조사다. 이번엔 같은 파일의 비슷한 함수에 살아 있는 코드가 있어 범위를 2개 → 1개로 줄인 판단이 리뷰에서 그대로 통했다.
+- OOO 리뷰어는 교체가 아니라 **추가**한다(사용자 지시). finnur@를 더한 지 하루 만에 +1과 CQ가 왔고, andreaorru@는 돌아와서 이력을 볼 수 있다.
+- Mac에서 `unit_tests`는 3시간 23분(첫 기록). chrome/ 아래 테스트 타깃은 반나절 계획으로 잡는다.

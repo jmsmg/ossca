@@ -1,6 +1,6 @@
 # [자체 발굴] 만료 NotFatalUntil::M144 — signin 3곳 + enum 항목 삭제
 
-**상태: 4단계 검증 완료(09-15, Mac) — `unit_tests`+`base_unittests` 전 트리 빌드 4h46m/59,127스텝 ✓ · `DiceWebSigninInterceptor*:TurnSyncOnHelper*` 95/95 ✓ · `CheckTest.*:CheckDeathTest.*` 26/26 ✓. 브랜치 `expired-notfatal-m144-signin` 커밋 `bb98018e65923`. **CL 8409786 업로드 완료(09-15).** OSSCA #439 — 진행 코멘트 허가 대기.**
+**상태: ✅ 완료 — CL 8409786 머지 (2026-09-17 08:16 UTC, PS2, `37ac4ebc43de5`, alexilin@ CQ). 기록 PR #451 머지. 8단계: merged PR(`Closes #439`) 허가 대기 · 보드 Status `반영 완료`(사용자).**
 
 ## 링크
 
@@ -37,3 +37,11 @@
 - [x] 4단계 빌드·테스트 — ✅ 09-15 Mac 전 트리 4h46m, signin 95/95, CheckTest 26/26
 - [x] 5단계 업로드 — ✅ **CL 8409786** (09-15, presubmit 0 경고, `-r alexilin@,gab@ --send-mail`)
 - [x] 7단계 기록 PR — ✅ **#451** (09-17, `contributions: Add 8409786`)
+- [x] 6단계 — gab@·alexilin@ +1 (09-15~16) · 제출 요청 댓글 09-17 06:09 → alexilin@ CQ+2 07:11 → 머지 08:16 UTC (`37ac4ebc43de5`)
+- [ ] 8단계 — merged PR(`Closes #439`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+
+## 이 사이클에서 배운 것
+
+- `base/check.h`가 include하는 헤더(`not_fatal_until.h`)를 건드리는 CL은 전 트리 재빌드가 **두 번** 든다(브랜치를 떠날 때 다시). 이번엔 #441 검증까지 3.5시간을 더 냈다. 다음부터 이런 CL은 사이클 마지막에 두고, 랜딩 전엔 `unit_tests` 계열 다른 작업을 시작하지 않는다.
+- +1 둘이 모인 뒤 «CQ 권한이 없으니 제출해 주세요» 한 줄이면 리뷰어가 1시간 안에 눌러 준다(alexilin@ 62분). +1이 모이자마자 바로 남긴다.
+- alexilin@가 크래시 대시보드에서 «이 CHECK 크래시는 M149에 고쳐졌다»를 확인해 줬다. NotFatalUntil 제거 CL 설명엔 «해당 CHECK가 지금도 크래시하는가»를 한 줄 넣을 거리다.
