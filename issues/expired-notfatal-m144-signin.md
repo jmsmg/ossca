@@ -38,7 +38,8 @@
 - [x] 5단계 업로드 — ✅ **CL 8409786** (09-15, presubmit 0 경고, `-r alexilin@,gab@ --send-mail`)
 - [x] 7단계 기록 PR — ✅ **#451** (09-17, `contributions: Add 8409786`)
 - [x] 6단계 — gab@·alexilin@ +1 (09-15~16) · 제출 요청 댓글 09-17 06:09 → alexilin@ CQ+2 07:11 → 머지 08:16 UTC (`37ac4ebc43de5`)
-- [ ] 8단계 — merged PR(`Closes #439`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+- [x] 8단계 merged PR — ✅ **#459** (09-18, `Closes #439`)
+- [ ] 보드 Status `반영 완료` (사용자)
 
 ## 이 사이클에서 배운 것
 

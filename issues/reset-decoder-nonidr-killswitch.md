@@ -36,7 +36,8 @@
 - [x] 5단계 업로드 — ✅ **CL 8410466** (09-15, 리뷰어 eugene@·dalecurtis@, presubmit 0 경고)
 - [x] 7단계 기록 PR — ✅ **#453** (09-17, `contributions: Add 8410466`)
 - [x] 6단계 — eugene@ +1(09-15) · dalecurtis@ +1(09-16) · 제출 요청 댓글 09-17 06:13 → eugene@ CQ+2 20:26 → 머지 22:54 UTC (`0a61d4d13c9e4`)
-- [ ] 8단계 — merged PR(`Closes #440`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+- [x] 8단계 merged PR — ✅ **#461** (09-18, `Closes #440`)
+- [ ] 보드 Status `반영 완료` (사용자)
 
 ## 이 사이클에서 배운 것
 

@@ -60,7 +60,8 @@ void ExtensionPrefs::MigrateDeprecatedDisableReasons() {
 - [x] 리뷰 1라운드: **rdevlin.cronin@ CR+1 «Thank you for the cleanup! LGTM!»** (09-14 17:56 UTC, 9시간 만에)
 - [x] 두 번째 리뷰어 andreaorru@chromium.org 추가 (09-15, 사용자) → 어텐션 andreaorru@. +1 오면 CQ 요청
 - [x] 6단계 — rdevlin.cronin@ +1(09-14) · finnur@ 추가(09-16, OOO 대체가 아닌 추가) → +1 · 제출 요청 댓글 09-17 06:12 → finnur@ CQ+2 10:24 → 머지 11:03 UTC (`7a77a41779ef2`)
-- [ ] 8단계 — merged PR(`Closes #423`) 허가 대기 · 보드 Status `반영 완료`(사용자)
+- [x] 8단계 merged PR — ✅ **#460** (09-18, `Closes #423`)
+- [ ] 보드 Status `반영 완료` (사용자)
 
 ## 이 사이클에서 배운 것
 
