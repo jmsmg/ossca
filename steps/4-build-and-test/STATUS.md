@@ -56,5 +56,7 @@
 
 **09-18 `blink_unittests` 첫 기록** — 2h47m03s / 21,889스텝 (`-j 6`, 09-15 base 트리, `unit_tests` 캐시 위). 후반 600스텝(core/modules 큰 테스트 파일)이 30분을 먹는다. blink 쪽 후보는 이제 증분으로 돈다.
 
+**⚠️ 09-18 트리 상태** — 432367602 리베이스 시험을 위해 `git fetch origin`을 돌려 origin/main이 52d366080a4e(09-18)로 올라왔고, 브랜치를 그 위로 리베이스했다. **체크아웃의 DEPS는 새 main인데 third_party(angle·quiche·docs/website 서브모듈)는 09-15 상태** → `git status`에 ` M` 서브모듈 3개. **다음 로컬 빌드 전에 `gclient sync` 필수**(그러면 M144 랜딩분도 들어와 `unit_tests` 3.5h 문제 해소). 이미 검증한 432367602 업로드에는 영향 없음(커밋만 올라감).
+
 **다음 액션** — CL B 착수 시 `pmd_test.sh`를 복사해 favicon 타깃/필터로 러너를 만든다.
 공용 로그(`cbuild.log`, `gclient_sync.log`)와 완료 마커(`*_done.marker`)는 계속 재사용.
