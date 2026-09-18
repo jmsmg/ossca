@@ -21,6 +21,7 @@
 
 | [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | XS (+1/−10, 1파일) | `Bug: 451536366` | eugene@, dalecurtis@ | ✅ 업로드 2026-09-15 (Mac; `-m` 오용으로 PS1 설명 오염 → PS2 복구) |
 | [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S (+8/−40, 3파일) | `Bug: none` | derinel@, nsatragno@ | ✅ 업로드 2026-09-16 (Mac; `-s` 없이 올려 PS1이 **WIP** → PS2 `-s`로 ready+알림, PS3 `git cl description -n +`로 72자 재정렬) |
+| [8429522](https://crrev.com/c/8429522) | [mediastream] Remove expired kMediaStreamAccurateDroppedFrameCount flag | S (+5/−25, 3파일) | `Fixed: 432367602` | kron@, mfoltz@ | ✅ 업로드 2026-09-18 (Mac; GUIDE대로 `-s -T` → PS1부터 ready) |
 | [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | S (+27/−40, 1파일) | `Bug: 40176243` | ricea@, nidhijaju@ | ✅ 업로드 2026-09-15 (Mac, presubmit 0 경고) |
 | [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | XS (+3/−12, 3파일) | `Bug: 435076172` | alexilin@, gab@(base) | ✅ 업로드 2026-09-15 (Mac, 전 트리 빌드 검증) |
 | [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S (−82, 3파일) | `Bug: none` | rdevlin.cronin@ (CC anunoy@) | ✅ 업로드 2026-09-14 (Mac 커밋 `e54665a5dd6bd`, presubmit 0 경고, `--send-mail`) |
@@ -43,6 +44,9 @@
 
 
 **8412192 (09-16) — GUIDE 50행에 이미 있던 `--send-mail`을 빼먹고 올려 PS1이 WIP로 갔다.** git cl은 새 CL을 기본 WIP로 올린다(`git_cl.py` 2208행 주석). PS2를 `-s`로 올려 `%ready,notify=ALL`로 풀었고, 재업로드가 서버 설명을 재사용하는 것(GUIDE 54행)도 알면서 다시 겪어 PS3를 `git cl description -n +`로 밀었다. **교훈: 단계 명령을 만들기 전에 그 단계 GUIDE를 먼저 연다.**
+
+
+**함정 (8429522, 09-18) — `git fetch origin` 뒤 presubmit이 50건 `AttributeError: 'InputApi' object has no attribute 'AffectedExtensions'`로 전멸.** 원인은 트리가 아니라 **depot_tools가 오래됨**(09-14판) — 새 main의 PRESUBMIT.py가 depot_tools 09-17판에 추가된 API를 쓴다. `~/depot_tools/update_depot_tools` 한 번이면 끝. `git cl upload`는 presubmit 실패 시 아무것도 올리지 않으므로(`git cl issue` = None) 부작용은 없다. 교훈: **origin/main을 당겼으면 depot_tools도 같이 갱신**한다.
 
 **미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
 **tryjob 권한** — 2026-09-07 smcgruer@에게 추천 요청 메일 발송, 회신 대기. 그때까지 CQ는 리뷰어가 실행.
