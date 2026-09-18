@@ -24,5 +24,6 @@
 | 40216113 #442 startup Lacros 잔재 | `startup-no-window-recheck-40216113` (**리눅스**, 예정) | ✅ 09-15 — 커밋 `d0b436539c379` → 리베이스 후 `cc96915b87a16` (−8, 1파일). 재검사 블록 + 미사용 include 2개. TDD 예외(동작 불변) |
 | (crbug 없음) #441 WebAuthn iCloud Keychain 플래그 3개 | `webauthn-icloud-keychain-flags` (**Mac**) | ✅ 09-16 — 커밋 `79633a3c0442d` (+8/−40, 3파일). 기본 켜진 플래그 3개 선언·정의 삭제 + `ShouldCreateInICloudKeychain()` 5분기 → «google.com ∨ iCloud Drive → true, 아니면 WithoutDrive 플래그 2개». gn check OK. TDD 예외(동작 불변) |
 | 432367602 dropped-frame 플래그 | `dropped-frame-count-flag-432367602` (**Mac**) | ✅ 09-18 — +5/−25, 3파일. 플래그 선언·정의 삭제, 컴포지터 두 분기를 켜진 쪽만 남김, `feature_list.h`·`media_switches.h` include 제거(다른 사용 0, 컴파일로 확인). `Fixed: 432367602`. TDD 예외(동작 불변). OSSCA 등록은 허가 대기 |
+| 41161335 frozen-frames 플래그 | `suspend-frozen-frames-flag-41161335` (**Mac**, base 09-15 b39241398) | ✅ 09-18 — 커밋 `654824f078296` (+8/−24, 4파일). 플래그 선언·정의 삭제, WebMediaPlayerImpl 세 사용처 켜진 분기만, 테스트 ScopedFeatureList 2줄 제거. 멤버 `was_suspended_for_frame_closed_or_frozen_`는 UpdatePlayState_ComputePlayState에서 읽으므로 유지. `Bug: 41161335`. TDD 예외(동작 불변). OSSCA 등록 허가 대기 |
 
 **다음 액션** — extensions CL 검증 통과 후 업로드. 그 다음은 sql ColumnTime CL 1.5(journeys 5곳). 40831207 CL B는 보류. 사용자가 crbug 40831207에 방향 문의 게시 → 답변 오면 재정의. 그 전까지 «수정» 작업은 09-05 발굴한 **sql ColumnTime/ColumnTimeDelta 마이그레이션** (1단계 GUIDE 09-05 절) → 착수 가능.
