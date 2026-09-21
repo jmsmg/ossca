@@ -103,5 +103,16 @@
 | O blink array_buffer_contents `OOM_CRASH` 예비 검사 (crbug 369653504 FIXED, «크래시 없으면 2025-03 제거») | 2025-03 | XS | 크래시 데이터 확인 필요 |
 | P services/preferences pref_hash_filter Windows 폐기 pref 목록 (Oct 2024) | 2024-10 | XS | `#if IS_WIN`, Mac 검증 불가 |
 
-3차(진행 중): 킬스위치 주석이 붙은 ENABLED_BY_DEFAULT 플래그의 blame 연령 스캔.
+### 3차: 킬스위치 주석이 붙은 ENABLED_BY_DEFAULT 플래그 128개 → blame 2025-12 이전 65개 → 도입일·제거 의도 확인
 
+blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오염돼 있어 `git log -S`로 도입일을 다시 잰다. «Keep indefinitely»·API 킬스위치(kBackgroundFetch·kWebOTP·kBrowsingTopics·kNtp*)는 제외.
+
+| 후보 | 도입 | 크기 | 비고 |
+|---|---|---|---|
+| Q `kMultipleLcppKeyInitiatorOriginFix` — chrome/browser/predictors/lcp_critical_path_predictor_util.cc («Remove this kill switch after we confirmed that this works fine», crbug 380105415) | 2024-11 | XS 1파일 | 제거 의도 명시. predictors OWNERS |
+| R `kDesktopCapturePermissionCheckerKillSwitch` — chrome/browser/ui/views/desktop_capture/screen_capture_permission_checker_mac.mm | 2024-06 | XS 1파일, **Mac 전용** | 제거 약속 없는 킬스위치 → OWNER에 먼저 물을 것 |
+| S `kHttpsFirstModeForAdvancedProtectionUsers` — chrome_features + chrome/browser/ssl 8파일 («Kill switch for crbug 40892208») | 2023-02 | M | ssl/security OWNERS, uitest 포함 |
+| T `kOptimizationGuideFetchingForSRP` — optimization_guide 3파일(browsertest 포함) | 2023-07 | S | browser_tests 필요 |
+| U `kSearchesFindUngroupedVisits` — history_clusters 4파일(unittest 포함, «left here as a killswitch») | 2024-01 | S | components_unittests |
+
+제외: kEnableRendererNavigationTimeline(2025-06, 너무 최근) · kIgnorePermissionForDeviceChangedEventForChromeApps(«Chrome Apps가 사라진 뒤») · Windows/iOS 전용.
