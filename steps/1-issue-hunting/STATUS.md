@@ -68,3 +68,40 @@
 **범위에서 빠진 것(재조사 방지):** `MigrateDeprecatedDisableReasons()` — 선언부 TODO는 M89(66 경과)로 만료돼 보이지만 본문에 **만료되지 않은** ChromeOS post-Lacros 정리(`TODO(crbug.com/380780352)`)가 들어와 있다. 그 TODO가 풀릴 때까지 건드리지 않는다.
 
 **탈락 기록(재조사 방지):** 41396598(의사 타진 무응답·Recharge-Cold, 09-09) · 507327886 · 40891923 · 473666511 · 377242771 · 433551601 · 396030877 · 40177656 · (sql 09-05) 40146017 · 40262539 · 40777743 · 40061775 · 40779018 · 477762546 · 413595430
+
+## 2026-09-21 재스윕 (트리 M156, gclient sync 후) — «이전 버전 지우기» 방향
+
+**⚠️ NotFatalUntil 경로 종료** — arthursonzogni@가 새 도구 `base/tools/clean-up-not-fatal-until.py`로 **M153 이하 전부**를 지우는 CL [8421522](https://crrev.com/c/8421522)·[8425399](https://crrev.com/c/8425399)(244파일, 09-17)를 올림. 우리 큐의 M146 varint·M147 actor_metrics·M148 잔여·M149 omnibox 전부 포함, **8377550(quota M148)의 10파일도 100% 겹침** → 8377550에 FYI 댓글 후 그쪽이 먼저 랜딩하면 abandon. 이후 만료 NotFatalUntil은 후보에서 제외(스크립트가 주기적으로 처리할 것).
+
+**도구 함정** — macOS `git grep -E`는 `\b`를 모름(0건). `-P`(PCRE)로 후보를 넓게 모은 뒤 파이썬에서 «지워라» 동사·과거형 제외로 거른다.
+
+### 1차: 만료 «Remove … M<n>» 주석 (148건 중 살아 있는 지시·Mac 빌드 가능·겹침 0)
+
+| 후보 | 만료 | 크기 | OWNERS | 타깃 |
+|---|---|---|---|---|
+| A `kMergeRangesDuringAppend` 킬스위치 — media/filters/source_buffer_stream.cc (crbug 486351442) | M147 | XS 1파일 | media | media_unittests |
+| B `kRejectInvalidChildRegions` — components/viz/service/hit_test/hit_test_aggregator.cc (crbug 495852034) | M150 | XS 1파일 | viz | viz_unittests |
+| C `kSigninChromePasskeyUnlockUrlUsesAccountIndex` — google_apis/gaia (features.cc·gaia_urls.cc 2곳·unittest 4곳) | M153 | XS~S | gaia | google_apis_unittests |
+| D `kStrictFFmpegCodecs` — media/ffmpeg/ffmpeg_common.cc (crbug 379418979, «security sensitive» 주석) | M133 | XS | media | media_unittests |
+| E `kValidatePromiseImageFormat` — viz image_context_impl.cc (crbug 524822746) | M152 | XS | viz | viz_unittests |
+| F startup 설치 관리자 URL 우회 블록 — startup_tab_provider.cc (crbug 379999327, «or if it stops being reached» → UMA 근거 필요) | M143 | XS | startup | unit_tests |
+| G `kWebviewScriptFileOriginCheck` — extensions webview API (crbug 496016840) | M151 | XS | extensions | unit_tests |
+| H `kBackgroundActorTaskPopupsOpenInBackground` — chrome/browser/ui (crbug 489205993) | M150 | XS | chrome/ui | unit_tests |
+| I `kSandboxExternalProtocolBlocked(Warning)` — browser_features.cc (엔터프라이즈 정책 연결) | **M106** | M | security | browser_tests |
+| J `kAccurateVideoFrameConverterColorSpace` — media/base (converter + unittest) | M153 | S | media | media_unittests |
+
+제외: 원 CL/버그가 없는 iOS·Android·CrOS·Windows 전용(omnibox_popup_view_views kill switch는 `#if IS_WIN`), device/fido 추가 플래그 3개(8412192 리뷰어 무반응 중이라 보류), page_node_impl visible_url(선점 7건).
+
+### 2차: 날짜 기반 만료 TODO (10건 중 Mac 빌드 가능)
+
+| 후보 | 만료 | 크기 | 비고 |
+|---|---|---|---|
+| K prefetch_manager.cc `Navigation.Prefetch.(Un)CompressedBodySize` 히스토그램 제거 (TODO(ricea) Oct 2024, crbug 335524391 열림) | 2024-10 | XS + histograms.xml obsolete | ricea@(빠름) + metrics 리뷰어 |
+| L components/metrics/demographics 폐기 pref `sync.demographics_birth_year_offset` 등록·ClearPref 제거 (crbug 40240008 열림 «Clean up sync demographics prefs») | **2023-09** | XS | metrics OWNERS |
+| M net/http no_vary_search legacy 디렉터리 이동 코드 (crbug 421927600 FIXED; «kSourceDidNotExist 100%면 제거») | 2025-12 | S | ricea@가 UMA 확인 필요 |
+| N extensions 2013 preinstalled apps 마이그레이션 (`kProvideLegacyPreinstalledApps`, TODO(grv) Q1-2013) 2파일 | **2013** | S~M, pref 상태 연결 | extensions |
+| O blink array_buffer_contents `OOM_CRASH` 예비 검사 (crbug 369653504 FIXED, «크래시 없으면 2025-03 제거») | 2025-03 | XS | 크래시 데이터 확인 필요 |
+| P services/preferences pref_hash_filter Windows 폐기 pref 목록 (Oct 2024) | 2024-10 | XS | `#if IS_WIN`, Mac 검증 불가 |
+
+3차(진행 중): 킬스위치 주석이 붙은 ENABLED_BY_DEFAULT 플래그의 blame 연령 스캔.
+
