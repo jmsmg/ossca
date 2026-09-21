@@ -34,6 +34,7 @@
 | (432367602 dropped-frame 플래그, Mac) | `blink_unittests` (`WebMediaPlayerMSCompositor*`) — **이 Mac 첫 빌드**, dry-run 21,814스텝 | `dropped_frame_test_mac.sh` (tmux `dropped`) | `dropped_build.log`, `dropped_test.log`, `dropped_done.marker` | ✅ 09-18 12:45 — **2h47m03s/21,889스텝**(첫 빌드), `WebMediaPlayerMSCompositor*` **14/14** |
 | (41161335 frozen-frames 플래그, Mac) | `blink_unittests` (`WebMediaPlayerImplTest.*`) — 09-18 캐시 위 증분(브랜치 전환 mtime 때문에 일부 재컴파일) | `frozen_frames_test_mac.sh` (tmux `frozen`) | `frozen_build.log`, `frozen_test.log`, `frozen_done.marker` | ✅ 09-19 — **4h35m00s/28,621스텝**(빌드 시계 기준; 벽시계 ~40h), `WebMediaPlayerImplTest.*` **78/78** |
 | (474398415 WebCodecs 킬스위치, Mac) | `blink_unittests` (`AudioDecoder*:VideoDecoder*:DecoderTemplate*:DecoderSelector*`) — **gclient sync 선행**(트리 09-21 main), `-j 4` | `webcodecs_flush_test_mac.sh` (tmux `webcodecs`, `caffeinate -s -i`) | `webcodecs_*.log`, `webcodecs_done.marker` · baseline `webcodecs_baseline_*.log` | ✅ 09-21 — sync 4m · **4h56m/39,600스텝**(sync 후 전체) · 24/24 (배치 21 + 단독 3). 배치 크래시 1건은 main도 동일(기존 테스트 격리 문제) |
+| (380105415 LCPP 킬스위치, Mac) | `unit_tests` (`LcpCriticalPathPredictor*:*Lcpp*:*LCPP*`) — sync 후 첫 unit_tests, `-j 4` | `lcpp_killswitch_test_mac.sh` | `lcpp_build.log`, `lcpp_test.log`, `lcpp_done.marker` | ✅ 09-22 00:50 — **2h04m20s/20,718스텝**, **127/127** (Ctrl+C로 한 번 중단 후 재시작, 캐시 이어짐) |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
 **교훈 (438680281 → 40176243)** — `base/not_fatal_until.h`처럼 `base/check.h`가 include하는 헤더를 건드리면 **전 트리 재빌드**다
