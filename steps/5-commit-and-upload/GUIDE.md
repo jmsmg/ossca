@@ -47,9 +47,11 @@ git log -1 --format=%B | grep -iE 'co-authored|claude|generated'
 
 ```bash
 git cl format                          # 변경이 생기면 git commit --amend --no-edit
-git cl upload -r <OWNER1>,<OWNER2> --send-mail  # 리뷰어는 **항상 커미터 2명** + WIP 없이 바로 리뷰 시작
+git cl upload -s -T -r <OWNER1> --cc amoseui@chromium.org --hashtag=<x>   # 리뷰어 **1명** + 멘토 CC + WIP 없이(-s) 바로 리뷰 시작 (2026-09-21 규칙)
 ```
 
+- **리뷰어는 한 명씩 순차 (2026-09-21 사용자 지시)**: 업로드 때 가장 관련 깊은 OWNER 한 명만. 그 +1이 오면 두 번째 OWNER를 추가하고, 둘째 +1이 모이면 제출 요청 댓글. 비커미터 CL은 커미터 2명 +1이 있어야 CQ가 도는 건 그대로.
+- **멘토 CC**: 새 CL마다 `--cc amoseui@chromium.org` (2026-09-21 지시)
 - WIP로 올라갔으면 Gerrit UI에서 **Start Review**
 - **`git cl upload`는 2회차부터 서버의 기존 설명을 재사용한다** (`-f` 없이도. 8351543 PS2에서 실제로 겪음:
   로컬 커밋 메시지에 문단을 추가하고 amend했는데 서버 설명은 그대로였다).
