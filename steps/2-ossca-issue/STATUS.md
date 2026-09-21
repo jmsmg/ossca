@@ -48,3 +48,4 @@
 - ✅ **09-17 06:27 #403 닫음**(completed, 코멘트 «CL 8366188 머지 완료») · **#443 재오픈**(CL 8410065 리뷰 중인데 09-15 02:13에 잘못 닫혀 있던 것). 둘 다 사용자 직접. OSSCA 원격 대기열 비움.
 - ✅ **09-18 #464 등록** (사용자 «이슈 올려»): [432367602] kMediaStreamAccurateDroppedFrameCount 만료 플래그 제거. crbug 템플릿(라벨 2026·chromium-issues), self-assign, 본문은 `drafts/432367602.md`에서 `--body-file`로 → 등록 직후 본문 길이 확인(2,023자, 09-15 빈 본문 재발 방지). 코드는 이미 브랜치에 있어 4단계 뒤 업로드 시 Status `gerrit 리뷰 중`으로.
 - ✅ **09-18 #465 등록** (사용자 «이슈 올려»): [41161335] kSuspendMediaForFrozenFrames 만료 플래그 제거. crbug 템플릿, self-assign, `--body-file` → 본문 1,928자 확인. 코드는 이미 브랜치 `654824f`에 있음.
+- ✅ **09-21 #478 등록** (사용자 «이슈 올려»): [474398415] kWebCodecsDecoderFlushOptimizations 킬스위치 제거. crbug 템플릿, self-assign, 본문 1,700자 확인. 코드는 브랜치 `607ea05`에 있음.
