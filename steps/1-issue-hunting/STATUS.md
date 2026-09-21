@@ -79,11 +79,11 @@
 
 | 후보 | 만료 | 크기 | OWNERS | 타깃 |
 |---|---|---|---|---|
-| A `kMergeRangesDuringAppend` 킬스위치 — media/filters/source_buffer_stream.cc (crbug 486351442) | M147 | XS 1파일 | media | media_unittests |
-| B `kRejectInvalidChildRegions` — components/viz/service/hit_test/hit_test_aggregator.cc (crbug 495852034) | M150 | XS 1파일 | viz | viz_unittests |
-| C `kSigninChromePasskeyUnlockUrlUsesAccountIndex` — google_apis/gaia (features.cc·gaia_urls.cc 2곳·unittest 4곳) | M153 | XS~S | gaia | google_apis_unittests |
+| A `kMergeRangesDuringAppend` 킬스위치 — media/filters/source_buffer_stream.cc (crbug 486351442) — 🔄 09-21 패치 `patches/A-*.patch`·초안 `drafts/486351442.md` 준비 | M147 | XS 1파일 | media | media_unittests |
+| B `kRejectInvalidChildRegions` — components/viz/service/hit_test/hit_test_aggregator.cc (crbug 495852034) — 🔄 09-21 패치 `patches/B-*.patch`·초안 `drafts/495852034.md` 준비 | M150 | XS 1파일 | viz | viz_unittests |
+| C `kSigninChromePasskeyUnlockUrlUsesAccountIndex` — google_apis/gaia (features.cc·gaia_urls.cc 2곳·unittest 4곳) — 🔄 09-21 패치 `patches/C-*.patch`·초안 `drafts/gaia-passkey-unlock-account-index.md` 준비 | M153 | XS~S | gaia | google_apis_unittests |
 | D `kStrictFFmpegCodecs` — media/ffmpeg/ffmpeg_common.cc (crbug 379418979, «security sensitive» 주석) | M133 | XS | media | media_unittests |
-| E `kValidatePromiseImageFormat` — viz image_context_impl.cc (crbug 524822746) | M152 | XS | viz | viz_unittests |
+| E `kValidatePromiseImageFormat` — viz image_context_impl.cc (crbug 524822746) — 🔄 09-21 패치 `patches/E-*.patch`·초안 `drafts/524822746.md` 준비 | M152 | XS | viz | viz_unittests |
 | F startup 설치 관리자 URL 우회 블록 — startup_tab_provider.cc (crbug 379999327, «or if it stops being reached» → UMA 근거 필요) | M143 | XS | startup | unit_tests |
 | G `kWebviewScriptFileOriginCheck` — extensions webview API (crbug 496016840) | M151 | XS | extensions | unit_tests |
 | H `kBackgroundActorTaskPopupsOpenInBackground` — chrome/browser/ui (crbug 489205993) | M150 | XS | chrome/ui | unit_tests |
