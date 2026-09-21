@@ -43,3 +43,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-17 06:09~06:13 — 제출 요청 댓글 5건 게시 (사용자 직접, Gerrit UI)** — 8382856 · 8409786 · 8397391 · 8410466 · 8410085. 전부 PATCHSET_LEVEL, 문안 «Thanks for the reviews! I don't have CQ access yet, so could one of you submit this when you get a chance?». attention set은 +1 준 리뷰어 둘에게 이동 확인. 8382856에서는 사용자가 Commit-Queue+2를 직접 눌렀으나 06:10 CQ 봇이 즉시 회수(비커미터) — 예상된 동작, 부작용 없음. 리눅스 세션 참고: 8410085도 포함됨.
 
 **09-17 머지 5건** (제출 요청 댓글 → 리뷰어 CQ+2 → 당일 머지): 8409786 alexilin@ 62분 · 8410085 dgn@ 2h31m · 8397391 finnur@ 4h12m · 8382856 manukh@ 12h46m · 8410466 eugene@ 14h13m. 남은 열린 CL 6건: 8412192(리뷰 대기) · 8410045(ricea@ 대기) · 8377022·8377550(stevebe@ 대기) · 8410065(미해결 2, 답변 필요) · 8349386(smcgruer@ 대기).
+
+**09-21 — 제출 요청 댓글 2건 게시 (사용자 직접)** — 8410045(nidhijaju@·ricea@) · 8429522(kron@·mfoltz@). 둘 다 Gerrit «Ready to Submit», attention set 리뷰어 둘로 이동 확인. 리뷰어 CQ 대기.
