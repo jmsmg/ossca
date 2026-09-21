@@ -51,3 +51,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-21 02:36Z — 8412192 핑 게시 (사용자 직접)**: derinel@ 지명(활동 중이나 우리 CL만 미응답, 근무일 4일 경과), nsatragno@는 09-11 이후 전 CL 무활동이라 부재로 판단해 셋째 리뷰어 추가는 보류. 계획: derinel@ +1 → kenrb@ 둘째 추가(09-21 규칙) · 목요일까지 무응답이면 kenrb@ 추가.
 
 **09-21 — quota CL 2건 둘째 리뷰어 추가 (사용자 직접)**: 8377550·8377022에 rakina@chromium.org 추가(storage OWNER, 당일 활동). stevebe@는 09-12 이후 전 CL 무활동 9일이라 부재 판단, 제거하지 않고 유지. 교훈: 둘째 리뷰어를 고를 때 OWNERS 여부만 보지 말고 **추가 직전 최근 1주 활동**을 확인한다(stevebe@는 추가 이틀 전부터 이미 조용했음). smcgruer@도 09-11 이후 무활동 → 8349386은 nikifork@에게 방향 질문 예정(미게시).
+
+**09-21 오후 (UTC 07~10시) 리뷰 이벤트** — 8410045: nidhijaju@가 CQ+2 → ios-simulator 트라이잡 **인프라 실패**(`ensure xcode.install xcode`, retcode 1)로 CQ 제거. 우리 코드 문제 아님 → 재시도 요청 댓글 필요. · 8412192: derinel@ **+1** «overall LGTM, webauthn 팀에서 정리에 우려가 있었다고 들었음, Nina(nsatragno@)가 결정하도록 두겠다» → 둘째 리뷰어 추가 대신 **nsatragno@ 복귀 대기**(09-11 이후 부재). · 8429522: kron@ **CQ+2** (10:33Z), CV 실행 중.

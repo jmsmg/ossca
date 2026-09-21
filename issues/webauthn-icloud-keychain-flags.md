@@ -38,3 +38,6 @@
 - [x] 7단계 기록 PR — ✅ **#450** (09-17, `contributions: Add 8412192`)
 
 **09-21** — 업로드 5일째 무반응(derinel@ 활동 중·nsatragno@ 09-11 이후 전 CL 조용) → derinel@ 지명 핑 게시. +1 오면 kenrb@ 둘째 추가, 목요일까지 조용하면 kenrb@ 추가.
+
+**09-21 08:39Z** — derinel@ +1. «webauthn 팀에서 이 정리에 우려가 있었다, Nina가 결정» → 계획 변경: kenrb@ 추가하지 않고 nsatragno@ 복귀(부재 중) 대기. 답이 없으면 1주 뒤 nsatragno@ 지명 핑.
+
