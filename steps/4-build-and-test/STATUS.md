@@ -35,7 +35,7 @@
 | (41161335 frozen-frames 플래그, Mac) | `blink_unittests` (`WebMediaPlayerImplTest.*`) — 09-18 캐시 위 증분(브랜치 전환 mtime 때문에 일부 재컴파일) | `frozen_frames_test_mac.sh` (tmux `frozen`) | `frozen_build.log`, `frozen_test.log`, `frozen_done.marker` | ✅ 09-19 — **4h35m00s/28,621스텝**(빌드 시계 기준; 벽시계 ~40h), `WebMediaPlayerImplTest.*` **78/78** |
 | (474398415 WebCodecs 킬스위치, Mac) | `blink_unittests` (`AudioDecoder*:VideoDecoder*:DecoderTemplate*:DecoderSelector*`) — **gclient sync 선행**(트리 09-21 main), `-j 4` | `webcodecs_flush_test_mac.sh` (tmux `webcodecs`, `caffeinate -s -i`) | `webcodecs_*.log`, `webcodecs_done.marker` · baseline `webcodecs_baseline_*.log` | ✅ 09-21 — sync 4m · **4h56m/39,600스텝**(sync 후 전체) · 24/24 (배치 21 + 단독 3). 배치 크래시 1건은 main도 동일(기존 테스트 격리 문제) |
 | (380105415 LCPP 킬스위치, Mac) | `unit_tests` (`LcpCriticalPathPredictor*:*Lcpp*:*LCPP*`) — sync 후 첫 unit_tests, `-j 4` | `lcpp_killswitch_test_mac.sh` | `lcpp_build.log`, `lcpp_test.log`, `lcpp_done.marker` | ✅ 09-22 00:50 — **2h04m20s/20,718스텝**, **127/127** (Ctrl+C로 한 번 중단 후 재시작, 캐시 이어짐) |
-| (A·B·E·C 통합, Mac) | `media_unittests`+`viz_unittests`+`google_apis_unittests` 한 번에(`-j 4`), 브랜치 `verify-abec` | `abec_test_mac.sh` | `abec_build.log`, `abec_{media,viz,gaia}_test.log`, `abec_done.marker` | ⬜ 러너 준비, 실행 대기 |
+| (A·B·E·C 통합, Mac) | `media_unittests`+`viz_unittests`+`google_apis_unittests` 한 번에(`-j 4`), 브랜치 `verify-abec` | `abec_test_mac.sh` | `abec_build.log`, `abec_{media,viz,gaia}_test.log`, `abec_done.marker` | ✅ 09-22 01:40 — **12m29s/623스텝**(sync 캐시 위 세 타깃 동시), media 198/198 · viz 19/19+1 SKIPPED · gaia 20/20 |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
 **교훈 (438680281 → 40176243)** — `base/not_fatal_until.h`처럼 `base/check.h`가 include하는 헤더를 건드리면 **전 트리 재빌드**다
@@ -65,6 +65,8 @@
 **09-18~20 교훈 (frozen-frames 빌드)** — ① 브랜치를 새 main으로 리베이스했다가 옛 base 브랜치로 돌아오면 파일 mtime이 전부 바뀌어 siso가 **사실상 전체 재빌드**(28,621스텝)를 한다. 캐시를 살리려면 **브랜치 전환을 최소화**하고, 리베이스는 업로드 직전에만. ② `caffeinate -i`는 **덮개 닫힘을 못 막는다** — 배터리+덮개 닫힘이면 빌드 시계가 서고 벽시계로 하루 이상 걸린다. 빌드 중엔 **전원 연결 + `caffeinate -s -i`** (연결 상태에서만 -s 유효). ③ blink 단위 테스트 꼬리(거대 TU)에서 `-j 6`은 16GB에 스왑 8.4GB를 부른다 → blink 타깃은 **`-j 4`**. ④ macOS 업데이트가 뒤에서 돌면 더 느려진다.
 
 **09-21 교훈 (webcodecs)** — 배치 실행에서 크래시가 나면 ① 단독(`--single-process-tests`) 재실행 ② 같은 필터로 재실행 ③ **main 바이너리로 같은 배치 실행(baseline 러너, 재링크 3분)** 순으로 우리 변경 탓인지 가린다. 이번엔 `audio_decoder_broker_test.cc`가 전역 브로커에 등록한 FakeInterfaceFactory가 뒤 테스트에서 재바인드되는 기존 격리 문제였다. `gclient sync` 후 첫 빌드는 `-j 4`로 4h56m, 재링크는 3분.
+
+**09-22 교훈 — 통합 검증 브랜치** — 서로 다른 파일을 건드리는 XS CL 여러 개는 `verify-<묶음>` 브랜치에 cherry-pick해 타깃을 한 번에 빌드하면 된다(4건을 12분에 검증). 단 `git cherry-pick`엔 `-q`가 없고(usage 에러), zsh에서는 `$files` 같은 변수가 단어 분리되지 않으니 파일 목록은 명시적으로 나열한다.
 
 **다음 액션** — CL B 착수 시 `pmd_test.sh`를 복사해 favicon 타깃/필터로 러너를 만든다.
 공용 로그(`cbuild.log`, `gclient_sync.log`)와 완료 마커(`*_done.marker`)는 계속 재사용.

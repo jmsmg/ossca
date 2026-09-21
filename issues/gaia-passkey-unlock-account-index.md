@@ -1,6 +1,6 @@
 # [C] kSigninChromePasskeyUnlockUrlUsesAccountIndex 만료 플래그 제거 — google_apis/gaia
 
-**상태: 3단계 완료(09-22 01:05, Mac) — 브랜치 `gaia-passkey-unlock-account-index-flag` (base 2ca4848 = 09-21 main) 커밋 `16e163cb1f770` (+2/−45, 4파일), gn check OK. 검증은 통합 브랜치 `verify-abec`(A+B+E+C)에서 한 번에(러너 `abec_test_mac.sh`). OSSCA 이슈 등록 허가 대기(초안 `steps/2-ossca-issue/drafts/gaia-passkey-unlock-account-index.md`).**
+**상태: 4단계 검증 완료(09-22 01:40, Mac) — verify-abec 통합 빌드 12m29s/623스텝 ✓ · google_apis_unittests GaiaUrlsTest.* 20/20 (이름 바꾼 passkey 테스트 2개 포함) · presubmit ✓. 3단계 완료(09-22 01:05) — 브랜치 `gaia-passkey-unlock-account-index-flag` (base 2ca4848 = 09-21 main) 커밋 `16e163cb1f770` (+2/−45, 4파일), gn check OK. 검증은 통합 브랜치 `verify-abec`(A+B+E+C)에서 한 번에(러너 `abec_test_mac.sh`). OSSCA 이슈 등록 허가 대기(초안 `steps/2-ossca-issue/drafts/gaia-passkey-unlock-account-index.md`).**
 
 ## 링크
 
@@ -31,6 +31,6 @@
 - [x] 1단계 착수 검증 (09-21: 선점 0·OSSCA 0·파일 열린 CL 무관)
 - [ ] 2단계 OSSCA 이슈 등록 (허가 대기)
 - [x] 3단계 브랜치·수정·format·gn check·커밋 `16e163cb1f770` (09-22)
-- [ ] 4단계 통합 빌드 + 테스트
+- [x] 4단계 — ✅ 09-22 verify-abec 통합 빌드 12m29s/623스텝, google_apis_unittests GaiaUrlsTest.* 20/20 (이름 바꾼 passkey 테스트 2개 포함), presubmit OK
 - [ ] 5단계 업로드 (리뷰어 1명 + `--cc amoseui@chromium.org`)
 - [ ] 7단계 기록 PR
