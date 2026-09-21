@@ -41,3 +41,6 @@ python3 ~/ossca/scripts/track.py ossca 8349386
 **09-21 — 기록 PR 2건 제출** (사용자 «PR 올려»): **#475** 8429522(#464) · **#476** 8423128(#465). validate·lint 통과, 본문 #437 형식, `Closes` 없음. CI·멘토 리뷰 대기.
 
 **09-21 (Mac)** — 8423462(#478) 기록 커밋을 `~/contributions` 브랜치 `260921-add-8423462`(upstream/main 최신 기반)에 준비, validate·lint 통과. 본문 초안 `drafts/8423462-pr-body.md`. 푸시·PR 허가 대기.
+
+**09-21 — 기록 PR #480 제출** (사용자 «PR 올려»): 8423462(#478). validate·lint 통과, `Closes` 없음. CI·멘토 리뷰 대기. 열린 기록 PR: #475·#476·#480.
+
