@@ -47,3 +47,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-21 — 제출 요청 댓글 2건 게시 (사용자 직접)** — 8410045(nidhijaju@·ricea@) · 8429522(kron@·mfoltz@). 둘 다 Gerrit «Ready to Submit», attention set 리뷰어 둘로 이동 확인. 리뷰어 CQ 대기.
 
 **09-21 02:31Z — 8410065 답글 2건 게시 (사용자 직접)**: rdevlin.cronin@ 인라인(4994행)에 «mock 정책 제공자 + CheckForExternalUpdates()로 실제 경로를 타는 유닛 테스트로 바꾸겠다, 브라우저 테스트를 원하면 그쪽으로» 제안 · solomonkinard@ 패치셋 코멘트에 «andreaorru@ OOO라 둘째 +1용, 테스트 방향 정해지면 attention 다시» 답변. attention → solomonkinard·rdevlin.cronin·andreaorru. 주의: 인라인 답글이 **Resolved**로 들어가 미해결 0 — 리뷰어가 다시 열 수 있으니 그대로 둠. 8412192 핑은 아직 미게시.
+
+**09-21 02:36Z — 8412192 핑 게시 (사용자 직접)**: derinel@ 지명(활동 중이나 우리 CL만 미응답, 근무일 4일 경과), nsatragno@는 09-11 이후 전 CL 무활동이라 부재로 판단해 셋째 리뷰어 추가는 보류. 계획: derinel@ +1 → kenrb@ 둘째 추가(09-21 규칙) · 목요일까지 무응답이면 kenrb@ 추가.

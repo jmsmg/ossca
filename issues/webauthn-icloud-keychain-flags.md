@@ -36,3 +36,5 @@
 - [x] 4단계 — ✅ 09-16 unit_tests 3h34m38s/37,212스텝, ChromeAuthenticatorRequestDelegate* 6/6
 - [x] 5단계 업로드 — ✅ **CL 8412192** (09-16, 리뷰어 derinel@·nsatragno@, presubmit 0 경고)
 - [x] 7단계 기록 PR — ✅ **#450** (09-17, `contributions: Add 8412192`)
+
+**09-21** — 업로드 5일째 무반응(derinel@ 활동 중·nsatragno@ 09-11 이후 전 CL 조용) → derinel@ 지명 핑 게시. +1 오면 kenrb@ 둘째 추가, 목요일까지 조용하면 kenrb@ 추가.
