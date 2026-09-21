@@ -48,3 +48,5 @@
 파일에 열린 CL 29건(anunoy@ 8081840 등, `track.py file` 09-15). 이 블록을 건드리는 것은 없음.
 
 **09-17** — OSSCA #443 재오픈(CL 8410065 리뷰 중; 09-15 02:13 조기 닫힘 정정).
+
+**09-21** — rdevlin.cronin@의 09-15 코멘트(테스트가 내부 함수를 직접 호출해 «자동 재활성화» 증명이 약해짐)에 6일 만에 답글: 정책 위치 `MockExternalProvider` + `CheckForExternalUpdates()`로 실제 경로를 타는 유닛 테스트 제안, 브라우저 테스트 선호 시 그쪽으로. solomonkinard@에게도 둘째 +1용임을 설명. 방향 답이 오면 구현(리눅스 unit_tests 캐시 또는 Mac gclient sync 뒤).
