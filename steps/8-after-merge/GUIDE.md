@@ -27,6 +27,10 @@
 - [ ] **5. `../../README.md` 갱신** — 상태 요약표 + **CL 사이즈 이력** 표에 한 줄 추가
       (사이즈는 Gerrit 뱃지 기준: XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000)
 
+## ⚠️ 이 저장소에서는 `Closes #<번호>`가 이슈를 닫지 않는다 (2026-09-21 확인)
+
+#438(`Closes #403`), #459~#461·#463(`Closes #439/#423/#440/#442`) 모두 main에 squash merge 됐지만 이슈는 열린 채로 남았다. 타임라인에 `connected` 이벤트가 없고 `cross-referenced`/`referenced`만 있다 → 저장소 설정(«Auto-close issues with merged linked pull requests»)이 꺼져 있거나 fork PR 링크가 안 잡히는 것으로 보인다. **결론: merged PR이 머지되면 이슈를 손으로 닫는다** — 닫을 때 코멘트 한 줄(«CL <번호> 머지 완료 (<해시>), 기록 PR #<번호> 머지. 이슈 닫습니다.»). `Closes` 줄은 링크 용도로 계속 넣되 자동화로 믿지 않는다.
+
 ## 이슈 자동 닫기 — `Closes #<번호>`
 
 `status: merged` PR 본문 맨 아래에 한 줄 넣는다. 머지되는 순간 OSSCA 이슈가 닫힌다.
