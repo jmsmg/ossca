@@ -32,7 +32,7 @@
 | (438680281) | `components_unittests` + `base_unittests` | `prefs_notfatal_test.sh` (tmux `pnf`) | `pnf_build.log`, `pnf_prefs_test.log`, `pnf_check_test.log`, `pnf_done.marker` | ✅ 09-07 통과 — 13h23m29s / 33,412스텝, 47/47 + 26/26 |
 | (#441 WebAuthn 플래그, Mac) | `unit_tests` (`ChromeAuthenticatorRequestDelegate*`) | `webauthn_flags_test_mac.sh` (tmux `webauthn`) — **검증 전용 브랜치 `verify-441-with-m144`**(#441 + M144 cherry-pick)에서 증분 | `webauthn_build.log`, `webauthn_test.log`, `webauthn_done.marker` | ✅ 09-16 14:35 — **3h34m38s/37,212스텝**, `ChromeAuthenticatorRequestDelegate*` **6/6** |
 | (432367602 dropped-frame 플래그, Mac) | `blink_unittests` (`WebMediaPlayerMSCompositor*`) — **이 Mac 첫 빌드**, dry-run 21,814스텝 | `dropped_frame_test_mac.sh` (tmux `dropped`) | `dropped_build.log`, `dropped_test.log`, `dropped_done.marker` | ✅ 09-18 12:45 — **2h47m03s/21,889스텝**(첫 빌드), `WebMediaPlayerMSCompositor*` **14/14** |
-| (41161335 frozen-frames 플래그, Mac) | `blink_unittests` (`WebMediaPlayerImplTest.*`) — 09-18 캐시 위 증분(브랜치 전환 mtime 때문에 일부 재컴파일) | `frozen_frames_test_mac.sh` (tmux `frozen`) | `frozen_build.log`, `frozen_test.log`, `frozen_done.marker` | ⬜ 러너 준비, 실행 대기 |
+| (41161335 frozen-frames 플래그, Mac) | `blink_unittests` (`WebMediaPlayerImplTest.*`) — 09-18 캐시 위 증분(브랜치 전환 mtime 때문에 일부 재컴파일) | `frozen_frames_test_mac.sh` (tmux `frozen`) | `frozen_build.log`, `frozen_test.log`, `frozen_done.marker` | ✅ 09-19 — **4h35m00s/28,621스텝**(빌드 시계 기준; 벽시계 ~40h), `WebMediaPlayerImplTest.*` **8/8** |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
 **교훈 (438680281 → 40176243)** — `base/not_fatal_until.h`처럼 `base/check.h`가 include하는 헤더를 건드리면 **전 트리 재빌드**다
@@ -58,6 +58,8 @@
 **09-18 `blink_unittests` 첫 기록** — 2h47m03s / 21,889스텝 (`-j 6`, 09-15 base 트리, `unit_tests` 캐시 위). 후반 600스텝(core/modules 큰 테스트 파일)이 30분을 먹는다. blink 쪽 후보는 이제 증분으로 돈다.
 
 **⚠️ 09-18 트리 상태** — 432367602 리베이스 시험을 위해 `git fetch origin`을 돌려 origin/main이 52d366080a4e(09-18)로 올라왔고, 브랜치를 그 위로 리베이스했다. **체크아웃의 DEPS는 새 main인데 third_party 서브모듈들은 09-15 상태** → `git status`에 ` M` 서브모듈 (angle·quiche·boringssl·catapult 등, 전부 포인터 불일치이고 일반 파일 변경 0). **다음 로컬 빌드 전에 `gclient sync` 필수**(그러면 M144 랜딩분도 들어와 `unit_tests` 3.5h 문제 해소). 이미 검증한 432367602 업로드에는 영향 없음(커밋만 올라감).
+
+**09-18~20 교훈 (frozen-frames 빌드)** — ① 브랜치를 새 main으로 리베이스했다가 옛 base 브랜치로 돌아오면 파일 mtime이 전부 바뀌어 siso가 **사실상 전체 재빌드**(28,621스텝)를 한다. 캐시를 살리려면 **브랜치 전환을 최소화**하고, 리베이스는 업로드 직전에만. ② `caffeinate -i`는 **덮개 닫힘을 못 막는다** — 배터리+덮개 닫힘이면 빌드 시계가 서고 벽시계로 하루 이상 걸린다. 빌드 중엔 **전원 연결 + `caffeinate -s -i`** (연결 상태에서만 -s 유효). ③ blink 단위 테스트 꼬리(거대 TU)에서 `-j 6`은 16GB에 스왑 8.4GB를 부른다 → blink 타깃은 **`-j 4`**. ④ macOS 업데이트가 뒤에서 돌면 더 느려진다.
 
 **다음 액션** — CL B 착수 시 `pmd_test.sh`를 복사해 favicon 타깃/필터로 러너를 만든다.
 공용 로그(`cbuild.log`, `gclient_sync.log`)와 완료 마커(`*_done.marker`)는 계속 재사용.
