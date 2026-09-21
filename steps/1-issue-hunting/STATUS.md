@@ -97,7 +97,7 @@
 | 후보 | 만료 | 크기 | 비고 |
 |---|---|---|---|
 | K prefetch_manager.cc `Navigation.Prefetch.(Un)CompressedBodySize` 히스토그램 제거 (TODO(ricea) Oct 2024, crbug 335524391 열림) | 2024-10 | XS + histograms.xml obsolete | ricea@(빠름) + metrics 리뷰어 |
-| L components/metrics/demographics 폐기 pref `sync.demographics_birth_year_offset` 등록·ClearPref 제거 (crbug 40240008 열림 «Clean up sync demographics prefs») | **2023-09** | XS | metrics OWNERS |
+| ~~L components/metrics/demographics 폐기 pref~~ **✗ 탈락(09-21)** — 헤더의 «Delete after 2023/09»는 낡은 주석이고, asvitkine@가 2025-12에 CL 7243638로 `ClearPref()`를 넣으며 «Remove these after **2026/12**»로 갱신함. 아직 3개월 남음. 2027-01 이후 재검토 | — | — | — |
 | M net/http no_vary_search legacy 디렉터리 이동 코드 (crbug 421927600 FIXED; «kSourceDidNotExist 100%면 제거») | 2025-12 | S | ricea@가 UMA 확인 필요 |
 | N extensions 2013 preinstalled apps 마이그레이션 (`kProvideLegacyPreinstalledApps`, TODO(grv) Q1-2013) 2파일 | **2013** | S~M, pref 상태 연결 | extensions |
 | O blink array_buffer_contents `OOM_CRASH` 예비 검사 (crbug 369653504 FIXED, «크래시 없으면 2025-03 제거») | 2025-03 | XS | 크래시 데이터 확인 필요 |
