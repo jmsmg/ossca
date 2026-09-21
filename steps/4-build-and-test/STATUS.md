@@ -33,6 +33,7 @@
 | (#441 WebAuthn 플래그, Mac) | `unit_tests` (`ChromeAuthenticatorRequestDelegate*`) | `webauthn_flags_test_mac.sh` (tmux `webauthn`) — **검증 전용 브랜치 `verify-441-with-m144`**(#441 + M144 cherry-pick)에서 증분 | `webauthn_build.log`, `webauthn_test.log`, `webauthn_done.marker` | ✅ 09-16 14:35 — **3h34m38s/37,212스텝**, `ChromeAuthenticatorRequestDelegate*` **6/6** |
 | (432367602 dropped-frame 플래그, Mac) | `blink_unittests` (`WebMediaPlayerMSCompositor*`) — **이 Mac 첫 빌드**, dry-run 21,814스텝 | `dropped_frame_test_mac.sh` (tmux `dropped`) | `dropped_build.log`, `dropped_test.log`, `dropped_done.marker` | ✅ 09-18 12:45 — **2h47m03s/21,889스텝**(첫 빌드), `WebMediaPlayerMSCompositor*` **14/14** |
 | (41161335 frozen-frames 플래그, Mac) | `blink_unittests` (`WebMediaPlayerImplTest.*`) — 09-18 캐시 위 증분(브랜치 전환 mtime 때문에 일부 재컴파일) | `frozen_frames_test_mac.sh` (tmux `frozen`) | `frozen_build.log`, `frozen_test.log`, `frozen_done.marker` | ✅ 09-19 — **4h35m00s/28,621스텝**(빌드 시계 기준; 벽시계 ~40h), `WebMediaPlayerImplTest.*` **78/78** |
+| (474398415 WebCodecs 킬스위치, Mac) | `blink_unittests` (`AudioDecoder*:VideoDecoder*:DecoderTemplate*:DecoderSelector*`) — **gclient sync 선행**(트리 09-21 main), `-j 4` | `webcodecs_flush_test_mac.sh` (tmux `webcodecs`, `caffeinate -s -i`) | `webcodecs_sync.log`, `webcodecs_gn.log`, `webcodecs_build.log`, `webcodecs_test.log`, `webcodecs_done.marker` | ⬜ 러너 준비, 실행 대기 |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
 **교훈 (438680281 → 40176243)** — `base/not_fatal_until.h`처럼 `base/check.h`가 include하는 헤더를 건드리면 **전 트리 재빌드**다
