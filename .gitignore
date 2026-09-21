@@ -1,3 +1,4 @@
 *.log
 *.marker
 __pycache__/
+.DS_Store
