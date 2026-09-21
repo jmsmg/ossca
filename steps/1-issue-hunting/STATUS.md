@@ -109,7 +109,7 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 
 | 후보 | 도입 | 크기 | 비고 |
 |---|---|---|---|
-| Q `kMultipleLcppKeyInitiatorOriginFix` — chrome/browser/predictors/lcp_critical_path_predictor_util.cc («Remove this kill switch after we confirmed that this works fine», crbug 380105415) | 2024-11 | XS 1파일 | 제거 의도 명시. predictors OWNERS |
+| **★ Q `kMultipleLcppKeyInitiatorOriginFix`** — lcp_critical_path_predictor_util.cc (crbug 380105415 FIXED) — 🔄 **09-21 착수 검증 ①~④ 통과**(선점 0·OSSCA 0·파일 열린 CL은 DO-NOT-SUBMIT 실험뿐·chikamune@ 활동) → OSSCA 초안 `drafts/380105415.md`, 브랜치는 baseline 확인 뒤 | 2024-11 | XS 1파일 | 제거 의도 명시 |
 | R `kDesktopCapturePermissionCheckerKillSwitch` — chrome/browser/ui/views/desktop_capture/screen_capture_permission_checker_mac.mm | 2024-06 | XS 1파일, **Mac 전용** | 제거 약속 없는 킬스위치 → OWNER에 먼저 물을 것 |
 | S `kHttpsFirstModeForAdvancedProtectionUsers` — chrome_features + chrome/browser/ssl 8파일 («Kill switch for crbug 40892208») | 2023-02 | M | ssl/security OWNERS, uitest 포함 |
 | T `kOptimizationGuideFetchingForSRP` — optimization_guide 3파일(browsertest 포함) | 2023-07 | S | browser_tests 필요 |
