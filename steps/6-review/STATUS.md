@@ -65,3 +65,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-22 01:53Z — 8377022 재+1 요청 댓글 게시 (사용자 직접)**: «PS6는 8377550 랜딩 뒤 순수 리베이스, diff는 PS5와 동일, +1 다시 주고 제출도 부탁». attention → evanstade@·stevebe@·rakina@.
 
 **09-22 02:07~02:08Z (사용자 직접)** — 8423462: 재CQ 요청 댓글(«dry-run 실패는 무관한 gn 파손, 제출 부탁»), attention → eugene@·dalecurtis@ · 8423128: 둘째 리뷰어 tmathmeyer@ 추가 + 설명 댓글, attention → tmathmeyer@. Gerrit 쪽 대기 항목 전부 처리됨.
+
+**09-22 03:11~03:59Z — 8423462 dry run 재실행 → PASS** (eugene@ CQ+1 → «This CL has passed the run»). attention → dalecurtis@·jmsmg1. 다음: CQ+2 요청 한 줄(사용자).
