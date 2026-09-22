@@ -36,6 +36,7 @@
 | (474398415 WebCodecs 킬스위치, Mac) | `blink_unittests` (`AudioDecoder*:VideoDecoder*:DecoderTemplate*:DecoderSelector*`) — **gclient sync 선행**(트리 09-21 main), `-j 4` | `webcodecs_flush_test_mac.sh` (tmux `webcodecs`, `caffeinate -s -i`) | `webcodecs_*.log`, `webcodecs_done.marker` · baseline `webcodecs_baseline_*.log` | ✅ 09-21 — sync 4m · **4h56m/39,600스텝**(sync 후 전체) · 24/24 (배치 21 + 단독 3). 배치 크래시 1건은 main도 동일(기존 테스트 격리 문제) |
 | (380105415 LCPP 킬스위치, Mac) | `unit_tests` (`LcpCriticalPathPredictor*:*Lcpp*:*LCPP*`) — sync 후 첫 unit_tests, `-j 4` | `lcpp_killswitch_test_mac.sh` | `lcpp_build.log`, `lcpp_test.log`, `lcpp_done.marker` | ✅ 09-22 00:50 — **2h04m20s/20,718스텝**, **127/127** (Ctrl+C로 한 번 중단 후 재시작, 캐시 이어짐) |
 | (A·B·E·C 통합, Mac) | `media_unittests`+`viz_unittests`+`google_apis_unittests` 한 번에(`-j 4`), 브랜치 `verify-abec` | `abec_test_mac.sh` | `abec_build.log`, `abec_{media,viz,gaia}_test.log`, `abec_done.marker` | ✅ 09-22 01:40 — **12m29s/623스텝**(sync 캐시 위 세 타깃 동시), media 198/198 · viz 19/19+1 SKIPPED · gaia 20/20 |
+| (545843242 WPT 수정, Mac) | `blink_tests`(content_shell) → `run_web_tests.py external/wpt/payment-method-manifest/` | `wpt_pmm_test_mac.sh` | `wpt_build.log`, `wpt_test.log`, `wpt_done.marker` | ⬜ 러너 준비, 실행 대기 (content_shell 첫 빌드) |
 | CL B (favicon) | `components_unittests` 예상 | ⬜ 러너 미작성 | — | ⬜ |
 
 **교훈 (438680281 → 40176243)** — `base/not_fatal_until.h`처럼 `base/check.h`가 include하는 헤더를 건드리면 **전 트리 재빌드**다
