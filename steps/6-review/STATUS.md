@@ -53,3 +53,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-21 — quota CL 2건 둘째 리뷰어 추가 (사용자 직접)**: 8377550·8377022에 rakina@chromium.org 추가(storage OWNER, 당일 활동). stevebe@는 09-12 이후 전 CL 무활동 9일이라 부재 판단, 제거하지 않고 유지. 교훈: 둘째 리뷰어를 고를 때 OWNERS 여부만 보지 말고 **추가 직전 최근 1주 활동**을 확인한다(stevebe@는 추가 이틀 전부터 이미 조용했음). smcgruer@도 09-11 이후 무활동 → 8349386은 nikifork@에게 방향 질문 예정(미게시).
 
 **09-21 오후 (UTC 07~10시) 리뷰 이벤트** — 8410045: nidhijaju@가 CQ+2 → ios-simulator 트라이잡 **인프라 실패**(`ensure xcode.install xcode`, retcode 1)로 CQ 제거. 우리 코드 문제 아님 → 재시도 요청 댓글 필요. · 8412192: derinel@ **+1** «overall LGTM, webauthn 팀에서 정리에 우려가 있었다고 들었음, Nina(nsatragno@)가 결정하도록 두겠다» → 둘째 리뷰어 추가 대신 **nsatragno@ 복귀 대기**(09-11 이후 부재). · 8429522: kron@ **CQ+2** (10:33Z), CV 실행 중.
+
+**09-21 저녁~09-22 새벽** — 8410045 머지(CQ 재요청 댓글 → nidhijaju@ 재시도 성공) · 8377550 머지(stevebe@ 복귀, +1+CQ) · 8349386 abandon(smcgruer@ «버그·WPT 환각» 인정, WPT 수정 요청) · 8423462: eugene@ +1·dry-run, dalecurtis@ +1 → READY지만 dry-run이 **무관한 gn 오류**(chrome/test/data/webui composebox pixel test include, 당일 리랜드로 해결)로 실패 → CQ 재요청 필요 · 8377022: stevebe@ +1 → READY → 제출 요청 댓글 필요 · 8423128: dalecurtis@ +1 → 둘째 리뷰어 tmathmeyer@ 추가 필요.

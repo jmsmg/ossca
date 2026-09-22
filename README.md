@@ -52,9 +52,9 @@ ossca/
 | 41396598 | ✅ | ❌ | ➖ | ➖ | ➖ | ➖ | ➖ | ➖ | 포기 (09-09) — 의사 타진 16일 무응답, Recharge-Cold 라벨 |
 | [438680281](https://crbug.com/438680281) (만료 M143 정리) | ✅ 09-07 | ✅ #403 | ✅ | ✅ | ✅ | ✅ | ✅ #405 | 🔄 | 8 — **CL 8366188 머지(09-14, `fdce3e159a88b`)**. `status: merged` PR **#438** 제출(`Closes #403`), 멘토 머지 대기 |
 | (자체 발굴) quota 테스트 클럭 댕글링 | ✅ 09-10 | ✅ #421 | ✅ | ✅ | ✅ PS3 | ⏳ | ✅ #424 | ⬜ | **PS2 로컬 완성(09-11, Mac)** — mock time 판, 57/57·319/319, 크래시 0. **PS2/PS3 업로드 + 답글 2건 게시(09-11)** → evanstade@ 응답 대기. OSSCA 이슈는 여전히 미등록 |
-| (자체 발굴) quota 만료 M148 153곳 | ✅ 09-09 | ✅ #422 | ✅ | ✅ 313/313 | ✅ 8377550 | ⏳ | ✅ #425 | ⬜ | 6 — **PS2(설명 축소) + 답글 완료(09-11)**, CR+1 유지. 어텐션 수동 추가 필요. 남은 것: 리뷰어 CQ · 기록 PR 미제출 · OSSCA 이슈 미등록 |
+| (자체 발굴) quota 만료 M148 153곳 | ✅ 09-09 | ✅ #422 | ✅ | ✅ 313/313 | ✅ 8377550 | ✅ 머지 09-21 | ✅ #425 | 🔄 | 8 — **머지 09-21** (`2d9fea1150857`, stevebe@ CQ). merged PR(`Closes #422`) 허가 대기 · #422 수동 닫기 |
 | [40176243](https://crbug.com/40176243)·40251269 (sql ColumnTime) CL 1 | ✅ 09-05 | ✅ #416 | ✅ | ✅ 281/281 | ✅ 8382856 | ✅ 머지 09-17 | ⏳ #417 | 🔄 | 8 — CL 1 **머지 09-17** (`2c16217b7e515`, manukh@ CQ). merged PR **#462**(Closes 없음, 시리즈) 제출 09-18. CL 2 8410045 리뷰 중 |
-| 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ⏳ | ✅ #452 | ⬜ | 6 — **CL 8410045**(09-15) nidhijaju@ +1, ricea@ 대기. 기록 PR **#452**(09-17). #416 코멘트 09-17 |
+| 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ✅ 머지 09-21 | ✅ #452 | 🔄 | 8 — CL 2 **머지 09-21** (`59647e287088b`). merged PR 허가 대기(시리즈, Closes 없음). CL 3~5 미착수 |
 | (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | ✅ 95/95·26/26 | ✅ 8409786 | ✅ 머지 09-17 | ✅ #451 | 🔄 | 8 — **머지 09-17** (`37ac4ebc43de5`, alexilin@ CQ). 기록 PR #451 머지. merged PR **#459**(`Closes #439`) 제출 09-18 |
 | (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ✅ 머지 09-17 | ✅ #453 | 🔄 | 8 — **머지 09-17** (`0a61d4d13c9e4`, eugene@ CQ). 기록 PR #453 머지. merged PR **#461**(`Closes #440`) 제출 09-18 |
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ✅ 09-16 | ✅ 09-16 | ✅ 8412192 | ⬜ | ✅ #450 | ⬜ | 6 리뷰 대기 — **Mac** 09-16 **CL 8412192** PS3 (derinel@·nsatragno@). #441 코멘트 09-17 (S) |
@@ -120,9 +120,9 @@ I. **OSSCA 이슈 정리** — #403 은 PR #438 머지에도 안 닫힘(수동 c
 | [8282239](https://crrev.com/c/8282239) | [storage] Migrate QuotaDatabase to scoped sql::Transaction | M | +56/−15 (71줄) | 3 | 머지 (2026-09-04) |
 | [8336867](https://crrev.com/c/8336867) | [payments] Match Link rel types case-insensitively in manifest download | S | +23/−7 (30줄) | 3 | 머지 (2026-09-02) |
 | [8351543](https://crrev.com/c/8351543) | [payments] Move manifest parser error strings to native_error_strings | L | +222/−72 (294줄) | 4 | 머지 (2026-09-09) |
-| [8349386](https://crrev.com/c/8349386) | [payments] Fail manifest download on multiple manifest Link headers | M | +105/−38 (143줄) | 5 | 리뷰 대기 (PS2, 09-07 리베이스 업로드) |
+| [8349386](https://crrev.com/c/8349386) | [payments] Fail manifest download on multiple manifest Link headers | M | +105/−38 (143줄) | 5 | abandon (2026-09-21, 스펙 오독) |
 | [8366188](https://crrev.com/c/8366188) | [prefs] Remove expired NotFatalUntil::M143 from PrefService type checks | XS | +4/−5 (9줄) | 2 | 머지 (2026-09-14) |
-| [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L | +154/−160 (314줄) | 10 | 리뷰 중 (PS2, evanstade +1, stevebe 대기) |
+| [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L | +154/−160 (314줄) | 10 | 머지 (2026-09-21) |
 | [8377022](https://crrev.com/c/8377022) | [storage] Drop QuotaDatabase's test clock in favor of mock time | M | +41/−107 (148줄) | 5 | 리뷰 중 (PS5, evanstade +1, stevebe 대기) |
 | [8382856](https://crrev.com/c/8382856) | [history] Migrate to sql::Statement time accessors | S | +14/−18 (32줄) | 3 | 머지 (2026-09-17) |
 | [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S | +0/−82 (82줄) | 3 | 머지 (2026-09-17) |
@@ -131,6 +131,7 @@ I. **OSSCA 이슈 정리** — #403 은 PR #438 머지에도 안 닫힘(수동 c
 | [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | S | +1/−10 (11줄) | 1 | 머지 (2026-09-17) |
 | [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S | +8/−40 (48줄) | 3 | 리뷰 중 (PS3, derinel·nsatragno 대기) |
 | [8429522](https://crrev.com/c/8429522) | [mediastream] Remove expired kMediaStreamAccurateDroppedFrameCount flag | S | +5/−25 (30줄) | 3 | 머지 (2026-09-21) |
+| [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | M | +27/−40 (67줄) | 3 | 머지 (2026-09-21) |
 
 사이즈 = Gerrit 뱃지 기준 (변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
 docs 링크 수정 → include 정리 → 불변식 강제(CHECK) → 자료구조 리팩토링(RAII 트랜잭션) 순으로
