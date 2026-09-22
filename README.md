@@ -60,7 +60,7 @@ ossca/
 | (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ✅ 09-16 | ✅ 09-16 | ✅ 8412192 | ⬜ | ✅ #450 | ⬜ | 6 리뷰 대기 — **Mac** 09-16 **CL 8412192** PS3 (derinel@·nsatragno@). #441 코멘트 09-17 (S) |
 | [432367602](https://crbug.com/432367602) dropped-frame 플래그 (media/base + blink mediastream) | ✅ 09-18 | ✅ #464 | ✅ `ee435a2` | ✅ 14/14 | ✅ 8429522 | ✅ 머지 09-21 | ✅ #475 | 🔄 | 8 — **머지 09-21** (`24cd108dc57b6`, kron@ CQ). 기록 PR #475 머지 · merged PR **#483**(09-21) · #464 수동 닫기 · 보드 Status |
 | [41161335](https://crbug.com/41161335) frozen-frames 플래그 (media/base + blink platform/media) | ✅ 09-18 | ✅ #465 | ✅ `654824f` | ✅ 78/78 | ✅ 8423128 | ⏳ | ✅ #476 | ⬜ | 6 — **Mac** 09-21 **CL 8423128** PS1 (dalecurtis@ 1차, CC amoseui@). +1 오면 tmathmeyer@ 추가. #465 코멘트 허가 대기 (S) |
-| [474398415](https://crbug.com/474398415) WebCodecs flush 킬스위치 (media/base + blink webcodecs) | ✅ 09-21 | ✅ #478 | ✅ `607ea05` | ✅ 24/24 | ✅ 8423462 | ⏳ | ✅ #480 | ⬜ | 6 — **Mac** 09-21 **CL 8423462** PS1 (eugene@ 1차, CC amoseui@). +1 오면 tguilbert@ 추가. #478 코멘트·기록 PR #480 09-21 (S) |
+| [474398415](https://crbug.com/474398415) WebCodecs flush 킬스위치 (media/base + blink webcodecs) | ✅ 09-21 | ✅ #478 | ✅ `607ea05` | ✅ 24/24 | ✅ 8423462 | ✅ 머지 09-22 | ✅ #480 | 🔄 | 8 — **머지 09-22** (`1e1052fd23521`, eugene@ CQ). 기록 PR #480 머지. merged PR(`Closes #478`) 허가 대기 · #478 수동 닫기 |
 | [380105415](https://crbug.com/380105415) LCPP initiator-origin 킬스위치 (chrome/browser/predictors) | ✅ 09-21 | ⬜ 초안 | ✅ `04c9cdc` | ✅ 127/127 | ⬜ | ⬜ | ⬜ | ⬜ | 2/5 — unit_tests 2h04m ✓(09-22). OSSCA 등록 → 업로드 허가 대기. 리뷰어 chikamune@ → alexilin@ (XS) |
 | [486351442](https://crbug.com/486351442) A `kMergeRangesDuringAppend` (media/filters) | ✅ 09-21 | ⬜ 초안 | ✅ `5b16bc9` | ✅ 198/198 | ⬜ | ⬜ | ⬜ | ⬜ | 2/5 — verify-abec 통합 빌드 ✓(09-22). OSSCA 등록 → 업로드 허가 대기 (XS) |
 | [495852034](https://crbug.com/495852034) B `kRejectInvalidChildRegions` (viz hit_test) | ✅ 09-21 | ⬜ 초안 | ✅ `2480f86` | ✅ 19/19 | ⬜ | ⬜ | ⬜ | ⬜ | 2/5 — verify-abec 통합 빌드 ✓(09-22). OSSCA 등록 → 업로드 허가 대기 (XS) |
@@ -132,6 +132,7 @@ I. **OSSCA 이슈 정리** — #403 은 PR #438 머지에도 안 닫힘(수동 c
 | [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S | +8/−40 (48줄) | 3 | 리뷰 중 (PS3, derinel·nsatragno 대기) |
 | [8429522](https://crrev.com/c/8429522) | [mediastream] Remove expired kMediaStreamAccurateDroppedFrameCount flag | S | +5/−25 (30줄) | 3 | 머지 (2026-09-21) |
 | [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | M | +27/−40 (67줄) | 3 | 머지 (2026-09-21) |
+| [8423462](https://crrev.com/c/8423462) | [WebCodecs] Remove the kWebCodecsDecoderFlushOptimizations kill switch | S | +4/−26 (30줄) | 7 | 머지 (2026-09-22) |
 
 사이즈 = Gerrit 뱃지 기준 (변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
 docs 링크 수정 → include 정리 → 불변식 강제(CHECK) → 자료구조 리팩토링(RAII 트랜잭션) 순으로
