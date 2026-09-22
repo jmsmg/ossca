@@ -171,3 +171,6 @@ AutoReset 판을 낼 때 «관행 분포 558 vs 51»까지 세어가며 **세터
 - 필터 없는 기본 `storage_unittests` 실행에서도 크래시가 나는지 — 봇의 배치 조건에 가장 가깝다
 
 답글·계획 초안: `steps/6-review/drafts/8377022-mocktime.md`
+
+**09-22 (Mac)** — stevebe@ +1(09-21 23:37Z)로 둘째 +1 확보 → Ready to Submit이었으나 Gerrit `mergeable: false`: 8377550(quota M148 제거, 09-21 머지)이 같은 `quota_manager_impl.cc` 줄(`CHECK(entry.value(), NotFatalUntil::M148)` ↔ 우리 `GetNow()→Time::Now()`)을 건드려 충돌. origin/main(929d204, 8377550 포함)으로 리베이스, 충돌 1곳 해결(main의 CHECK + 우리 Time::Now()). 결과 커밋 `ea68ebcba6067`, +41/−107로 PS5와 패치 동일(+/- 줄 완전 일치), gn check OK. 백업 브랜치 `quota-db-test-clock-leak-pre-rebase`. **PS6 업로드 허가 대기** — 패치가 동일해 Gerrit이 trivial rebase로 보고 +1을 복사할 가능성 큼. 주의: fetch로 DEPS가 다시 앞서감 → 다음 로컬 빌드 전 `gclient sync`.
+
