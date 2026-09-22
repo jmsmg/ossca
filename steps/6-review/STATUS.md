@@ -61,3 +61,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-22 — 8377022 merge conflict** — 8377550 머지로 `quota_manager_impl.cc` 1곳 충돌(Gerrit mergeable=false). 로컬 리베이스·해결(`ea68ebcba6067`, 패치 동일). PS6 업로드 허가 대기. 교훈: 같은 파일을 건드리는 우리 CL 두 개가 나란히 리뷰 중이면 하나가 머지되는 순간 다른 하나는 리베이스가 필요하다 — 머지 알림을 받으면 남은 CL의 mergeable을 바로 본다.
 
 **09-22 01:50Z — 8377022 PS6**(리베이스) 업로드. mergeable 회복, 그러나 REWORK 판정으로 +1 두 개 Outdated → 재+1 요청 댓글(사용자). `git cl upload -T -t`는 동시에 불가.
+
+**09-22 01:53Z — 8377022 재+1 요청 댓글 게시 (사용자 직접)**: «PS6는 8377550 랜딩 뒤 순수 리베이스, diff는 PS5와 동일, +1 다시 주고 제출도 부탁». attention → evanstade@·stevebe@·rakina@.
