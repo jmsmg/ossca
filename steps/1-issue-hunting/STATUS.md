@@ -69,6 +69,10 @@
 
 **탈락 기록(재조사 방지):** 41396598(의사 타진 무응답·Recharge-Cold, 09-09) · 507327886 · 40891923 · 473666511 · 377242771 · 433551601 · 396030877 · 40177656 · (sql 09-05) 40146017 · 40262539 · 40777743 · 40061775 · 40779018 · 477762546 · 413595430
 
+## ★ 최우선 후속 (2026-09-22) — 545843242 WPT 수정
+
+8349386 abandon의 후속. smcgruer@ 요청: WPT `link-header-selection.https.window.js`의 «Multiple … cause fetch to abort» 서브테스트를 스펙(첫 번째 일치 항목 사용)에 맞게 고치고, Chromium이 그 서브테스트를 알려진 실패로 둔 기대값 항목을 지운다. `Bug: 545843242`, 리뷰어 smcgruer@(요청자) → nikifork@. OSSCA #401 유지·재범위. 검증: `blink_web_tests`(wpt 러너) 해당 파일 실행. XS~S.
+
 ## 2026-09-21 재스윕 (트리 M156, gclient sync 후) — «이전 버전 지우기» 방향
 
 **⚠️ NotFatalUntil 경로 종료** — arthursonzogni@가 새 도구 `base/tools/clean-up-not-fatal-until.py`로 **M153 이하 전부**를 지우는 CL [8421522](https://crrev.com/c/8421522)·[8425399](https://crrev.com/c/8425399)(244파일, 09-17)를 올림. 우리 큐의 M146 varint·M147 actor_metrics·M148 잔여·M149 omnibox 전부 포함, **8377550(quota M148)의 10파일도 100% 겹침** → 8377550에 FYI 댓글 후 그쪽이 먼저 랜딩하면 abandon. 이후 만료 NotFatalUntil은 후보에서 제외(스크립트가 주기적으로 처리할 것).
