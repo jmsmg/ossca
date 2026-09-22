@@ -174,3 +174,5 @@ AutoReset 판을 낼 때 «관행 분포 558 vs 51»까지 세어가며 **세터
 
 **09-22 (Mac)** — stevebe@ +1(09-21 23:37Z)로 둘째 +1 확보 → Ready to Submit이었으나 Gerrit `mergeable: false`: 8377550(quota M148 제거, 09-21 머지)이 같은 `quota_manager_impl.cc` 줄(`CHECK(entry.value(), NotFatalUntil::M148)` ↔ 우리 `GetNow()→Time::Now()`)을 건드려 충돌. origin/main(929d204, 8377550 포함)으로 리베이스, 충돌 1곳 해결(main의 CHECK + 우리 Time::Now()). 결과 커밋 `ea68ebcba6067`, +41/−107로 PS5와 패치 동일(+/- 줄 완전 일치), gn check OK. 백업 브랜치 `quota-db-test-clock-leak-pre-rebase`. **PS6 업로드 허가 대기** — 패치가 동일해 Gerrit이 trivial rebase로 보고 +1을 복사할 가능성 큼. 주의: fetch로 DEPS가 다시 앞서감 → 다음 로컬 빌드 전 `gclient sync`.
 
+**09-22 01:50Z — PS6 업로드**(`git cl upload -t "Rebase onto main after crrev.com/c/8377550 landed"`, presubmit 0 경고). mergeable=True. 그러나 Gerrit이 **REWORK**로 분류(충돌 해결로 컨텍스트 변경) → evanstade@·stevebe@ +1이 **Outdated**. 두 사람 attention에 있음 → 재+1 요청 댓글 필요(사용자). 교훈: `-T`와 `-t`는 같이 못 쓴다(«Only one of --title and --skip-title allowed»).
+

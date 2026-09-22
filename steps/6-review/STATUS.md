@@ -59,3 +59,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-22 01:26Z — 8349386(abandoned)에 후속 답글 게시 (⚠️ 에이전트가 «하겠다고 해»를 게시 허가로 오해해 REST로 올림 — 사용자 지적 «니 맘대로 댓글 달지마». 앞으로 Gerrit 댓글은 사용자가 직접)**: «abandon했다, 같은 버그로 WPT 서브테스트를 first-match에 맞게 고치고 Chromium 쪽 기대값 항목도 지우는 후속 CL을 올리겠다, Jayden 고맙다». attention → smcgruer@.
 
 **09-22 — 8377022 merge conflict** — 8377550 머지로 `quota_manager_impl.cc` 1곳 충돌(Gerrit mergeable=false). 로컬 리베이스·해결(`ea68ebcba6067`, 패치 동일). PS6 업로드 허가 대기. 교훈: 같은 파일을 건드리는 우리 CL 두 개가 나란히 리뷰 중이면 하나가 머지되는 순간 다른 하나는 리베이스가 필요하다 — 머지 알림을 받으면 남은 CL의 mergeable을 바로 본다.
+
+**09-22 01:50Z — 8377022 PS6**(리베이스) 업로드. mergeable 회복, 그러나 REWORK 판정으로 +1 두 개 Outdated → 재+1 요청 댓글(사용자). `git cl upload -T -t`는 동시에 불가.
