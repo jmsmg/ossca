@@ -120,3 +120,19 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 | U `kSearchesFindUngroupedVisits` — history_clusters 4파일(unittest 포함, «left here as a killswitch») | 2024-01 | S | components_unittests |
 
 제외: kEnableRendererNavigationTimeline(2025-06, 너무 최근) · kIgnorePermissionForDeviceChangedEventForChromeApps(«Chrome Apps가 사라진 뒤») · Windows/iOS 전용.
+
+## 2026-09-23 리눅스(우분투) 전용 후보 — ChromeOS 코드 (Mac 빌드 불가)
+
+만료 마일스톤 제거 주석 105건 중 리눅스·ChromeOS 전용 파일/`#if BUILDFLAG(IS_CHROMEOS)` 블록만 추림. 순수 리눅스 전용은 0건(ozone·gtk·sandbox 쪽 킬스위치는 2026-08 도입이거나 컴포지터 조건부). **ChromeOS 는 리눅스 호스트에서만 빌드 가능** → 우분투 몫.
+선점: 각 파일의 열린 CL 은 전부 2021~2025 방치 CL 이거나 무관(shelf 는 8382427 kGeminiAppPreinstall 이 같은 파일) · OSSCA 0.
+빌드 주의: 별도 out 디렉터리 `target_os="chromeos"` 가 필요해 첫 빌드는 처음부터(4코어면 수 시간~). 먼저 해당 `.o` 만 컴파일 확인 → 작은 테스트 바이너리 순.
+
+| 후보 | 만료 | 크기 | 테스트 | 비고 |
+|---|---|---|---|---|
+| V CRD `DCHECK(!access_token.starts_with("oauth2:"))` — remoting/host/chromeos/remote_support_host_ash.cc:173 (b/309958013) | M122 | XS 1줄 | remoting_unittests (`remote_support_host_ash_unittest.cc`) | 가장 쉬움. 트레일러 `Bug: b:309958013` |
+| W Adobe Express OEM→default 마이그레이션 — chrome/browser/web_applications/ash/migrations/ (b/314865744) | ~M134 | S (.h/.cc + 호출처) | 없음 | web_applications OWNERS |
+| X `ChromeShelfPrefs::CleanupPreloadPrefs()` — chrome/browser/ui/ash/shelf/chrome_shelf_prefs.cc:472 (crbug 350769496) | M127 («mid 2025 ok») | S (+unittest 수정) | chrome_shelf_prefs_unittest (CrOS unit_tests, 무거움) | 같은 파일에 8382427 진행 중 |
+| Y file_system_provider smbprovider 공유 정리 — chrome/browser/ash/file_system_provider/service.cc:396 (crbug 1258424) | M108 | XS~S | 없음 | 4년 경과 |
+| Z 그래픽 태블릿 펜 버튼 트리밍 — ash/system/input_device_settings/pref_handlers/graphics_tablet_pref_handler_impl.cc:28 | M139 (07/2025) | XS~S | 없음 | TODO(dpad) |
+
+제외: ui/gfx/linux/fontconfig_util.cc M119 가변 폰트(기기 이미지 사실 확인 필요 + 09-16 revert 등 활발) · ash url_constants m100(조건부) · ARC net.mojom(ARC 쪽 저장소 연동).
