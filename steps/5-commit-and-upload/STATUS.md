@@ -33,6 +33,8 @@
 | [8450670](https://crrev.com/c/8450670) | [LCPP] Remove the kMultipleLcppKeyInitiatorOriginFix kill switch | S (+6/−18, 1파일) | `Bug: 380105415` | chikamune@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
 | [8450690](https://crrev.com/c/8450690) | [viz] Remove the kValidatePromiseImageFormat kill switch | XS (+3/−9, 1파일) | `Bug: 524822746` | kylechar@ (1차, 플래그 작성자) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
 | [8447532](https://crrev.com/c/8447532) | [gaia] Remove kSigninChromePasskeyUnlockUrlUsesAccountIndex | S (+2/−45, 4파일) | `Bug: none` | alexilin@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
+| [8453023](https://crrev.com/c/8453023) | [webview] Remove the kWebviewScriptFileOriginCheck kill switch | XS (+2/−9, 1파일) | `Bug: 496016840` | mcnee@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
+| [8453762](https://crrev.com/c/8453762) | [actor] Remove the kBackgroundActorTaskPopupsOpenInBackground kill switch | XS (+1/−8, 1파일) | `Bug: 489205993` | tluk@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L (+154/−160, 10파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `cee29292ec148`, verify 동일 ✓) |
 
 사이즈 = Gerrit 뱃지 기준(변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
