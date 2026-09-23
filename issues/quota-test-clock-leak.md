@@ -1,6 +1,6 @@
 # [자체 발굴] QuotaDatabase 테스트 클럭 전역이 댕글링으로 남는 문제
 
-**상태: ✅ 완료 — CL 8377022 머지 (2026-09-22 22:56 UTC, PS7, `b8c9f8a3cd8d9`, evanstade@ CQ; PS6 리베이스 뒤 evanstade@·stevebe@ 재+1). 기록 PR #424 머지 ✅ · 8단계: merged PR(`Closes #421`) 허가 대기 · #421 수동 닫기 · 보드 Status(사용자).**
+**상태: ✅ 완료 — CL 8377022 머지 (2026-09-22 22:56 UTC, PS7, `b8c9f8a3cd8d9`, evanstade@ CQ; PS6 리베이스 뒤 evanstade@·stevebe@ 재+1). 기록 PR #424 머지 ✅ · 8단계: merged PR **#493**(09-23, `Closes #421`) · #421 수동 닫기 · 보드 Status(사용자).**
 
 ## 링크
 
