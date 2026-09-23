@@ -153,3 +153,10 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - ⚠️ 함정 재발: `git new-branch` 는 origin/main(f5e8d) 에서 브랜치를 따서, 2ca4848 로 sync 된 체크아웃에서 `commit -a` 하면 서브모듈 포인터 32개가 딸려 들어간다 → 새 브랜치는 반드시 `git reset --hard 2ca4848` 후 작업, 커밋은 파일 지정 `git add <file>`
 - **OSSCA 등록 09-24: G #517 · H #518**
 - 검증: 통합 브랜치 `verify-gh` (2ca4848+G+H), 러너 `scripts/gh_test_mac.sh` (browser_tests 빌드 → 두 필터)
+
+### 09-24 D·J 착수 (Mac)
+
+- **D** `kStrictFFmpegCodecs` (crbug 379418979, 원 CL 6040303 dalecurtis@) — 열린 CL 0 · OSSCA 0. 브랜치 `strict-ffmpeg-codecs-killswitch-379418979` 커밋 `6887bba07f672` (+1/−7). 엄격 모드(AV_EF_EXPLODE)를 고정하는 방향
+- **J** `kAccurateVideoFrameConverterColorSpace` (crbug 467555325, 원 CL 7821801 → revert → reland 8265191, M154) — 열린 CL 0 · OSSCA 0. TODO 는 «M153 stable» 이지만 실제 출시는 M154 → chromiumdash 로 Stable=155 확인 후 착수. 브랜치 `accurate-frame-converter-color-space-467555325` 커밋 `d59604f146afa` (−37, 4파일)
+- 검증: 통합 브랜치 `verify-dj`, 러너 `scripts/dj_test_mac.sh` (media_unittests). `media_switches.h` 를 건드려 media 전반 재컴파일 예상
+- OSSCA 초안: `drafts/379418979.md`, `drafts/467555325.md`
