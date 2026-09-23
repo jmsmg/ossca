@@ -1,6 +1,6 @@
 # [자체 발굴] extension_service의 만료된 강제설치 재활성화 우회 제거 (M107)
 
-**상태: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). **검증 완료(09-15 05:35)**: 1단계 실패 확인 ✓ → 2단계 5/5 ✓ → `ExtensionServiceTest.*` 191/191 ✓. origin/main(345d761d, 09-14) 리베이스 충돌 없음 → 커밋 **`455e826cf4aa7`**. **업로드 완료 CL 8410065** (09-15 05:50). 다음: 7단계 기록 PR + 리뷰 대기.**
+**상태: 🔄 PS2 준비(09-23 12:40, Mac) — rdevlin.cronin@ 09-22 동의(«real flow 만 타면 unit test 로 OK»). Mac 브랜치 `extension-service-force-install-workaround` (base 2ca4848, `git cl patch 8410065` + 재작성) 커밋 로컬. 테스트: 내부 호출 대신 kExternalPolicyDownload MockExternalProvider 등록 + `WaitForExternalExtensionInstalled(kGoodCrx)`(=CheckForExternalUpdates). 검증 러너 `extsvc_force_test_mac.sh`(unit_tests 빌드 → ExtensionServiceTest.*) 사용자 실행 대기 → 통과 시 업로드 허가 → PS2. 이전: 09-15 리눅스 박스에서 착수 — 브랜치 `extension-service-force-install-workaround` (base 233e625e, 빌드 트리와 일치). **검증 완료(09-15 05:35)**: 1단계 실패 확인 ✓ → 2단계 5/5 ✓ → `ExtensionServiceTest.*` 191/191 ✓. origin/main(345d761d, 09-14) 리베이스 충돌 없음 → 커밋 **`455e826cf4aa7`**. **업로드 완료 CL 8410065** (09-15 05:50). 다음: 7단계 기록 PR + 리뷰 대기.**
 
 ## 링크
 
