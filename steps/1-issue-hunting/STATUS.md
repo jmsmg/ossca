@@ -151,4 +151,5 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - **G** `kWebviewScriptFileOriginCheck` (crbug 496016840, 원 CL 7714099 mcnee@) — 착수 검증: 열린 CL 0 · OSSCA 0. 브랜치 `webview-script-origin-killswitch-496016840` 커밋 `871237cd7ab6c` (+2/−9, 1파일, include 포함). 원 CL 테스트: browser_tests `WebUIWebViewBrowserTest.ExecuteScriptBadUrlFromOtherWebUi`
 - **H** `kBackgroundActorTaskPopupsOpenInBackground` (crbug 489205993, 원 CL 7758931 mcnee@) — 착수 검증: 열린 CL 0 · OSSCA 0. 브랜치 `actor-popups-background-killswitch-489205993` (+1/−8, 1파일; 파일에 다른 FeatureList 사용 남아 include 유지). 원 CL 테스트: browser_tests `ActorAttemptLoginToolFederatedTest.*`
 - ⚠️ 함정 재발: `git new-branch` 는 origin/main(f5e8d) 에서 브랜치를 따서, 2ca4848 로 sync 된 체크아웃에서 `commit -a` 하면 서브모듈 포인터 32개가 딸려 들어간다 → 새 브랜치는 반드시 `git reset --hard 2ca4848` 후 작업, 커밋은 파일 지정 `git add <file>`
+- **OSSCA 등록 09-24: G #517 · H #518**
 - 검증: 통합 브랜치 `verify-gh` (2ca4848+G+H), 러너 `scripts/gh_test_mac.sh` (browser_tests 빌드 → 두 필터)
