@@ -6,7 +6,7 @@ L="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/logs"; mkdir -p "$L"
 M="$L/killswitch_done.marker"; rm -f "$M"
 cd "$HOME/chromium/src" || exit 1
 git checkout -q reset-decoder-nonidr-killswitch || { echo "CHECKOUT_FAILED" >> "$M"; echo END >> "$M"; exit 1; }
-nice -n 5 autoninja -j 6 -C out/Default media_unittests > "$L/killswitch_build.log" 2>&1
+autoninja -C out/Default media_unittests > "$L/killswitch_build.log" 2>&1
 echo "BUILD=$?" >> "$M"
 if grep -q 'Build Succeeded' "$L/killswitch_build.log"; then
   out/Default/media_unittests --gtest_filter='VideoToolboxH264Accelerator*' > "$L/killswitch_test.log" 2>&1

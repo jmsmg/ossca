@@ -12,7 +12,7 @@ if [ -n "$(git status --short)" ]; then echo "DIRTY_TREE" >> "$M"; echo END >> "
 
 git checkout -q sql-columntime-nel-40176243 || { echo "CHECKOUT1_FAILED" >> "$M"; echo END >> "$M"; exit 1; }
 gn gen out/Default > "$L/two_cls_gn.log" 2>&1 || { echo "GN=1" >> "$M"; echo END >> "$M"; exit 1; }
-nice -n 5 autoninja -j 6 -C out/Default net_unittests > "$L/two_cls_net_build.log" 2>&1
+autoninja -C out/Default net_unittests > "$L/two_cls_net_build.log" 2>&1
 echo "NET_BUILD=$?" >> "$M"
 if grep -q 'Build Succeeded' "$L/two_cls_net_build.log"; then
   out/Default/net_unittests --gtest_filter='SQLitePersistentReportingAndNelStore*' > "$L/two_cls_net_test.log" 2>&1
@@ -20,7 +20,7 @@ if grep -q 'Build Succeeded' "$L/two_cls_net_build.log"; then
 fi
 
 git checkout -q expired-notfatal-m144-signin || { echo "CHECKOUT2_FAILED" >> "$M"; echo END >> "$M"; exit 1; }
-nice -n 5 autoninja -j 6 -C out/Default unit_tests base_unittests > "$L/two_cls_m144_build.log" 2>&1
+autoninja -C out/Default unit_tests base_unittests > "$L/two_cls_m144_build.log" 2>&1
 echo "M144_BUILD=$?" >> "$M"
 if grep -q 'Build Succeeded' "$L/two_cls_m144_build.log"; then
   out/Default/unit_tests --gtest_filter='DiceWebSigninInterceptor*:TurnSyncOnHelper*' > "$L/two_cls_m144_unit_test.log" 2>&1

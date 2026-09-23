@@ -8,7 +8,7 @@ L="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)/logs"; mkdir -p "$L"
 M="$L/webauthn_done.marker"; rm -f "$M"
 cd "$HOME/chromium/src" || exit 1
 git checkout -q verify-441-with-m144 || { echo "CHECKOUT_FAILED" >> "$M"; echo END >> "$M"; exit 1; }
-nice -n 5 autoninja -j 6 -C out/Default unit_tests > "$L/webauthn_build.log" 2>&1
+autoninja -C out/Default unit_tests > "$L/webauthn_build.log" 2>&1
 echo "BUILD=$?" >> "$M"
 if grep -q 'Build Succeeded' "$L/webauthn_build.log"; then
   out/Default/unit_tests --gtest_filter='ChromeAuthenticatorRequestDelegate*' > "$L/webauthn_test.log" 2>&1
