@@ -136,3 +136,12 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 | Z 그래픽 태블릿 펜 버튼 트리밍 — ash/system/input_device_settings/pref_handlers/graphics_tablet_pref_handler_impl.cc:28 | M139 (07/2025) | XS~S | 없음 | TODO(dpad) |
 
 제외: ui/gfx/linux/fontconfig_util.cc M119 가변 폰트(기기 이미지 사실 확인 필요 + 09-16 revert 등 활발) · ash url_constants m100(조건부) · ARC net.mojom(ARC 쪽 저장소 연동).
+
+**리눅스 박스 재확인 (09-23, 트리 345d761d)** — 다섯 곳 모두 그대로 있다. 리눅스 데스크톱 전용 경로 재스캔도 fontconfig M119(위 제외분) 1건뿐 → «순수 리눅스 전용 0건» 맞음. 표 정정:
+- **V**: 접두어 호환 코드는 joedow@가 2025-02 `b7482bc0cf6ee`(CL 6227399, 같은 Bug 309958013)로 이미 지웠고 이 DCHECK와 테스트 `ValidLegacyAccessTokenFormatSucceeds`(TODO «oauth 접두어 로직을 지우면 이 테스트도 삭제»)만 남았다 → **둘 다 삭제**, S(~13줄). 리뷰어 joedow@ + yuweih@(remoting/OWNERS). ⚠️ CrOS의 `remoting_unittests`는 `//chrome/browser`에 의존(browser_interop) → 작은 바이너리가 아니다
+- **W**: 테스트 있음 — `adobe_express_oem_to_default_migration_browsertest.cc`. 디렉터리 5파일 210줄 + `web_app_provider.cc` include·호출 + `web_applications/BUILD.gn` 3곳 → **M(~−220줄)**. 검증은 gn gen + `unit_tests` 링크(browser_tests는 4코어에 너무 무겁다)
+- **X**: 테스트 `ChromeShelfPrefsTest.CleanupPreloadPrefs`도 같이 삭제
+- **Y**: **죽은 코드가 아니다** — `SmbProvider`가 아직 `@smb` 제공자로 등록된다(`smb_client/smb_service.cc:583`). 조건문을 지우면 남아 있는 옛 `@smb` 항목이 «잊기» 대신 `SmbFileSystem` 마운트 경로로 간다 → CL 설명에 동작 변화를 적고 OWNER 판단을 받는다
+- **Z**: 테스트 `TrimPenButtonList`·`TrimPenButtonListWithDefaultAction`(unittest 439–519)도 같이 삭제 → S. 타깃 `ash_unittests`(//chrome 불필요, 셋 중 가장 가볍다)
+
+권장 순서 V → Z → X → Y → W. 빌드는 `.gclient` `target_os` 추가 + sync 후 `out/cros` 첫 빌드부터 → 4단계 STATUS «V~Z CrOS» 행.
