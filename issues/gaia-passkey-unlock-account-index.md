@@ -6,7 +6,7 @@
 
 - crbug: 없음 (직접 발굴; «Enabled by default in M150. Remove in or after M153»)
 - Gerrit: (업로드 전)
-- OSSCA 이슈: (등록 전)
+- OSSCA 이슈: **#498** (2026-09-23, 라벨 2026·chromium-issues·self-issues, self-assign)
 - 발굴 경로: 코드 상향 — 09-21 «Remove … M<n>» 만료 주석 재스윕 (1단계 STATUS 후보 C)
 
 ## 무엇을 지우나
@@ -29,7 +29,7 @@
 ## 진행 체크리스트
 
 - [x] 1단계 착수 검증 (09-21: 선점 0·OSSCA 0·파일 열린 CL 무관)
-- [ ] 2단계 OSSCA 이슈 등록 (허가 대기)
+- [x] 2단계 OSSCA 이슈 등록 — ✅ **#498** (09-23)
 - [x] 3단계 브랜치·수정·format·gn check·커밋 `16e163cb1f770` (09-22)
 - [x] 4단계 — ✅ 09-22 verify-abec 통합 빌드 12m29s/623스텝, google_apis_unittests GaiaUrlsTest.* 20/20 (이름 바꾼 passkey 테스트 2개 포함), presubmit OK
 - [ ] 5단계 업로드 (리뷰어 1명 + `--cc amoseui@chromium.org`)
