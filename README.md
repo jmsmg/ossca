@@ -57,9 +57,9 @@ ossca/
 | 40176243 (sql ColumnTime) CL 2 net/extras | ✅ 09-15 | ✅ #416 | ✅ `a3c7d4d` | ✅ 27/27 | ✅ 8410045 | ✅ 머지 09-21 | ✅ #452 | 🔄 | 8 — CL 2 **머지 09-21** (`59647e287088b`). merged PR **#486**(09-22). CL 3~5 미착수 |
 | (자체 발굴) 만료 M144 signin 3곳+enum | ✅ 09-15 | ✅ #439 | ✅ `bb98018` | ✅ 95/95·26/26 | ✅ 8409786 | ✅ 머지 09-17 | ✅ #451 | 🔄 | 8 — **머지 09-17** (`37ac4ebc43de5`, alexilin@ CQ). 기록 PR #451 머지. merged PR **#459**(`Closes #439`) 제출 09-18 |
 | (자체 발굴) `kResetDecoderForNonIDR` 킬스위치 (media/gpu/mac) | ✅ 09-15 | ✅ #440 | ✅ | ✅ 8/8 | ✅ 8410466 | ✅ 머지 09-17 | ✅ #453 | 🔄 | 8 — **머지 09-17** (`0a61d4d13c9e4`, eugene@ CQ). 기록 PR #453 머지. merged PR **#461**(`Closes #440`) 제출 09-18 |
-| (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ✅ 09-16 | ✅ 09-16 | ✅ 8412192 | ⬜ | ✅ #450 | ⬜ | 6 리뷰 대기 — **Mac** 09-16 **CL 8412192** PS3 (derinel@·nsatragno@). #441 코멘트 09-17 (S) |
+| (자체 발굴) WebAuthn iCloud Keychain 플래그 3개 (device/fido) | ✅ 09-15 | ✅ #441 | ✅ 09-16 | ✅ 09-16 | ✅ 8412192 | ✅ +1×2 | ✅ #450 | ⬜ | 6 — derinel@·nsatragno@ **+1 둘**(09-22) → Ready to Submit, 제출 요청 댓글(사용자) |
 | [432367602](https://crbug.com/432367602) dropped-frame 플래그 (media/base + blink mediastream) | ✅ 09-18 | ✅ #464 | ✅ `ee435a2` | ✅ 14/14 | ✅ 8429522 | ✅ 머지 09-21 | ✅ #475 | 🔄 | 8 — **머지 09-21** (`24cd108dc57b6`, kron@ CQ). 기록 PR #475 머지 · merged PR **#483**(09-21) · #464 수동 닫기 · 보드 Status |
-| [41161335](https://crbug.com/41161335) frozen-frames 플래그 (media/base + blink platform/media) | ✅ 09-18 | ✅ #465 | ✅ `654824f` | ✅ 78/78 | ✅ 8423128 | ⏳ | ✅ #476 | ⬜ | 6 — **Mac** 09-21 **CL 8423128** PS1 (dalecurtis@ 1차, CC amoseui@). +1 오면 tmathmeyer@ 추가. #465 코멘트 허가 대기 (S) |
+| [41161335](https://crbug.com/41161335) frozen-frames 플래그 (media/base + blink platform/media) | ✅ 09-18 | ✅ #465 | ✅ `654824f` | ✅ 78/78 | ✅ 8423128 | ✅ +1×2 | ✅ #476 | ⬜ | 6 — dalecurtis@·tmathmeyer@ **+1 둘**(09-22) → Ready to Submit, 제출 요청 댓글(사용자) |
 | [474398415](https://crbug.com/474398415) WebCodecs flush 킬스위치 (media/base + blink webcodecs) | ✅ 09-21 | ✅ #478 | ✅ `607ea05` | ✅ 24/24 | ✅ 8423462 | ✅ 머지 09-22 | ✅ #480 | 🔄 | 8 — **머지 09-22** (`1e1052fd23521`, eugene@ CQ). 기록 PR #480 머지 · merged PR **#491**(09-22) · #478 수동 닫기 |
 | [380105415](https://crbug.com/380105415) LCPP initiator-origin 킬스위치 (chrome/browser/predictors) | ✅ 09-21 | ⬜ 초안 | ✅ `04c9cdc` | ✅ 127/127 | ⬜ | ⬜ | ⬜ | ⬜ | 2/5 — unit_tests 2h04m ✓(09-22). OSSCA 등록 → 업로드 허가 대기. 리뷰어 chikamune@ → alexilin@ (XS) |
 | [486351442](https://crbug.com/486351442) A `kMergeRangesDuringAppend` (media/filters) | ✅ 09-21 | ⬜ 초안 | ✅ `5b16bc9` | ✅ 198/198 | ⬜ | ⬜ | ⬜ | ⬜ | 2/5 — verify-abec 통합 빌드 ✓(09-22). OSSCA 등록 → 업로드 허가 대기 (XS) |
@@ -123,7 +123,7 @@ I. **OSSCA 이슈 정리** — #403 은 PR #438 머지에도 안 닫힘(수동 c
 | [8349386](https://crrev.com/c/8349386) | [payments] Fail manifest download on multiple manifest Link headers | M | +105/−38 (143줄) | 5 | abandon (2026-09-21, 스펙 오독) |
 | [8366188](https://crrev.com/c/8366188) | [prefs] Remove expired NotFatalUntil::M143 from PrefService type checks | XS | +4/−5 (9줄) | 2 | 머지 (2026-09-14) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L | +154/−160 (314줄) | 10 | 머지 (2026-09-21) |
-| [8377022](https://crrev.com/c/8377022) | [storage] Drop QuotaDatabase's test clock in favor of mock time | M | +41/−107 (148줄) | 5 | 리뷰 중 (PS5, evanstade +1, stevebe 대기) |
+| [8377022](https://crrev.com/c/8377022) | [storage] Drop QuotaDatabase's test clock in favor of mock time | M | +41/−107 (148줄) | 5 | 머지 (2026-09-22) |
 | [8382856](https://crrev.com/c/8382856) | [history] Migrate to sql::Statement time accessors | S | +14/−18 (32줄) | 3 | 머지 (2026-09-17) |
 | [8397391](https://crrev.com/c/8397391) | [extensions] Remove the expired install_time pref migration | S | +0/−82 (82줄) | 3 | 머지 (2026-09-17) |
 | [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | S | +3/−12 (15줄) | 3 | 머지 (2026-09-17) |

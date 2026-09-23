@@ -67,3 +67,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-22 02:07~02:08Z (사용자 직접)** — 8423462: 재CQ 요청 댓글(«dry-run 실패는 무관한 gn 파손, 제출 부탁»), attention → eugene@·dalecurtis@ · 8423128: 둘째 리뷰어 tmathmeyer@ 추가 + 설명 댓글, attention → tmathmeyer@. Gerrit 쪽 대기 항목 전부 처리됨.
 
 **09-22 03:11~03:59Z — 8423462 dry run 재실행 → PASS** (eugene@ CQ+1 → «This CL has passed the run»). attention → dalecurtis@·jmsmg1. 다음: CQ+2 요청 한 줄(사용자).
+
+**09-22 17:17~22:56Z** — 8412192 nsatragno@ +1(«lgtm, sorry for the slow review») → **READY** · 8423128 tmathmeyer@ +1 → **READY** · 8410065 rdevlin.cronin@ «실제 흐름만 타면 유닛 테스트로 남겨도 좋다» → 1안(정책 mock 제공자 + CheckForExternalUpdates) 구현 예정 · 8377022 evanstade@·stevebe@ 재+1 → CQ → **머지**. WPT 검증 빌드는 09-22 18:32 KST 사용자 Ctrl+C로 92%에서 중단 → 재실행 필요(러너는 -j/nice 제거판).

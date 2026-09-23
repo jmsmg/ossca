@@ -50,3 +50,6 @@
 **09-17** — OSSCA #443 재오픈(CL 8410065 리뷰 중; 09-15 02:13 조기 닫힘 정정).
 
 **09-21** — rdevlin.cronin@의 09-15 코멘트(테스트가 내부 함수를 직접 호출해 «자동 재활성화» 증명이 약해짐)에 6일 만에 답글: 정책 위치 `MockExternalProvider` + `CheckForExternalUpdates()`로 실제 경로를 타는 유닛 테스트 제안, 브라우저 테스트 선호 시 그쪽으로. solomonkinard@에게도 둘째 +1용임을 설명. 방향 답이 오면 구현(리눅스 unit_tests 캐시 또는 Mac gclient sync 뒤).
+
+**09-22 21:48Z** — rdevlin.cronin@ 답: «실제 흐름만 타면 유닛 테스트로 남겨도 좋다(내부 직접 호출만 아니면)». → 1안 확정: `AddMockExternalProvider(kExternalPolicyDownload)` + update-URL 항목 + `CheckForExternalUpdates()`로 재활성화 경로를 타게 테스트 재작성. Mac에서 `git cl patch 8410065`로 받아 unit_tests(09-22 캐시) 증분 검증 후 PS2.
+

@@ -1,6 +1,6 @@
 # [자체 발굴] QuotaDatabase 테스트 클럭 전역이 댕글링으로 남는 문제
 
-**상태: [CL 8377022](https://crrev.com/c/8377022) — evanstade@가 09-10 18:48에 «mock time으로 가라» 제안. 조사 결과 그가 옳다 → PS2를 다시 만든다. 어텐션 우리**
+**상태: ✅ 완료 — CL 8377022 머지 (2026-09-22 22:56 UTC, PS7, `b8c9f8a3cd8d9`, evanstade@ CQ; PS6 리베이스 뒤 evanstade@·stevebe@ 재+1). 기록 PR #424 머지 ✅ · 8단계: merged PR(`Closes #421`) 허가 대기 · #421 수동 닫기 · 보드 Status(사용자).**
 
 ## 링크
 
@@ -176,3 +176,11 @@ AutoReset 판을 낼 때 «관행 분포 558 vs 51»까지 세어가며 **세터
 
 **09-22 01:50Z — PS6 업로드**(`git cl upload -t "Rebase onto main after crrev.com/c/8377550 landed"`, presubmit 0 경고). mergeable=True. 그러나 Gerrit이 **REWORK**로 분류(충돌 해결로 컨텍스트 변경) → evanstade@·stevebe@ +1이 **Outdated**. 두 사람 attention에 있음 → 재+1 요청 댓글 필요(사용자). 교훈: `-T`와 `-t`는 같이 못 쓴다(«Only one of --title and --skip-title allowed»).
 
+**09-22 22:36~22:56Z** — 재+1 요청 댓글 뒤 evanstade@·stevebe@가 다시 +1, evanstade@ CQ+2 → 머지.
+
+## 이 사이클에서 배운 것
+
+- 같은 파일을 건드리는 우리 CL 둘이 나란히 리뷰 중이면, 하나가 머지되는 순간 다른 하나는 충돌한다. 머지 알림을 받으면 남은 CL의 mergeable을 바로 확인하고 리베이스한다.
+- 충돌을 손으로 풀면 diff가 같아도 Gerrit이 REWORK로 보고 +1을 Outdated 처리한다. 리베이스 패치셋엔 «순수 리베이스, diff 동일» 댓글로 재+1을 바로 요청한다.
+- `git cl upload`의 `-T`(제목 생략)와 `-t`(제목 지정)는 같이 못 쓴다.
+- 테스트 전용 클럭을 mock time으로 바꾸는 리팩터링은 리뷰 왕복이 잦았다(PS5까지). 첫 업로드 전에 «호출자 전부를 따라가 지운 게 맞는지»를 스스로 점검해 왕복을 줄인다.
