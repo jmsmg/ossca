@@ -30,6 +30,9 @@
 | [8449690](https://crrev.com/c/8449690) | [media] Remove the kMergeRangesDuringAppend kill switch | XS (+1/−7, 1파일) | `Bug: 486351442` | tmathmeyer@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac; 리뷰어 1명 규칙) |
 | [8449710](https://crrev.com/c/8449710) | [viz] Remove the kRejectInvalidChildRegions kill switch | XS (+1/−7, 1파일) | `Bug: 495852034` | jonross@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac; 리뷰어 1명 규칙) |
 | [8449730](https://crrev.com/c/8449730) | [payments] Fix the WPT for multiple payment-method-manifest Link headers | S (+16/−11, 2파일) | `Bug: 545843242` | smcgruer@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac; 8349386 abandon 후속, run_wpt_tests -p chrome 9/9) |
+| [8450670](https://crrev.com/c/8450670) | [LCPP] Remove the kMultipleLcppKeyInitiatorOriginFix kill switch | S (+6/−18, 1파일) | `Bug: 380105415` | chikamune@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
+| [8450690](https://crrev.com/c/8450690) | [viz] Remove the kValidatePromiseImageFormat kill switch | XS (+3/−9, 1파일) | `Bug: 524822746` | kylechar@ (1차, 플래그 작성자) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
+| [8447532](https://crrev.com/c/8447532) | [gaia] Remove kSigninChromePasskeyUnlockUrlUsesAccountIndex | S (+2/−45, 4파일) | `Bug: none` | alexilin@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-23 (Mac) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L (+154/−160, 10파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `cee29292ec148`, verify 동일 ✓) |
 
 사이즈 = Gerrit 뱃지 기준(변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
