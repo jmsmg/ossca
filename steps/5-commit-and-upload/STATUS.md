@@ -61,4 +61,4 @@
 **함정 (8429522, 09-18) — `git fetch origin` 뒤 presubmit이 50건 `AttributeError: 'InputApi' object has no attribute 'AffectedExtensions'`로 전멸.** 원인은 트리가 아니라 **depot_tools가 오래됨**(09-14판) — 새 main의 PRESUBMIT.py가 depot_tools 09-17판에 추가된 API를 쓴다. `~/depot_tools/update_depot_tools` 한 번이면 끝. `git cl upload`는 presubmit 실패 시 아무것도 올리지 않으므로(`git cl issue` = None) 부작용은 없다. 교훈: **origin/main을 당겼으면 depot_tools도 같이 갱신**한다.
 
 **미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
-**tryjob 권한** — 09-07 smcgruer@ 요청은 09-24 무응답 종결 → 멘토 amoseui@ 에게 요청 예정. 그때까지 CQ는 리뷰어가 실행.
+**tryjob 권한** — 09-07 smcgruer@ 요청은 09-24 무응답 종결 → 다음 추천인 미정(멘토 제외). 그때까지 CQ는 리뷰어가 실행.
