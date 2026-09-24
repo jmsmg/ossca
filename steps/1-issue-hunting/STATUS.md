@@ -161,3 +161,4 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - 검증: 통합 브랜치 `verify-dj`, 러너 `scripts/dj_test_mac.sh` (media_unittests). `media_switches.h` 를 건드려 media 전반 재컴파일 예상
 - OSSCA 초안: `drafts/379418979.md`, `drafts/467555325.md`
 - **09-24 검증 완료**: media_unittests 27m50s / 9,482 스텝. D FFmpeg 계열 **219/219**, J `*VideoFrameConverter*` **1460/1460** (ColorSpaceConversion 포함, 꺼진 상태 테스트는 삭제됨). presubmit 두 브랜치 0 경고. 업로드 허가 대기 — 리뷰어 D tmathmeyer@(원 CL 리뷰어) · J dalecurtis@(원 작성자)
+- **09-24 D 업로드됨 — 8457502** (tmathmeyer@ · CC amoseui@, hashtag media). 사용자가 D·J 업로드 명령을 중단시켰으나 D 는 이미 올라간 뒤였음(브랜치에 gerritissue 가 안 남아 `git cl issue 8457502` 로 연결). **J 는 미업로드.** OSSCA 이슈 D·J 미등록 상태에서 D 가 먼저 올라감
