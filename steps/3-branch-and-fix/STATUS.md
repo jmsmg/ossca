@@ -34,3 +34,14 @@
 | gaia-passkey-unlock-account-index C kSigninChromePasskeyUnlockUrlUsesAccountIndex 만료 플래그 제거 | `gaia-passkey-unlock-account-index-flag` (**Mac**, base 09-21 main) | ✅ 09-22 — 커밋 `16e163cb1f770` (+2/−45, 4파일). 패치 `patches/C-*.patch`. gn check OK. `Bug: none`. 검증은 `verify-abec` 통합 빌드. OSSCA 등록 허가 대기 |
 
 **다음 액션** — extensions CL 검증 통과 후 업로드. 그 다음은 sql ColumnTime CL 1.5(journeys 5곳). 40831207 CL B는 보류. 사용자가 crbug 40831207에 방향 문의 게시 → 답변 오면 재정의. 그 전까지 «수정» 작업은 09-05 발굴한 **sql ColumnTime/ColumnTimeDelta 마이그레이션** (1단계 GUIDE 09-05 절) → 착수 가능.
+
+**09-24 리눅스 — ChromeOS 후보 V·Z·X·W 브랜치** (전부 `cros-base` `49ad5ff15f011` 기준, Y는 보류)
+
+| 후보 | 브랜치 | 커밋 | 변경 |
+|---|---|---|---|
+| V CRD oauth2 DCHECK | `crd-oauth2-prefix-dcheck` | `e46575c3e687a` | −14, 2파일 · `Bug: b:309958013` |
+| Z 태블릿 펜 버튼 정리 | `graphics-tablet-pen-button-trim` | `094c894d91ef9` | −126, 2파일 · `Bug: None` |
+| X shelf CleanupPreloadPrefs | `shelf-cleanup-preload-prefs-350769496` | `3d2d0f5096d59` | −64, 3파일 · `Fixed: 350769496` |
+| W Adobe Express 마이그레이션 | `adobe-express-oem-migration-removal` | `44a0e2b8a081c` | −225, 7파일 · `Bug: b:314865744` |
+
+통합 검증 브랜치 `verify-vzxw`(4개 cherry-pick) → 4단계 `verify_vzxw_linux.sh`
