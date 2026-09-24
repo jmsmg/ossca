@@ -58,3 +58,6 @@
 - ✅ **09-22 00:37Z #422 수동 닫음**(사용자, «CL 8377550 머지 완료»). · ⚠️ **#342(40831207)는 09-21 13:30Z 멘토(amoseui)가 닫음** — CL B/C 보류 종결. · 09-22 02:15Z 기준 열린 내 이슈: #478·#465·#443·#441·#421·#416·#401 (7건). 열린 기록 PR: #486·#487.
 - ✅ **09-23 #494·#495 등록** (사용자 «2, 3 올려»): [486351442] kMergeRangesDuringAppend(media) · [495852034] kRejectInvalidChildRegions(viz). crbug 템플릿, self-assign, 본문 1,106자·1,075자 확인. 남은 등록 대기: Q(380105415)·E(524822746)·C(gaia).
 
+
+- 📝 **09-24 리눅스 — ChromeOS 후보 V~Z 초안 5건** (1단계 STATUS 09-23 절). 등록은 사용자:
+  V `drafts/crd-oauth2-prefix-dcheck.md`(직접, b/309958013) · Z `drafts/graphics-tablet-pen-button-trim.md`(직접) · X `drafts/350769496.md`(crbug) · W `drafts/adobe-express-oem-migration.md`(직접, b/314865744) · Y `drafts/smbprovider-share-cleanup.md` — **Y는 등록 보류 권장**: 원 CL `bd81ca80bec4f`가 막던 Files 앱 멈춤이 다시 날 수 있음(`SmbProvider`가 아직 `@smb`로 등록됨) → OWNER 문의 먼저
