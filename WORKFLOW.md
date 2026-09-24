@@ -58,7 +58,7 @@
 - gitcookies 인증 경고 뜨는 중 → 언젠가 `git cl creds-check`로 전환 필요
 - **CL에 멘토를 리뷰어·CC로 넣지 않는다** (2026-09-08). 리뷰어는 OWNERS 근거로 직접 정한다
 - **리뷰어는 처음부터 커미터 두 명** (2026-09-15) — 비커미터 CL은 +1 두 개가 있어야 CQ가 돈다 (5단계 GUIDE «리뷰어는 처음부터 두 명»)
-- **tryjob 권한: 2026-09-07 smcgruer@chromium.org에게 추천 요청 메일 발송, 회신 대기.** 그때까지 CQ Dry Run은 리뷰어에게 부탁
+- **tryjob 권한: 2026-09-07 smcgruer@ 에게 추천 요청 → 09-24 까지 무응답으로 종결. 다음 추천인: 멘토 amoseui@.** 그때까지 CQ Dry Run은 리뷰어에게 부탁
   - 절차([문서](https://www.chromium.org/getting-involved/become-a-committer/)): @chromium.org 주소가 없으면 **본인이 신청할 수 없다.**
     같이 일하는 리뷰어가 `accounts@chromium.org`로 추천 메일을 보내야 하고, 이의가 없으면 **미국 근무일 2일** 내 승인
   - 필요 항목: 이메일 주소 + 간단한 이유(필수) · 이름·소속(helpful) · **이미 랜딩된 패치(very helpful — 현재 5개)**
