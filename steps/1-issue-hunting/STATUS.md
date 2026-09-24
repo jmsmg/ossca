@@ -163,3 +163,8 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - **09-24 검증 완료**: media_unittests 27m50s / 9,482 스텝. D FFmpeg 계열 **219/219**, J `*VideoFrameConverter*` **1460/1460** (ColorSpaceConversion 포함, 꺼진 상태 테스트는 삭제됨). presubmit 두 브랜치 0 경고. 업로드 허가 대기 — 리뷰어 D tmathmeyer@(원 CL 리뷰어) · J dalecurtis@(원 작성자)
 - **09-24 D 업로드됨 — 8457502** (tmathmeyer@ · CC amoseui@, hashtag media). 사용자가 D·J 업로드 명령을 중단시켰으나 D 는 이미 올라간 뒤였음(브랜치에 gerritissue 가 안 남아 `git cl issue 8457502` 로 연결). **J 는 미업로드.** OSSCA 이슈 D·J 미등록 상태에서 D 가 먼저 올라감
 - **09-24 D OSSCA #523 등록** · **J 업로드 8457722** (dalecurtis@ · CC amoseui@, hashtag media). J 의 OSSCA 이슈는 아직 미등록(초안 `drafts/467555325.md`)
+
+### 09-24 K·U 착수 검증 (Mac)
+
+- **K ✅ 착수 가능** — `chrome/browser/predictors/prefetch_manager.cc` `OnPrefetchFinished()` 의 `Navigation.Prefetch.{Compressed,Uncompressed}BodySize` 기록 블록(«TODO(ricea): Remove these histograms in October 2024 and make a note of the results in crbug.com/335524391»). 원 CL 5465402 (ricea@, 2024-04). 두 히스토그램 모두 `expires_after="2025-04-27"` 로 **이미 만료**(기록 안 됨). `tools/metrics/histograms/README.md` «Once a histogram has expired, the code that records it becomes dead code and should be removed … clean up the histograms.xml entry», 만료 히스토그램은 obsoletion 메시지 생략 가능, «reviewed by all current owners» → 리뷰어 ricea@·chikamune@(histograms.xml owner 둘). 테스트 참조 0, 열린 CL 0(파일·이름), OSSCA 0. 검증: unit_tests(09-23 빌드) 증분 + `PrefetchManager*`. 변경: .cc 블록 삭제 + navigation/histograms.xml 두 항목 삭제. crbug 에 «결과 기록»은 ricea@ 몫(UMA 접근 불가) — CL 설명에 명시
+- **U ⏸ 보류** — `kSearchesFindUngroupedVisits` 주석은 «flag left here as a killswitch» 로 **제거 지시가 없음**(R 과 같은 부류) → OWNER 에게 먼저 물어야 함. Journeys 팀이 해당 디렉터리에서 활발히 작업 중(8176345 등). 착수하지 않음
