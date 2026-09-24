@@ -32,7 +32,7 @@ ossca/
 - **두 머신 운용 규칙 (09-15)**: 어느 머신에서 무엇을 돌리는지는 **이 저장소(README 보드 + `steps/*/STATUS.md` + `issues/*.md`)가 유일한 공유 상태**다. 착수·빌드 시작·검증 결과·커밋 해시가 생길 때마다 **바로 커밋하고 push**한다(`git pull --rebase` 먼저). 보드의 «지금 어디» 칸에 머신 이름(Mac/리눅스)을 적는다
   - Mac: M144 signin 전 트리 빌드(`unit_tests`+`base_unittests`) → 끝나면 #440 킬스위치, CL 2 net/extras 업로드
   - 리눅스: XS 이슈 두 건 검증 완료(09-15 05:40) — #443 `455e826cf4aa7` · #442 `cc96915b87a16`, **업로드 완료** — CL 8410065 · 8410085 (05:50). 다음 후보 #441 WebAuthn(device/fido, S)
-  - 리눅스 (09-23): ChromeOS 후보 V~Z 담당(1단계 STATUS 끝 절, 리눅스 재확인·정정 포함). `out/cros` 첫 빌드 러너 `cros_base_linux.sh` — **09-23 15:12 KST 사용자 tmux `cros`에서 시작**(BASE `49ad5ff15f011`), 진행은 `logs/cros_base_done.marker`
+  - 리눅스 (09-23): ChromeOS 후보 V~Z 담당(1단계 STATUS 끝 절, 리눅스 재확인·정정 포함). `out/cros` 첫 빌드 러너 `cros_base_linux.sh` — **09-24 19:03 KST 베이스 빌드·대조군 완료**(BASE `49ad5ff15f011`, Z 7/7·V 46/46·X+Y 33/33). 초안 5건 `steps/2-ossca-issue/drafts/`(Y 보류 권장)
 - OSSCA 기여 기록 repo: `~/contributions` (fork: jmsmg, upstream: OSSCA-chromium)
 - OSSCA 이슈 페이지: https://github.com/OSSCA-chromium/contributions/issues
 - 기여 기록 사이트: https://ossca-chromium.github.io/contributions/
