@@ -61,3 +61,4 @@
 
 - 📝 **09-24 리눅스 — ChromeOS 후보 V~Z 초안 5건** (1단계 STATUS 09-23 절). 등록은 사용자:
   V `drafts/crd-oauth2-prefix-dcheck.md`(직접, b/309958013) · Z `drafts/graphics-tablet-pen-button-trim.md`(직접) · X `drafts/350769496.md`(crbug) · W `drafts/adobe-express-oem-migration.md`(직접, b/314865744) · Y `drafts/smbprovider-share-cleanup.md` — **Y는 등록 보류 권장**: 원 CL `bd81ca80bec4f`가 막던 Files 앱 멈춤이 다시 날 수 있음(`SmbProvider`가 아직 `@smb`로 등록됨) → OWNER 문의 먼저
+- ✅ **09-25 리눅스 — V #538 · Z #539 등록**(사용자 요청으로 에이전트가 `gh`로 등록, 라벨 2026·chromium-issues·self-issues, assignee jmsmg). 프로젝트 Status는 토큰에 project 권한이 없어 수동 필요. X(`drafts/350769496.md`)·W(`drafts/adobe-express-oem-migration.md`)는 열린 이슈가 많아 보류, Y는 등록 보류
