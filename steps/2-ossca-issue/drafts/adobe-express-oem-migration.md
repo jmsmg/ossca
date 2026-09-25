@@ -9,9 +9,9 @@
 - 호출처는 `WebAppProvider`의 sync bridge 준비 직후 한 곳(`web_app_provider.cc:512-518`, `#if BUILDFLAG(IS_CHROMEOS)`). 트리는 M156
 - 수정: `ash/migrations/` 디렉터리 전체(5파일: .h/.cc/browsertest/BUILD.gn/DEPS) 삭제, `web_app_provider.cc` include·호출 삭제, `web_applications/BUILD.gn` 참조 3곳 삭제 — 덤으로 «TODO(b/332804822): Resolve circular includes»의 `allow_circular_includes_from`도 사라진다. 약 −225줄, 7파일 (M)
 - 트레일러: `Bug: b:314865744`
-- 검증: ChromeOS 빌드 `gn gen` + `unit_tests` 링크(`web_app_provider.cc` 컴파일). 삭제되는 browsertest 외에 이 경로의 테스트는 없음. `browser_tests`는 4코어 박스에 너무 무거워 생략
-- 선점: OSSCA 겹침 0
-- 리뷰어: chrome/browser/web_applications/OWNERS(chromium-webapps-reviews@ 풀) — 원 CL 작성자 tsergeant@가 활동 중이면 먼저
+- 검증: ChromeOS 빌드(`target_os="chromeos"`) `gn gen` · `gn check //chrome/browser/web_applications/*` ✓ · `unit_tests` 링크 ✓(`web_app_provider.cc` 재컴파일, 빌드 그래프에 `ash/migrations` 참조 0). 이 경로의 테스트는 함께 지우는 browsertest뿐이고, `browser_tests`는 4코어 박스에 너무 무거워 생략. 브랜치 `adobe-express-oem-migration-removal`
+- 선점: OSSCA 겹침 0 · 최신 main(09-24)과 충돌 없음
+- 리뷰어: chrome/browser/web_applications/OWNERS 풀 `chromium-webapps-reviews@google.com`(gwsq 자동 배정). 원 CL 리뷰어 dmurph@ 활동 중, 작성자 tsergeant@는 1년 넘게 비활동
 
 **References**
 
