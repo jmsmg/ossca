@@ -73,7 +73,7 @@ ossca/
 | [524822746](https://crbug.com/524822746) E `kValidatePromiseImageFormat` (viz display_embedder) | ✅ 09-21 | ✅ #497 | ✅ `0738586` | ✅ 19/19 | ✅ 8450690 | ✅ 머지 09-24 | ✅ #507 | ⬜ | 8 — **머지 09-24 03:19 KST** (`faf118a8c89fb`, kylechar@ CQ 재시도). merged PR **#522 머지** · **#497 닫음** |
 | (자체 발굴) C gaia 패스키 URL 플래그 (google_apis/gaia) | ✅ 09-21 | ✅ #498 | ✅ `16e163c` | ✅ 20/20 | ✅ 8447532 | ✅ 머지 09-24 | ✅ #508 | ⬜ | 8 — **머지 09-24 03:49 KST** (`ec8311ae05c34`, alexilin@ CQ). merged PR **#521 머지** · **#498 닫음** |
 | [40216113](https://crbug.com/40216113) Lacros 잔재 (ui/startup) | ✅ 09-15 | ✅ #442 | ✅ | ✅ 14/14 | ✅ 8410085 | ✅ 머지 09-17 | ✅ #463 | 🔄 | 8 — **머지 09-17** (`1e5c4ad3d899d`, dgn@ CQ, 리눅스 CL). 기록 PR **#463**(`Add`, status merged, `Closes #442`) 제출 09-18 |
-| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ✅ 8410065 | ⏳ | ✅ #549 | ⬜ | 6 — rdevlin.cronin@·**andreaorru@ +1 둘**(09-26 02:04 KST) → 제출 요청 댓글(사용자) · 기록 PR **#549 머지** |
+| (자체 발굴) extension_service 강제설치 우회 (extensions) | ✅ 09-15 | ✅ #443 | ✅ | ✅ 191/191 | ✅ 8410065 | ⏳ | ✅ #549 | ⬜ | 6 — rdevlin.cronin@·**andreaorru@ +1 둘**(09-26 02:04 KST) → **제출 요청 09-26 08:34**(사용자), attention andreaorru@·rdevlin.cronin@ · 기록 PR **#549 머지** |
 | (자체 발굴) extensions 만료 M113 마이그레이션 | ✅ 09-10 | ✅ #423 | ✅ | ✅ 28/28 | ✅ 8397391 | ✅ 머지 09-17 | ✅ #437 | 🔄 | 8 — **머지 09-17** (`7a77a41779ef2`, finnur@ CQ). 기록 PR #437 머지. merged PR **#460**(`Closes #423`) 제출 09-18 |
 
 **밀린 것 (2026-09-14 실측)**
