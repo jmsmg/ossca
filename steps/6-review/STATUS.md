@@ -69,3 +69,11 @@ python3 ~/ossca/scripts/track.py cl 8377550
 **09-22 03:11~03:59Z — 8423462 dry run 재실행 → PASS** (eugene@ CQ+1 → «This CL has passed the run»). attention → dalecurtis@·jmsmg1. 다음: CQ+2 요청 한 줄(사용자).
 
 **09-22 17:17~22:56Z** — 8412192 nsatragno@ +1(«lgtm, sorry for the slow review») → **READY** · 8423128 tmathmeyer@ +1 → **READY** · 8410065 rdevlin.cronin@ «실제 흐름만 타면 유닛 테스트로 남겨도 좋다» → 1안(정책 mock 제공자 + CheckForExternalUpdates) 구현 예정 · 8377022 evanstade@·stevebe@ 재+1 → CQ → **머지**. WPT 검증 빌드는 09-22 18:32 KST 사용자 Ctrl+C로 92%에서 중단 → 재실행 필요(러너는 -j/nice 제거판).
+
+**09-29 04:10 KST — 리눅스 전체 실측 점검** (Gerrit·GitHub 직접 조회)
+- 제출 요청 가능(+1×2, submittable): **W 8460623**(mek·dmurph) · **sql CL 3 8474691**(ioanap·friedrichh — friedrichh 코멘트는 설명의 `R=` 줄이 낡은 관행이라는 지적, resolved)
+- CQ 도는 중: D 8457502 · J 8457722 (dalecurtis CQ+2, 09-29 03:58) → 머지되면 merged PR + **#523·#524 수동 닫기**
+- 두 번째 +1 대기: Q 8450670(yyanagisawa@, 활동 중) · X 8467023(khmel@ **12일 무활동** → 커미터 joelhockey@(원 코드 작성자) 추가 제안)
+- 첫 리뷰 없음: K 8461862(ricea@ 활동 중인데 4.5일 무응답 → 핑 제안) · Z 8464683(michaelcheco@ **11일 무활동** → wangdanny@ 추가 제안) · V 8464722(joedow@ 09-25 이후 조용, 수요일까지 대기)
+- 기록: Gerrit CL 37 = 기록 37, 불일치 0, 열린 기록 PR 0. 열린 OSSCA 이슈 10(#282는 공용 umbrella, #416 시리즈, 나머지 리뷰 중)
+- 참고: 모든 CL 설명에 `git cl upload -r`가 넣은 `R=` 줄이 있음(friedrichh 지적). 무해하나 이후 업로드 방식 검토
