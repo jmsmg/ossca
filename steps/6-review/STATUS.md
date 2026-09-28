@@ -77,3 +77,9 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - 첫 리뷰 없음: K 8461862(ricea@ 활동 중인데 4.5일 무응답 → 핑 제안) · Z 8464683(michaelcheco@ **11일 무활동** → wangdanny@ 추가 제안) · V 8464722(joedow@ 09-25 이후 조용, 수요일까지 대기)
 - 기록: Gerrit CL 37 = 기록 37, 불일치 0, 열린 기록 PR 0. 열린 OSSCA 이슈 10(#282는 공용 umbrella, #416 시리즈, 나머지 리뷰 중)
 - 참고: 모든 CL 설명에 `git cl upload -r`가 넣은 `R=` 줄이 있음(friedrichh 지적). 무해하나 이후 업로드 방식 검토
+
+**09-29 07:30 KST — 리눅스 재점검**
+- **W 8460623 CQ 실패(07:23)** — 원인은 인프라: CV가 든 `linux-libfuzzer-asan-rel`·`linux_chromium_compile_dbg_ng`(+buildbucket상 `linux-chromeos-compile-dbg`)가 전부 **Task expired**(대기열 만료, 빌드 시작 전). 나머지 28개 SUCCESS, 변경은 ChromeOS 전용이라 리눅스 봇에선 무변화 → CQ 재시도 요청 필요(사용자 게시)
+- D 8457502: 41 SUCCESS, `chromeos-amd64-generic-dbg`만 진행 중 · J 8457722: 48 SUCCESS, `gpu-fyi-cq-android-arm64` screenshot_sync «invalid results / shard fail early»(플레이크성) 1건 + `win_optional_gpu_tests_rel` 인프라 실패 후 재시도 중 — CV 아직 실패 판정 없음
+- CL 3 8474691: 제출 요청 게시됨(사용자 05:08), CQ 대기 · CL 4 8479611: 05:14 업로드(jkarlin@), 기록 PR #567 열림(CI ✓)
+- 변화 없음: Q(yyanagisawa@) · K(ricea@) · V(joedow@) · Z(michaelcheco@) · X(khmel@)
