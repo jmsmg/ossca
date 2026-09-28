@@ -195,3 +195,4 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 | HF NQE | `net/nqe/network_quality_estimator.cc` | `NQE.RTT.Error.{Positive,Negative}`, `NQE.TransportRTT.OnECTComputation` | 2025-06 | 같은 블록의 다른 히스토그램은 살아 있어 부분 삭제 |
 
 전체 후보표: 세션 scratchpad `hist_cands.tsv` (재생성: 1106→809→528 스크립트)
+- **09-29 HA 착수**: 브랜치 `dns-hosts-expired-histograms-40874231` (bed8289) 커밋 — 3파일 −59(기록 3·TODO 2·CRONET 블록·include 6·테스트 검사·xml 3). 원 CL 4075212(옛 버그 1377305). 러너 `scripts/ha_test_mac.sh`(net_unittests — 09-15 빌드라 재빌드 필요). OSSCA 초안 `drafts/40874231.md`
