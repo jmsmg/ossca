@@ -199,3 +199,13 @@ smcgruer는 월~목 근무(금요일 활동 2%)이므로 회신 지연을 셀 �
 꾸며낸 명분이 아니라 그가 던진 질문에 대한 사실 그대로의 답이다. 그 답을 본 뒤에도 09-14까지 smcgruer의
 회신이 없으면, evanstade@에게 보내는 것이 자연스럽다.
 
+
+
+## 커밋 메시지에 `R=` 줄이 들어가는 함정 (2026-09-28)
+
+`git cl upload -r <리뷰어>` 로 **새 CL** 을 올리면 depot_tools(`git_cl.py` `_GetDescriptionForUpload()` → `update_reviewers()`)가 커밋 메시지 끝에 `R=<리뷰어>` 줄을 자동으로 넣는다. 8474691 에서 friedrichh@ 가 «This is outdated. You can upload with -r for the same effect.» 라고 짚었다(우리가 손으로 쓴 줄 알고). 이전 CL(8410065 등)에도 같은 줄이 들어가 있었다.
+
+- 업로드 직후 Gerrit 커밋 메시지를 확인한다:
+  `curl -s "https://chromium-review.googlesource.com/changes/<CL>/revisions/current/files/%2FCOMMIT_MSG/content" | base64 -d | grep '^R='`
+- 있으면 **투표가 붙기 전에** `git cl description` 으로 그 줄만 지운다(설명만 바뀐 패치셋).
+- 대안(미시험): `-r` 대신 Gerrit push 옵션 `-o r=<email>` 로 리뷰어 지정. 처음 쓸 때 결과를 여기 적는다.
