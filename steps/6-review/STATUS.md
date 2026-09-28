@@ -83,3 +83,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - D 8457502: 41 SUCCESS, `chromeos-amd64-generic-dbg`만 진행 중 · J 8457722: 48 SUCCESS, `gpu-fyi-cq-android-arm64` screenshot_sync «invalid results / shard fail early»(플레이크성) 1건 + `win_optional_gpu_tests_rel` 인프라 실패 후 재시도 중 — CV 아직 실패 판정 없음
 - CL 3 8474691: 제출 요청 게시됨(사용자 05:08), CQ 대기 · CL 4 8479611: 05:14 업로드(jkarlin@), 기록 PR #567 열림(CI ✓)
 - 변화 없음: Q(yyanagisawa@) · K(ricea@) · V(joedow@) · Z(michaelcheco@) · X(khmel@)
+- **09-29 07:50 KST 재점검**: **D 8457502 머지 07:36 KST** (`c5f1089ef9935`, dalecurtis@ CQ) → 8단계 남음: `Mark 8457502 as merged` PR + **#523 수동 닫기** · J 8457722 CQ 진행 중 · W CQ 재시도 요청 아직 없음 · 나머지 변화 없음
