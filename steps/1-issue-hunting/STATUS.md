@@ -176,3 +176,22 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - **CL 4 (유효, 축소)** — extensions `activity_log/fullstream_ui_policy.cc:194` 1R(`FromInternalValue`) · blocklist `opt_out_store_sql.cc:276` 1R(`Time() + Microseconds`). declarative_performance_observer 쪽은 더 이상 해당 없음(이미 바뀐 것으로 보임). 열린 CL 은 2022~2024 방치 CL 뿐
 - **CL 5 (마지막)** — autofill `payments_autofill_table.cc:976·1157` 2R(`FromDeltaSinceWindowsEpoch(Microseconds(ColumnInt64))`; `FromTimeT` 칼럼은 형식이 달라 제외) + `sql/statement.h:225·234` TODO/«migration details» 주석 제거. 이 파일은 09-25 에도 열린 CL(8462559)이 있어 활발 → 마지막에, 착수 직전 트리 전체 재검색 필수
 - 검증 바이너리: components_unittests·unit_tests 모두 09-25 bed8289 로 빌드돼 있어 증분
+
+## 2026-09-29 새 경로: 만료된 히스토그램 기록 코드 정리 (Mac, 트리 bed8289)
+
+**근거**: `tools/metrics/histograms/README.md` — «Once a histogram has expired, the code that records it becomes dead code and should be removed from the codebase. You should also clean up the corresponding entry in histograms.xml.» 예외는 `<expired_intentionally>` 태그가 붙은 것. 삭제 CL 은 «reviewed by all current owners». (K 8461862 가 이 경로의 첫 CL)
+
+**스캔**: 전체 histograms.xml 에서 2025-06-30 이전 만료 1,106개 → 비테스트 코드에 이름이 남은 것 809개 → `expired_intentionally` 3개 제외 → 한 파일·한 곳에서만 기록되고 Android/iOS/CrOS/Win 전용이 아닌 것 **528개**. 익숙한 영역(media·extensions·net·storage·history·predictors)만 66개.
+
+**다른 사람 작업**: Googler 들의 «[histogram-cleanup]» 프로젝트(메타 버그 **499059525**, 60일간 머지 32건: meiliang@·mschillaci@·agazal@)가 있으나 대부분 **Android** 히스토그램. 아래 후보는 이름·파일 기준 열린 CL 0.
+
+| 후보 | 파일 | 히스토그램 | 만료 | 비고 |
+|---|---|---|---|---|
+| **HA** net DNS hosts | `net/dns/dns_hosts.cc` | `Net.DNS.DnsHosts.{Count,EstimateMemoryUsage,FileSize}` 3개 | 2024-09-01 | 코드에 **«TODO(crbug.com/40874231): Remove this when we have enough data.»** 두 곳 — 만료+TODO 이중 근거. 원 CL 58e3292 (horo@, 2022-12). 버그 연결 CL 0. `EstimateMemoryUsage` 를 빼면 CRONET 조건문·관련 include 도 정리될 수 있음 |
+| **HB** NEL 저장소 | `net/extras/sqlite/sqlite_persistent_reporting_and_nel_store.cc` | `ReportingAndNEL.NumberOfLoaded*` 4개 | 2023-06 / 2024-09 | 우리가 CL 2(8410045) 로 손댄 파일 — ricea@·nidhijaju@ 가 이미 아는 사이. 상수 4개 + 기록 4곳 |
+| HC predictors 나머지 | `chrome/browser/predictors/prefetch_manager.cc` | `Navigation.Prefetch.{IsHttps,PrefetchJobQueueLength,PrefetchJobQueueingTime}` | 2025-04 / 2023-03 | K(8461862) 와 같은 파일 → K 머지 뒤 |
+| HD Mac 인증서 | `net/cert/internal/trust_store_mac.cc` | `Net.CertVerifier.Mac*` 3개 | 2024-02 / 2024-04 | **Mac 전용 파일** — 이 Mac 에서만 검증 가능한 게 장점 |
+| HE 콘텐츠 스크립트 | `extensions/browser/extension_user_script_loader.cc` | `Extensions.ContentScripts.*Length*` 3개 | 2024-11 / 2024-12 | extensions |
+| HF NQE | `net/nqe/network_quality_estimator.cc` | `NQE.RTT.Error.{Positive,Negative}`, `NQE.TransportRTT.OnECTComputation` | 2025-06 | 같은 블록의 다른 히스토그램은 살아 있어 부분 삭제 |
+
+전체 후보표: 세션 scratchpad `hist_cands.tsv` (재생성: 1106→809→528 스크립트)
