@@ -32,7 +32,7 @@ ossca/
 - **두 머신 운용 규칙 (09-15)**: 어느 머신에서 무엇을 돌리는지는 **이 저장소(README 보드 + `steps/*/STATUS.md` + `issues/*.md`)가 유일한 공유 상태**다. 착수·빌드 시작·검증 결과·커밋 해시가 생길 때마다 **바로 커밋하고 push**한다(`git pull --rebase` 먼저). 보드의 «지금 어디» 칸에 머신 이름(Mac/리눅스)을 적는다
   - Mac: M144 signin 전 트리 빌드(`unit_tests`+`base_unittests`) → 끝나면 #440 킬스위치, CL 2 net/extras 업로드
   - 리눅스: XS 이슈 두 건 검증 완료(09-15 05:40) — #443 `455e826cf4aa7` · #442 `cc96915b87a16`, **업로드 완료** — CL 8410065 · 8410085 (05:50). 다음 후보 #441 WebAuthn(device/fido, S)
-  - 리눅스 (09-23): ChromeOS 후보 V~Z 담당(1단계 STATUS 끝 절, 리눅스 재확인·정정 포함). `out/cros` 첫 빌드 러너 `cros_base_linux.sh` — **09-24 19:03 KST 베이스 빌드·대조군 완료**(BASE `49ad5ff15f011`, Z 7/7·V 46/46·X+Y 33/33). OSSCA **V #538 · Z #539 · X #544 · W #545** → **CL V 8464722 · Z 8464683 · X 8467023 · W 8460623 업로드(09-25)**, Y 보류
+  - 리눅스 (09-23): ChromeOS 후보 V~Z 담당(1단계 STATUS 끝 절, 리눅스 재확인·정정 포함). `out/cros` 첫 빌드 러너 `cros_base_linux.sh` — **09-24 19:03 KST 베이스 빌드·대조군 완료**(BASE `49ad5ff15f011`, Z 7/7·V 46/46·X+Y 33/33). OSSCA **V #538 · Z #539 · X #544 · W #545** → **CL V 8464722 · Z 8464683 · X 8467023 · W 8460623 업로드(09-25)**, Y  · **머지 09-29 09:27 KST** (`496b52acef84a`) · merged PR **#578**(Mac 이 대신 제출) · #545 닫기 대기 |
 - OSSCA 기여 기록 repo: `~/contributions` (fork: jmsmg, upstream: OSSCA-chromium)
 - OSSCA 이슈 페이지: https://github.com/OSSCA-chromium/contributions/issues
 - 기여 기록 사이트: https://ossca-chromium.github.io/contributions/
@@ -63,7 +63,7 @@ ossca/
 | [41161335](https://crbug.com/41161335) frozen-frames 플래그 (media/base + blink platform/media) | ✅ 09-18 | ✅ #465 | ✅ `654824f` | ✅ 78/78 | ✅ 8423128 | ✅ 머지 09-24 | ✅ #476 | ⬜ | 8 — **머지 09-24 02:49 KST** (`7a3cf7f869ea4`). merged PR **#516 머지** · **#465 닫음(09-24)** |
 | [474398415](https://crbug.com/474398415) WebCodecs flush 킬스위치 (media/base + blink webcodecs) | ✅ 09-21 | ✅ #478 | ✅ `607ea05` | ✅ 24/24 | ✅ 8423462 | ✅ 머지 09-22 | ✅ #480 | 🔄 | 8 — **머지 09-22** (`1e1052fd23521`, eugene@ CQ). 기록 PR #480 머지 · merged PR **#491**(09-23 머지) · **#478 닫음(09-23 13:00)** |
 | [379418979](https://crbug.com/379418979) D `kStrictFFmpegCodecs` (media/ffmpeg) | ✅ 09-24 | ✅ #523 | ✅ `6887bba` | ✅ 219/219 | ✅ 8457502 | ✅ 머지 09-29 | ⬜ | ⬜ | 8 — **머지 09-29 07:36 KST** (`c5f1089ef9935`, dalecurtis@ CQ). merged PR **#568** · **#523 닫음** |
-| [467555325](https://crbug.com/467555325) J `kAccurateVideoFrameConverterColorSpace` (media/base) | ✅ 09-24 | ✅ #524 | ✅ `d59604f` | ✅ 1460/1460 | ✅ 8457722 | ✅ 머지 09-29 | ⬜ | ⬜ | 8 — **머지 09-29 08:56 KST** (`3d44ab91438a0`, dalecurtis@ CQ). merged PR 로컬 준비 · #524 닫기 대기 |
+| [467555325](https://crbug.com/467555325) J `kAccurateVideoFrameConverterColorSpace` (media/base) | ✅ 09-24 | ✅ #524 | ✅ `d59604f` | ✅ 1460/1460 | ✅ 8457722 | ✅ 머지 09-29 | ⬜ | ⬜ | 8 — **머지 09-29 08:56 KST** (`3d44ab91438a0`, dalecurtis@ CQ). merged PR **#577** · #524 닫기 대기 |
 | [335524391](https://crbug.com/335524391) K `Navigation.Prefetch.*BodySize` 만료 히스토그램 (chrome/browser/predictors) | ✅ 09-24 | ✅ #536 | ✅ | ✅ 114/114 | ✅ 8461862 | ⏳ | ⬜ | ⬜ | 6 — **업로드 09-24** (ricea@ 1차 · CC amoseui@, +1 뒤 chikamune@). 범위는 TODO 의 2개 · 기록 PR **#537 머지** |
 | [40874231](https://crbug.com/40874231) HA `Net.DNS.DnsHosts.*` 만료 히스토그램 (net/dns) | ✅ 09-29 | ✅ #569 | ✅ | ✅ 31/31 | ✅ 8481931 | ⏳ | ✅ #570 | ⬜ | 6 — **업로드 09-29** (horo@ 1차 · CC amoseui@, 느리면 ricea@) (S, −59) |
 | [40054414](https://crbug.com/40054414) HB `ReportingAndNEL.NumberOfLoaded*` 만료 히스토그램 (net/extras/sqlite) | ✅ 09-29 | ✅ #571 | ✅ | ✅ 27/27 | ✅ 8482191 | ⏳ | ✅ #572 | ⬜ | 6 — **업로드 09-29** (ricea@ 1차 · CC amoseui@) (S, +3/−98) |
