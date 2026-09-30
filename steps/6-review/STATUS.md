@@ -84,3 +84,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - CL 3 8474691: 제출 요청 게시됨(사용자 05:08), CQ 대기 · CL 4 8479611: 05:14 업로드(jkarlin@), 기록 PR #567 열림(CI ✓)
 - 변화 없음: Q(yyanagisawa@) · K(ricea@) · V(joedow@) · Z(michaelcheco@) · X(khmel@)
 - **09-29 07:50 KST 재점검**: **D 8457502 머지 07:36 KST** (`c5f1089ef9935`, dalecurtis@ CQ) → 8단계 남음: `Mark 8457502 as merged` PR + **#523 수동 닫기** · J 8457722 CQ 진행 중 · W CQ 재시도 요청 아직 없음 · 나머지 변화 없음
+- **09-30 09:05 KST — K 8461862 두 번째 리뷰어**: ricea@ +1(09-29 22:31 KST, «lgtm, thanks for the cleanup!»)이지만 ricea@는 두 파일 어느 OWNERS에도 없음 → 서버 판정 **Code-Owners UNSATISFIED**(두 파일 모두 INSUFFICIENT_REVIEWERS). 계획에 있던 chikamune@도 `chrome/browser/predictors/OWNERS`에 없음. **nhiroki@가 `chrome/browser/predictors/OWNERS`와 `tools/metrics/histograms/metadata/navigation/OWNERS` 양쪽에 있는 유일한 사람** → 한 명으로 OWNERS 둘 다 + 두 번째 커미터 +1 충족. 오늘도 활동(09-29 23:56Z). 대안: alexilin@(predictors) + toyoshim@(navigation 히스토그램)
