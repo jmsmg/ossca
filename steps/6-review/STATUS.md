@@ -86,3 +86,10 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - **09-29 07:50 KST 재점검**: **D 8457502 머지 07:36 KST** (`c5f1089ef9935`, dalecurtis@ CQ) → 8단계 남음: `Mark 8457502 as merged` PR + **#523 수동 닫기** · J 8457722 CQ 진행 중 · W CQ 재시도 요청 아직 없음 · 나머지 변화 없음
 - **09-30 09:05 KST — K 8461862 두 번째 리뷰어**: ricea@ +1(09-29 22:31 KST, «lgtm, thanks for the cleanup!»)이지만 ricea@는 두 파일 어느 OWNERS에도 없음 → 서버 판정 **Code-Owners UNSATISFIED**(두 파일 모두 INSUFFICIENT_REVIEWERS). 계획에 있던 chikamune@도 `chrome/browser/predictors/OWNERS`에 없음. **nhiroki@가 `chrome/browser/predictors/OWNERS`와 `tools/metrics/histograms/metadata/navigation/OWNERS` 양쪽에 있는 유일한 사람** → 한 명으로 OWNERS 둘 다 + 두 번째 커미터 +1 충족. 오늘도 활동(09-29 23:56Z). 대안: alexilin@(predictors) + toyoshim@(navigation 히스토그램)
 - ✅ **09-30 09:10 KST — K 8461862 nhiroki@ 추가 + 댓글 게시**(에이전트, 사용자 지시 «추가하고 직접 올려», Gerrit REST 한 번에): «Thanks, Adam! Adding nhiroki@, who owns both chrome/browser/predictors and the navigation histograms, for an owner review.» → attention nhiroki@, code-owners 두 파일 INSUFFICIENT_REVIEWERS → **PENDING**
+
+**10-01 03:30 KST — 리눅스 전체 재점검** (Gerrit·GitHub 실측)
+- 제출 요청 가능: **K 8461862** — ricea@ +1 · nhiroki@ +1(«LGTM, thanks!», 09-30 09:16) → 제출 요청 댓글
+- 두 번째 OWNER 필요: **sql CL 4 8479611** — jkarlin@ +1(09-30 23:56)은 `components/blocklist` 파일만 승인. `chrome/browser/extensions/activity_log/fullstream_ui_policy.cc`는 INSUFFICIENT_REVIEWERS → activity_log/OWNERS 유일 owner **rdevlin.cronin@**(18h 전 활동) 추가 제안(대안 andreaorru@)
+- 리뷰어 교체·추가 필요: **Z 8464683** — michaelcheco@ 13일·wangdanny@ 5일 무활동, 작성자 dpad@ 58일 → 상위 ash/system/OWNERS **tbarzic@**(1일 전 활동) 추가 제안(대안 amehfooz@) · **V 8464722** — joedow@ 09-25 이후 무활동 → **yuweih@**(원 CL 6227399 리뷰어, 10h 전 활동) 추가 제안
+- 대기: X 8467023 — **khmel@ 복귀**(09-30 17:25Z 활동), 하루 더 대기 · HB(ricea@)·HD(mattm@) 둘 다 활동 중, 업로드 ~42h · HA 8481931 — horo@ 5.5일·ericorth@(net/dns OWNER) 9일 무활동 → 금요일까지 없으면 net/OWNERS에서 대체
+- 정리: 기록 불일치 4건은 전부 열린 Add PR(#567·#570·#572·#574, 멘토 머지 대기). 열린 OSSCA 이슈 9(#282 umbrella·#416 시리즈·나머지 리뷰 중). 머지된 CL 이슈는 모두 닫힘
