@@ -41,7 +41,7 @@
 | [8453762](https://crrev.com/c/8453762) | [actor] Remove the kBackgroundActorTaskPopupsOpenInBackground kill switch | XS (+1/−8, 1파일) | `Bug: 489205993` | tluk@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
 | [8457502](https://crrev.com/c/8457502) | [media] Remove the kStrictFFmpegCodecs kill switch | XS (+1/−7, 1파일) | `Bug: 379418979` | tmathmeyer@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac; 중단된 D·J 명령에서 D 만 올라감) |
 | [8457722](https://crrev.com/c/8457722) | [media] Remove the kAccurateVideoFrameConverterColorSpace flag | S (−37, 4파일) | `Bug: 467555325` | dalecurtis@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
-| [8461862](https://crrev.com/c/8461862) | [predictors] Remove the expired Navigation.Prefetch.*BodySize histograms | S (−45, 2파일) | `Bug: 335524391` | ricea@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
+| [8461862](https://crrev.com/c/8461862) | [predictors] Remove the expired Navigation.Prefetch.*BodySize histograms | S (−45, 2파일) | `Bug: 335524391` | ricea@ **+1**(09-29) → nhiroki@ 추가(09-30, OWNER 두 파일 모두) · CC amoseui@ | ✅ 업로드 2026-09-24 (Mac) |
 | [8474691](https://crrev.com/c/8474691) | [password_manager] Use sql::Statement time accessors | XS (+4/−8, 3파일) | `Bug: 40176243` (시리즈 CL 3) | ioanap@ (1차, +1·dry run ✓) · CC amoseui@ | ✅ 업로드 2026-09-28 (Mac) |
 | [8479611](https://crrev.com/c/8479611) | [sql] Use ColumnTime() in the activity log and opt-out blocklist stores | XS (+4/−6, 2파일) | `Bug: 40176243` (시리즈 CL 4) | jkarlin@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac; R= 줄 제거 PS3) |
 | [8481931](https://crrev.com/c/8481931) | [net] Remove the expired Net.DNS.DnsHosts.* histograms | S (−59, 3파일) | `Bug: 40874231` | horo@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac) |
