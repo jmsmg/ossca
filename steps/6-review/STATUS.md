@@ -93,3 +93,8 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - 리뷰어 교체·추가 필요: **Z 8464683** — michaelcheco@ 13일·wangdanny@ 5일 무활동, 작성자 dpad@ 58일 → 상위 ash/system/OWNERS **tbarzic@**(1일 전 활동) 추가 제안(대안 amehfooz@) · **V 8464722** — joedow@ 09-25 이후 무활동 → **yuweih@**(원 CL 6227399 리뷰어, 10h 전 활동) 추가 제안
 - 대기: X 8467023 — **khmel@ 복귀**(09-30 17:25Z 활동), 하루 더 대기 · HB(ricea@)·HD(mattm@) 둘 다 활동 중, 업로드 ~42h · HA 8481931 — horo@ 5.5일·ericorth@(net/dns OWNER) 9일 무활동 → 금요일까지 없으면 net/OWNERS에서 대체
 - 정리: 기록 불일치 4건은 전부 열린 Add PR(#567·#570·#572·#574, 멘토 머지 대기). 열린 OSSCA 이슈 9(#282 umbrella·#416 시리즈·나머지 리뷰 중). 머지된 CL 이슈는 모두 닫힘
+- ✅ **10-01 03:45 KST — 4건 게시**(에이전트, 사용자 지시 «진행해 전부», Gerrit REST, 전부 patchset-level·resolved)
+  - **K 8461862** 제출 요청 «Both approvals are in. Could one of you submit this? Thanks!» → attention이 비어 있어 ricea@·nhiroki@를 `POST /attention`으로 직접 지정
+  - **sql CL 4 8479611** andreaorru@ 추가 «Thanks, Josh! Adding andreaorru@ as an extensions owner for the remaining activity log file.» — 제안했던 rdevlin.cronin@는 Gerrit 상태가 «Exceptionally swamped»라 대안으로 바꿈(extensions/OWNERS 경유 owner, activity_log/OWNERS에 noparent 없음) → fullstream_ui_policy.cc PENDING
+  - **V 8464722** yuweih@ 추가 «Adding yuweih@, who reviewed the original oauth2 prefix removal (crrev.com/c/6227399), since this has been waiting a few days.» → code-owners PENDING
+  - **Z 8464683** tbarzic@ 추가 «Adding tbarzic@ as an ash/system owner, since the input_device_settings owners seem to be away.» → code-owners PENDING

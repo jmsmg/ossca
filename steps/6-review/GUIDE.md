@@ -201,3 +201,8 @@ python3 ~/ossca/scripts/track.py cl <CL>     # "attention: 없음" 이면 아무
 > 테스트 전용 후크(`SetXForTesting`)를 고치기 전에 **그 테스트의 `TaskEnvironment` 선언부터 읽는다.**
 > `TimeSource::MOCK_TIME`이 켜져 있으면 `base::Time::Now()`가 이미 mock이므로,
 > 클럭 후크는 대개 이미 불필요하다.
+
+
+## REST로 답글을 올릴 때 attention (2026-10-01)
+
+웹 UI의 Reply는 리뷰어를 attention에 자동으로 넣지만, `POST /a/changes/<n>/revisions/current/review`로 올리면 **이미 표를 준 리뷰어는 attention에 들어가지 않는다**(8461862 제출 요청 뒤 attention «없음»). 제출 요청처럼 리뷰어가 봐야 하는 답글은 게시 직후 `track.py cl`로 attention을 확인하고, 비어 있으면 `POST /a/changes/<n>/attention {"user": "<email>", "reason": "..."}`로 직접 넣는다. 새로 추가하는 리뷰어는 자동으로 들어간다.
