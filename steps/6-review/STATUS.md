@@ -118,3 +118,9 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - HA 8481931: 변화 없음(attention = 나) — nidhijaju@ 추가·댓글 사용자 몫 · HB·HD: 업로드 ~2.5일 무응답 · HG 8496107: mdjones@ attention · Z·X: 변화 없음
 - OSSCA: 열린 기록 PR #567·#570·#572·#574(멘토 머지 대기) · 09-30 머지 #568·#581·#582
 
+**10-01 15:14 KST — Mac 재점검**
+- **HA 8481931 제출 가능**: 사용자가 12:48 nidhijaju@ 추가 + «Thanks, both! Adding nidhijaju@ as an owner of …/net/histograms.xml.» → nidhijaju@ +1(13:01). Code-Owners SATISFIED, CR 3개(horo@·bashi@·nidhijaju@), attention = 나 → 제출 요청 댓글 필요
+- **V 8464722**: 사용자 12:49 CQ 재시도 요청 → yuweih@ CQ+2(14:55). 이번 실행 7빌드(이전 성공분 재사용 추정): 성공 2 · 실행 중 2(`linux-chromeos-rel` + compilator) · **대기 3**(`android-x64-rel`·`win-rel`·`fuchsia-x64-cast-receiver-rel`, 14:55 생성 후 미시작) — 16:55 KST 까지 시작 못 하면 지난번처럼 만료
+- CL 4 8479611: 09:25 재시도 요청 뒤 응답 없음(미국 아침 = 오늘 밤 KST 기대) · HG: mdjones@ 응답 없음(업로드 3.7h) · HB·HD: 2.6일 무응답 — 내일(10-02 금) 아침에도 없으면 핑/교체 검토 · Z·X 변화 없음
+- OSSCA: 열린 PR 6개(#567·#570·#572·#574·#593·#594) 전부 멘토 머지 대기, 오늘 머지 0 · #536 열림(#594 머지 뒤 닫기)
+
