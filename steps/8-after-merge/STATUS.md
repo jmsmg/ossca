@@ -99,4 +99,4 @@
 - ✅ **#536·#538 닫음** (10-02 08:32·08:33, 사용자, 닫는 댓글 포함)
 
 **10-02 — CL 4 8479611 머지 (07:30 KST, `7dd8d0f134d4c`)**: merged 기록 로컬 준비 — `~/contributions` 브랜치 `261002-mark-8479611-merged`(커밋 `6cb4b6def`, validate·lint ✓). 소개에 리뷰·CQ 경과와 머지 커밋, 발굴 과정 리뷰어 문장을 최종형으로(andreaorru@ 경위), 배운 점에 «code owner 승인은 파일마다, noparent 없으면 상위 OWNER 도 가능». PR 본문 `drafts/8479611-merged-pr-body.md`(시리즈라 Closes 없음 — CL 5 남음). push·PR 허가 대기
-
+- **10-02 08:40 — CL 4 merged PR #646 제출** (사용자 «pr 올려», upstream/main `5576e86eb` 기준, CI build ✓). 본문의 «Closes 없음» 문구는 이슈 번호가 뒤따르지 않아 닫기 키워드가 아님(#582 와 같은 형식)
