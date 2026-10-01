@@ -47,6 +47,7 @@
 | [8481931](https://crrev.com/c/8481931) | [net] Remove the expired Net.DNS.DnsHosts.* histograms | S (−59, 3파일) | `Bug: 40874231` | horo@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac) |
 | [8482191](https://crrev.com/c/8482191) | [net] Remove the expired ReportingAndNEL.NumberOfLoaded* histograms | S (+3/−98, 2파일) | `Bug: 40054414` | ricea@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac) |
 | [8482211](https://crrev.com/c/8482211) | [net] Remove the expired Net.CertVerifier.Mac* histograms | M (−224, 3파일) | (없음) | mattm@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac, Mac 전용 코드) |
+| [8496107](https://crrev.com/c/8496107) | [Commerce] Remove the expired Commerce.Heuristics.* histograms | M (−223, 8파일) | (없음) | mdjones@ (1차) · CC amoseui@ | ✅ 업로드 2026-10-01 11:33 (Mac, 커밋 `cb24584`, presubmit 0 경고, OSSCA #591). 첫 시도는 HTTP 503 으로 실패 → 재시도 성공 |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L (+154/−160, 10파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `cee29292ec148`, verify 동일 ✓) |
 
 사이즈 = Gerrit 뱃지 기준(변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
@@ -72,3 +73,5 @@
 
 **미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
 **tryjob 권한** — 09-07 smcgruer@ 요청은 09-24 무응답 종결 → 다음 추천인 미정(멘토 제외). 그때까지 CQ는 리뷰어가 실행.
+
+**함정 (8496107, 10-01) — `git cl upload` 가 push 단계에서 `HTTP 503` + «Failed to create a change» 로 실패.** presubmit 은 통과했고, git cl 은 traces 를 남긴다. 실패 메시지가 나와도 원격에 일부가 생겼을 수 있으니 재시도 전에 Gerrit 을 조회한다(이번엔 Change-Id 없음·최근 1시간 내 새 CL 없음·`git cl issue` None → 미생성 확인). 같은 명령 1회 재시도로 성공. 같은 시간대에 `track.py verify` 의 fetch 도 HTTP 502 로 실패 → 대신 REST `revisions/1/files` 의 파일별 변경 줄 수와 부모 커밋을 로컬 `git diff --numstat` 과 대조(8파일 일치, 부모 bed8289)
