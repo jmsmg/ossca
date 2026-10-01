@@ -104,3 +104,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
   - **sql CL 4 8479611** CQ 재시도 요청 «The CQ run failed only because android-x86-rel and win-rel hit "Task expired" before they started, …» → attention andreaorru@ + jkarlin@(직접 지정)
   - **V 8464722** jamiewalch@ 추가 «Thanks, Yuwei! Adding jamiewalch@ for a second owner review, since joedow@ seems to be away.» → attention joedow@·jamiewalch@
 - **10-01 09:28 KST**: **V 8464722 jamiewalch@ +1**(09:26, 추가 1분 뒤, 댓글 없음) → yuweih@·jamiewalch@ +1 두 개, 제출 요건 전부 SATISFIED → 제출 요청 댓글 차례(게시 뒤 attention에 yuweih@·jamiewalch@ 직접 지정) · K CQ 진행 중 · CL 4 재시도 대기 · 나머지 변화 없음
+- ✅ **10-01 09:31 KST — V 8464722 제출 요청 게시**(에이전트, 사용자 지시 «올려»): «Both approvals are in. Could one of you submit this? Thanks!» → attention yuweih@·jamiewalch@ 직접 지정(joedow@ 그대로)
