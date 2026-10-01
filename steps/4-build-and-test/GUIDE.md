@@ -174,3 +174,13 @@ git diff --name-only <이전base> origin/main -- base/ | wc -l   # base/ 변경 
 ## 공용 헤더를 고친 브랜치는 마지막에 빌드한다 (2026-09-24)
 
 J(`media/base/media_switches.h` 수정) 를 `verify-dj` 에서 빌드한 뒤 K 브랜치(2ca4848 기준)로 돌아오자, `media_switches.h` 가 원래대로 바뀌며 그 헤더를 포함한 content·blink 파일까지 **39,674 스텝** 재컴파일이 걸렸다(K 자체 변경은 .cc 1개 + xml). 공용 헤더(`*_switches.h`, `*_features.h` 등)를 건드리는 CL 은 **그날 다른 검증을 모두 끝낸 뒤 마지막 순서**로 빌드하고, 그 뒤에 다른 브랜치로 옮겨 가지 않는다. 옮겨야 한다면 재빌드 시간을 먼저 계획에 넣는다.
+
+## 빌드 창에서 Ctrl+C 금지 — 로그는 다른 tmux 창에서 (2026-10-01)
+
+밤샘 `sync_rebuild_mac.sh` 가 18:06 에 «interrupt by signal» 로 멈췄다(`unit_tests` 21,979/81,288 완료·실패 0, 이어서 `content_unittests` 의 autoninja 도 `KeyboardInterrupt`). 에이전트가 «`tail -f` 는 Ctrl+C 로 빠져나오면 빌드엔 영향 없다»고만 안내하고 **«다른 창에서»** 를 빠뜨려, 빌드가 돌던 창에서 Ctrl+C 가 눌린 것으로 보인다.
+
+- 로그 보기는 **새 tmux 창**(`Ctrl+b c`)이나 **분할 창**(`Ctrl+b %`)에서. 빌드 창에는 손대지 않는다
+- 러너는 출력을 로그 파일로 보내므로 빌드 창은 끝날 때까지 조용한 게 정상이다
+- 중단돼도 이미 빌드된 결과는 남는다. sync 가 끝난 뒤라면 `SKIP_SYNC=1 caffeinate -s -i bash scripts/sync_rebuild_mac.sh` 로 빌드만 이어서 한다
+- 에이전트가 로그 보는 법을 안내할 때는 «다른 창에서 실행, 거기서만 Ctrl+C» 를 반드시 같이 쓴다
+
