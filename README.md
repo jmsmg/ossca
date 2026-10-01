@@ -140,11 +140,26 @@ OSSCA 이슈는 8단계 `status: merged` PR 에 `Closes #<번호>` 를 링크로
 | [8409786](https://crrev.com/c/8409786) | [signin] Remove expired NotFatalUntil::M144 from signin CHECKs | S | +3/−12 (15줄) | 3 | 머지 (2026-09-17) |
 | [8410085](https://crrev.com/c/8410085) | [startup] Remove the expired --no-startup-window re-check | XS | +0/−8 (8줄) | 1 | 머지 (2026-09-17) |
 | [8410466](https://crrev.com/c/8410466) | [media/gpu/mac] Remove the kResetDecoderForNonIDR kill switch | S | +1/−10 (11줄) | 1 | 머지 (2026-09-17) |
-| [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S | +8/−40 (48줄) | 3 | 리뷰 중 (PS3, derinel·nsatragno 대기) |
+| [8412192](https://crrev.com/c/8412192) | [webauthn] Remove the expired iCloud Keychain rollout flags | S | +8/−40 (48줄) | 3 | 머지 (2026-09-24) |
 | [8429522](https://crrev.com/c/8429522) | [mediastream] Remove expired kMediaStreamAccurateDroppedFrameCount flag | S | +5/−25 (30줄) | 3 | 머지 (2026-09-21) |
 | [8410045](https://crrev.com/c/8410045) | [net] Migrate the reporting/NEL store to sql::Statement time accessors | M | +27/−40 (67줄) | 3 | 머지 (2026-09-21) |
 | [8423462](https://crrev.com/c/8423462) | [WebCodecs] Remove the kWebCodecsDecoderFlushOptimizations kill switch | S | +4/−26 (30줄) | 7 | 머지 (2026-09-22) |
+| [8410065](https://crrev.com/c/8410065) | [extensions] Remove the expired force-install re-enable workaround | S | +16/−14 (30줄) | 2 | 머지 (2026-09-26) |
+| [8423128](https://crrev.com/c/8423128) | [media] Remove the expired kSuspendMediaForFrozenFrames flag | S | +8/−24 (32줄) | 4 | 머지 (2026-09-24) |
+| [8447532](https://crrev.com/c/8447532) | [gaia] Remove kSigninChromePasskeyUnlockUrlUsesAccountIndex | S | +2/−45 (47줄) | 4 | 머지 (2026-09-24) |
+| [8449690](https://crrev.com/c/8449690) | [media] Remove the kMergeRangesDuringAppend kill switch | XS | +1/−7 (8줄) | 1 | 머지 (2026-09-25) |
+| [8449710](https://crrev.com/c/8449710) | [viz] Remove the kRejectInvalidChildRegions kill switch | XS | +1/−7 (8줄) | 1 | 머지 (2026-09-25) |
+| [8449730](https://crrev.com/c/8449730) | [payments] Fix the WPT for multiple payment-method-manifest Link headers | S | +16/−11 (27줄) | 2 | 머지 (2026-09-23) |
+| [8450670](https://crrev.com/c/8450670) | [LCPP] Remove the kMultipleLcppKeyInitiatorOriginFix kill switch | S | +2/−18 (20줄) | 1 | 머지 (2026-09-29) |
+| [8450690](https://crrev.com/c/8450690) | [viz] Remove the kValidatePromiseImageFormat kill switch | S | +3/−9 (12줄) | 1 | 머지 (2026-09-24) |
+| [8453023](https://crrev.com/c/8453023) | [webview] Remove the kWebviewScriptFileOriginCheck kill switch | S | +2/−9 (11줄) | 1 | 머지 (2026-09-25) |
+| [8453762](https://crrev.com/c/8453762) | [actor] Remove the kBackgroundActorTaskPopupsOpenInBackground kill switch | XS | +1/−8 (9줄) | 1 | 머지 (2026-09-26) |
+| [8457502](https://crrev.com/c/8457502) | [media] Remove the kStrictFFmpegCodecs kill switch | XS | +1/−7 (8줄) | 1 | 머지 (2026-09-29) |
+| [8457722](https://crrev.com/c/8457722) | [media] Remove the kAccurateVideoFrameConverterColorSpace flag | S | +0/−37 (37줄) | 4 | 머지 (2026-09-29) |
+| [8460623](https://crrev.com/c/8460623) | [web_apps] Remove the Adobe Express OEM-to-default install migration | M | +0/−225 (225줄) | 7 | 머지 (2026-09-29) |
 | [8461862](https://crrev.com/c/8461862) | [predictors] Remove the expired Navigation.Prefetch.*BodySize histograms | S | +0/−45 (45줄) | 2 | 머지 (2026-10-01) |
+| [8464722](https://crrev.com/c/8464722) | [remoting] Remove the leftover oauth2: prefix DCHECK and legacy test | S | +0/−14 (14줄) | 2 | 머지 (2026-10-01) |
+| [8474691](https://crrev.com/c/8474691) | [password_manager] Use sql::Statement time accessors | S | +4/−8 (12줄) | 3 | 머지 (2026-09-29) |
 
 사이즈 = Gerrit 뱃지 기준 (변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.
 docs 링크 수정 → include 정리 → 불변식 강제(CHECK) → 자료구조 리팩토링(RAII 트랜잭션) 순으로
