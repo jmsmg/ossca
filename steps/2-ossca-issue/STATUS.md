@@ -17,6 +17,8 @@
 
 **다음 액션**
 
+- ✅ **#597** 등록 (10-01, `gh issue create`, 라벨 3개, self-assign, 사용자 «올려») — HH `drafts/background-sync-expired-histograms.md` → CL 8499654 같은 날 업로드
+
 - ✅ **#591** 등록 (10-01, `gh issue create`, 라벨 2026+chromium-issues+self-issues, self-assign, 사용자 «올려») — HG `drafts/commerce-heuristics-expired-histograms.md` → CL 8496107 같은 날 업로드. 보드 Status 갱신은 보류 중
 
 - ✅ **09-15 4건 추가 등록** (사용자 지시 «1, 2랑 XS 다 추가»): **#440** kResetDecoderForNonIDR 킬스위치(media/gpu/mac) · **#441** WebAuthn iCloud Keychain 플래그 3개(device/fido) · **#442** [40216113] Lacros 잔재(chrome/browser/ui/startup, crbug 템플릿) · **#443** extension_service 강제설치 우회(extensions). 전부 Status `멘티 작업 진행 중`으로 놓을 것(보드). 드래프트 `drafts/{reset-decoder-nonidr-killswitch,webauthn-icloud-keychain-flags,40216113,extension-service-force-install-workaround}.md`
