@@ -110,3 +110,11 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - **HA 8481931**: horo@ +1(10:53 KST, «LGTM — But please also get lgtm from bashi@ just in case.», bashi@는 horo@가 직접 추가) · bashi@ +1(10:59, «lgtm»). 그러나 **Code-Owners UNSATISFIED** — `net/dns/*` 2파일은 APPROVED, `tools/metrics/histograms/metadata/net/histograms.xml`만 INSUFFICIENT_REVIEWERS. metadata/net/OWNERS = csharrison@·dschinazi@·nidhijaju@·toyoshim@ → **nidhijaju@**(CL 2 8410045 리뷰어, 7일 21건 활동, 부재 표시 없음) 추가 제안. 승인 뒤 제출 요청
 - 같은 함정 예고: HD 8482211 도 `metadata/net/histograms.xml`(위 4명), HB 8482191 은 `metadata/others/histograms.xml`(per-file → METRIC_REVIEWER_OWNERS, 보통 chromium-metrics-reviews@google.com 추가) — 각자 1차 리뷰어 +1 뒤 추가. HG 는 mdjones@ 한 명이 components/commerce 와 metadata/commerce 양쪽 OWNER 라 해당 없음
 - **10-01 11:40 — HA 리뷰어 추가·댓글 REST 게시는 Claude Code 자동 모드 권한 검사(«External System Writes»)에 막힘** — 명령이 실행 전에 차단돼 원격 변화 없음. 사용자가 UI 에서 직접: nidhijaju@ 추가 + «Thanks, both! Adding nidhijaju@ as an owner of tools/metrics/histograms/metadata/net/histograms.xml.» (또는 Bash 권한 규칙 추가 후 에이전트 게시)
+
+**10-01 12:40 KST — Mac 재점검** (Gerrit·GitHub·Buildbucket 실측)
+- ✅ **K 8461862 머지 12:33 KST** (`f119de2fd37b3`, Cr-Commit-Position #1708572, nhiroki@ CQ+2 07:47 → 한 번에 통과, 제출 시 자동 리베이스로 PS2). `Bug:` 트레일러라 crbug 자동 닫힘 없음 → 8단계
+- **V 8464722 CQ 실패 11:32 KST** — jamiewalch@ CQ+2(09:32) 로 돈 `android-x64-rel`·`linux-chromeos-rel`·`win-rel` 3개가 **전부 시작 못 하고 2시간 뒤 INFRA_FAILURE**(createTime 00:32Z → endTime 02:32Z, startTime 없음 = 대기열 만료). 코드 무관 → CQ 재시도 요청 필요(리눅스 몫)
+- **CL 4 8479611** — 09:18 KST 실패도 같은 양상(`android-x86-rel`·`win-rel`, 22:18Z → 00:18Z, 미시작). 09:25 재시도 요청 게시 뒤 응답 없음(andreaorru@·jkarlin@ attention)
+- HA 8481931: 변화 없음(attention = 나) — nidhijaju@ 추가·댓글 사용자 몫 · HB·HD: 업로드 ~2.5일 무응답 · HG 8496107: mdjones@ attention · Z·X: 변화 없음
+- OSSCA: 열린 기록 PR #567·#570·#572·#574(멘토 머지 대기) · 09-30 머지 #568·#581·#582
+
