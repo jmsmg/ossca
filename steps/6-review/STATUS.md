@@ -100,3 +100,6 @@ python3 ~/ossca/scripts/track.py cl 8377550
   - **Z 8464683** tbarzic@ 추가 «Adding tbarzic@ as an ash/system owner, since the input_device_settings owners seem to be away.» → code-owners PENDING
 - **10-01 08:50 KST 재점검**: **V 8464722 yuweih@ +1**(04:59) → code-owners SATISFIED, Review-Enforcement·Code-Review 미충족(두 번째 커미터 +1 필요). joedow@ 5일 무활동 → remoting OWNER jamiewalch@·lambroslambrou@ 둘 다 방금 활동 → **jamiewalch@ 추가 제안** · K 8461862 **nhiroki@ CQ+2**(07:47), 24 SUCCESS 진행 중 · sql CL 4 8479611 **andreaorru@ +1·CQ+2**(07:18), 29 SUCCESS · `mac_chromium_compile_dbg_ng` bot_update 인프라 실패 1(재시도 여부 관찰) · Z(tbarzic@)·X(khmel@)·HA·HB·HD 반응 없음
 - **10-01 09:20 KST 재점검**: **sql CL 4 8479611 CQ 실패(09:18)** — 원인은 인프라: `android-x86-rel`·`win-rel` **Task expired**(빌드 시작 전 만료) + `mac_chromium_compile_dbg_ng` bot_update 인프라 실패. 31 SUCCESS, 코드 실패 0 → CQ 재시도 요청 필요 · K 8461862 CQ 진행 중(24 SUCCESS, 실패 0) · V jamiewalch@ 추가 제안 유지 · 나머지 변화 없음
+- ✅ **10-01 09:25 KST — 2건 게시**(에이전트, 사용자 지시 «둘 다 올려», Gerrit REST, patchset-level·resolved)
+  - **sql CL 4 8479611** CQ 재시도 요청 «The CQ run failed only because android-x86-rel and win-rel hit "Task expired" before they started, …» → attention andreaorru@ + jkarlin@(직접 지정)
+  - **V 8464722** jamiewalch@ 추가 «Thanks, Yuwei! Adding jamiewalch@ for a second owner review, since joedow@ seems to be away.» → attention joedow@·jamiewalch@
