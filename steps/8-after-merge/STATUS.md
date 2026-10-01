@@ -88,3 +88,9 @@
 
 **10-01 — K 8461862 머지 (12:33 KST, `f119de2fd37b3`)**: merged 기록 로컬 준비 — `~/contributions` 브랜치 `261001-mark-8461862-merged` (커밋 `bde0cd91f`, `status: merged`, 소개에 머지 커밋·리뷰어 nhiroki@ 교체 과정, 배운 점에 «히스토그램 owner ≠ code owner» 추가, validate·lint ✓). PR 본문 `drafts/8461862-merged-pr-body.md`(`Closes #536`). push·PR 은 허가 대기 → 머지되면 #536 손으로 닫기. crbug 335524391 은 `Bug:` 라 그대로(«결과 기록» TODO 는 ricea@ 몫)
 - **10-01 13:01 — merged PR #594 제출** (사용자 «pr 올려», #593 에서 10분 간격): `Closes #536` 포함 — 이 저장소에선 자동으로 안 닫히므로 #594 머지 뒤 #536 을 손으로 닫는다
+
+**10-01 — V 8464722 머지 (16:29 KST, `43ef050a06230`) — Mac 이 리눅스 대신 8단계 처리** (사용자 «대신 하고 기록해서 푸쉬해둬»)
+- merged PR **#599** 제출 17:59 (`~/contributions` 브랜치 `261001-mark-8464722-merged`, 커밋 `8a7ae7da5`, validate·lint ✓, CI build ✓). 본문 `drafts/8464722-merged-pr-body.md`, `Closes #538`
+- 기록 갱신: 소개에 리뷰어 교체(joedow@ 부재 → yuweih@ → jamiewalch@)·인프라 CQ 실패 후 재시도·머지 커밋, 발굴 과정의 리뷰어 문장 최종형으로, 배운 점에 «CQ 실패는 Buildbucket 시작 시각부터 확인 — 비어 있으면 대기열 만료, 재시도만 부탁»
+- 남은 것: #599 머지 뒤 **#538 손으로 닫기**(자동 닫힘 안 됨) · 보드 Status 는 보류 중 · 내부 버그 b/309958013 은 접근 불가라 손대지 않음
+

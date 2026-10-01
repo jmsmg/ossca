@@ -59,4 +59,4 @@ python3 ~/ossca/scripts/track.py ossca 8349386
 
 **10-01 (Mac) — 기록 PR #593 제출 12:50** (사용자 «pr 올려»): 8496107(HG, #591). 브랜치 `261001-add-8496107` (upstream/main `d49204db9` 기준), `validate:data`·`lint:md` 통과. 본문 `drafts/8496107-pr-body.md`, `Closes` 없음. 같은 지시의 K merged PR 은 10분 간격으로 이어서 (예약 실행은 Claude Code 권한 검사가 «사람 없이 실행되는 외부 쓰기»로 막아, 타이머만 돌리고 시간이 되면 직접 생성) → **13:01 K merged PR #594** 생성(포그라운드 직접 실행)
 
-**10-01 (Mac) — 기록 PR #598 제출 17:29** (사용자 «올려»): 8499654(HH, #597). 브랜치 `261001-add-8499654` (upstream/main `d49204db9`), `validate:data`·`lint:md` 통과, CI build ✓. 본문 `drafts/8499654-pr-body.md`, `Closes` 없음. V 8464722 merged PR 은 아직 없음(리눅스 몫, Add PR #547 만 머지)
+**10-01 (Mac) — 기록 PR #598 제출 17:29** (사용자 «올려»): 8499654(HH, #597). 브랜치 `261001-add-8499654` (upstream/main `d49204db9`), `validate:data`·`lint:md` 통과, CI build ✓. 본문 `drafts/8499654-pr-body.md`, `Closes` 없음. V 8464722 merged PR 은 17:59 Mac 이 대신 **#599** 로 제출
