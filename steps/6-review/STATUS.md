@@ -133,4 +133,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - HH 8499654: peter@(3일 11건) 응답 대기 15h · Z·X 변화 없음
 - OSSCA: 사용자가 #536·#538 닫음(08:32·08:33, 닫는 댓글 포함) · 열린 기록 PR 0
 - 빌드: 사용자가 sync 러너를 `SKIP_SYNC` 없이 다시 돌려 main `9143293` 로 한 번 더 sync → `unit_tests` 19,551/80,436 진행 중
-
+- **10-02 08:40 — HG meiliang@ 추가**(사용자, «Thanks, Matt! Adding meiliang@, who has been cleaning up the commerce histograms, for a second review.») → attention meiliang@. Code-Owners 8파일 모두 APPROVED(mdjones@), 남은 건 두 번째 +1. HB·HD 핑은 아직
