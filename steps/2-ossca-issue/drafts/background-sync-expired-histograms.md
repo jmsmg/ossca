@@ -15,7 +15,7 @@
   - histograms.xml 19항목(background 16 · others 3), 다른 곳에서 안 쓰게 된 enum 6개, `BACKGROUND_SYNC_STATUS_MAX` 삭제. `HistogramsRecordedAtCompletion` 테스트는 살아 있는 one-shot 결과 히스토그램을 검사하도록 변경
   - 10파일 +43/−638
 - 범위 밖: 같은 `metadata/background` 의 `BackgroundSync.{LaunchTask.PlayServicesAvailable, NetworkObserver.HasPermission, Wakeup.DelayTime, Periodic.Wakeup.DelayTime}` 도 만료됐지만 다른 파일(Android 런처·네트워크 옵저버·wakeup)에서 기록 — 후속 후보
-- 검증: 바뀐 소스 4개 개별 컴파일 ✓. `content_unittests` 는 이 Mac 에서 첫 빌드라 `hh_test_mac.sh`(tmux) 로 `*BackgroundSync*` 실행 예정. `pretty_print`·`validate_format` ✓ (처음엔 enum 3개 미사용 오류 → 같이 삭제)
+- 검증: `content_unittests` 빌드(이 Mac 첫 빌드, 647스텝 16분) → `--gtest_filter='*BackgroundSync*'` **118/118** (`BackgroundSyncManagerTest` 88 · `BackgroundSyncMetricsTest.RecordOneShotEventResult` · 바꾼 `HistogramsRecordedAtCompletion` 포함). presubmit 0 경고, `pretty_print`·`validate_format` ✓ (처음엔 enum 3개 미사용 오류 → 같이 삭제)
 - 선점: 열린 CL 은 대량 CL 뿐 — arthursonzogni@ 의 WIP 8419176(815파일, `NotFatalUntil` 제거)이 지우는 `CHECK_GE` 줄을 건드림 → 어느 쪽이 먼저든 리베이스 한 번. OSSCA 0
 - 리뷰어: peter@ (components/background_sync OWNER = content/browser/background_sync). 히스토그램 owner nator@ 는 장기 휴가, rayankans@ 는 계정 없음. `metadata/background`·`metadata/others` histograms.xml 과 `enums.xml` 은 metrics 리뷰어 몫 → +1 뒤 chromium-metrics-reviews@google.com. CC amoseui@
 
