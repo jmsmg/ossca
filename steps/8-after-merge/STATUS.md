@@ -87,4 +87,4 @@
 | 8377022 quota 테스트 클럭 | 09-22 22:56 | `b8c9f8a3cd8d9` | evanstade@ | #421 | #424 ✅ | ✅ **#493** (09-23) |
 
 **10-01 — K 8461862 머지 (12:33 KST, `f119de2fd37b3`)**: merged 기록 로컬 준비 — `~/contributions` 브랜치 `261001-mark-8461862-merged` (커밋 `bde0cd91f`, `status: merged`, 소개에 머지 커밋·리뷰어 nhiroki@ 교체 과정, 배운 점에 «히스토그램 owner ≠ code owner» 추가, validate·lint ✓). PR 본문 `drafts/8461862-merged-pr-body.md`(`Closes #536`). push·PR 은 허가 대기 → 머지되면 #536 손으로 닫기. crbug 335524391 은 `Bug:` 라 그대로(«결과 기록» TODO 는 ricea@ 몫)
-
+- **10-01 13:01 — merged PR #594 제출** (사용자 «pr 올려», #593 에서 10분 간격): `Closes #536` 포함 — 이 저장소에선 자동으로 안 닫히므로 #594 머지 뒤 #536 을 손으로 닫는다
