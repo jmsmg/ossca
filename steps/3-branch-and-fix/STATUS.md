@@ -51,3 +51,5 @@
 **10-02 리눅스 — LB** 브랜치 `hps-expired-histograms` (cros-base `49ad5ff`) 커밋 `96b28b0e52a52`(업로드 뒤 제목만 줄여 amend) — 10파일 +1/−448: `human_presence_metrics.h` 삭제·BUILD.gn 1줄, 컨트롤러 기록 3곳·`LogPresenceWindow()`·`last_presence_report_time_`, 알림 차단기 지표 전용 pref 읽기, `PowerPrefs`의 `UpdatePowerPolicyFromPrefsChange()`·`quick_dim_pref_enabled_`(2022 지표 CL 3361618 이 끼워 넣은 것 → 콜백을 `UpdatePowerPolicyFromPrefs()` 직결로 복원), 지표 전용 테스트 6개, xml 5항목(플랫폼 기록 TurnOn·Update·Image 는 유지). 최신 main 병합 충돌 없음
 
 **10-02 리눅스 — LD** 브랜치 `schedqos-expired-histograms` (cros-base `49ad5ff`) 커밋 `761c0523e6f9d` — 5파일 +4/−370: 히스토그램 5·`GetPidReuseResult()`·`IsPidReused()`·`ElapsedTimer`·`ProcStatFile` 인자(콜백 2개 시그니처)·`PidReuseResult` enum, 지표 전용 테스트 6개·`LaunchFakeProcess()`·`launch.h`, xml 5·enum 1. 최신 main 충돌 없음
+
+**10-02 리눅스 — LE** 브랜치 `glanceables-tasks-expired-histograms` (cros-base `49ad5ff`) 커밋 `38ad2cb67cf4e` — 3파일 +2/−88: 기록 4곳(PagesCount 가 남는 두 곳은 TODO 주석 단수화), 이 4개만 검사하던 테스트 문장 7개(테스트 삭제 0), xml 4항목. 최신 main 충돌 없음

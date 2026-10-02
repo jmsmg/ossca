@@ -70,3 +70,4 @@
 - ✅ **10-02 리눅스 — LA #648 등록**(에이전트, 사용자 «진행하자»): `drafts/arc-nearby-share-expired-histograms.md`
 - ✅ **10-02 리눅스 — LB #650 등록**(에이전트, 사용자 «LB 진행해»): `drafts/hps-expired-histograms.md`
 - ✅ **10-02 리눅스 — LD #652 등록**(에이전트, 사용자 «진행해»): `drafts/schedqos-expired-histograms.md`
+- ✅ **10-02 리눅스 — LE #655 등록**(에이전트, 사용자 «진행해»): `drafts/glanceables-tasks-expired-histograms.md`
