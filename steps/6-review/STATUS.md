@@ -172,3 +172,8 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - **HD 8482211**(Mac, Mac 전용 파일): mattm@ **+1**(07:28) + **미해결 코멘트** «you can add `Fixed: 41485528, 41485529` / `Bug: 330166367` to the commit message» → 설명 수정(서버 `PUT /message` 로 가능, Mac 로컬 amend 필요) + 답글·resolve + `metadata/net` xml OWNER(nidhijaju@) 추가
 - 변화 없음: LD(hidehiko@ 판단 대기) · HC(ricea@ attention, 23:08 활동했으나 HC 미처리) · X·LA(hidehiko@) · LE(achuith@) · HJ(avi@) · HH(peter@) · CL 5 8505857(fleimgruber@)
 - OSSCA: 열린 기록 PR 0(#677 포함 머지) · 새 댓글 0 · 사용자 몫(보드 Status·creds-check·tryjob 추천인·Y/LC 결정) 그대로
+- ✅ **10-03 08:40 KST — 4건 게시**(리눅스 세션 에이전트, 사용자 «전부 진행해»)
+  - **Z 8464683** oshima@ 추가 «Thanks, James! Adding oshima@ for a second review.» → attention oshima@(+tbarzic@·michaelcheco@ 잔존)
+  - **LB 8505776** jimmyxgong@ 추가(`chromeos_hps` xml OWNER 겸 두 번째 +1) «Thanks, Mitsuru! Adding jimmyxgong@ as an owner of …/chromeos_hps/histograms.xml.» → attention jimmyxgong@. blundell@는 본인이 빠져 리뷰어 oshima@·jimmyxgong@
+  - **HB 8482191** nidhijaju@ 추가(`metadata/net` xml OWNER) «Thanks, Adam! Adding nidhijaju@ as an owner of …/net/histograms.xml.» → attention nidhijaju@
+  - **HD 8482211** mattm@ 요청대로 서버 설명 수정 → **PS2**(`PUT /a/changes/8482211/message`, `Bug: None` 없음 → Change-Id 앞에 `Fixed: 41485528, 41485529` / `Bug: 330166367` 삽입; mattm@ +1 PS2 로 승계) · PS1 COMMIT_MSG 스레드에 «Done, thanks!» resolve(미해결 0) · nidhijaju@ 추가 + «Thanks, Matt! Added the Fixed/Bug lines in PS2. Adding nidhijaju@ …» → attention nidhijaju@. **⚠️ Mac: 로컬 브랜치 `trust-store-mac-expired-histograms` 커밋 메시지도 같게 amend 필요**(서버 설명은 다음 업로드 때 재사용되므로 코드 PS 는 안전하나 `track.py verify` 메시지 비교가 어긋남). 머지 시 crbug 41485528·41485529 자동 close
