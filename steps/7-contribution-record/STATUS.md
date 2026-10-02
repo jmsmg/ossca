@@ -61,3 +61,4 @@ python3 ~/ossca/scripts/track.py ossca 8349386
 
 **10-01 (Mac) — 기록 PR #598 제출 17:29** (사용자 «올려»): 8499654(HH, #597). 브랜치 `261001-add-8499654` (upstream/main `d49204db9`), `validate:data`·`lint:md` 통과, CI build ✓. 본문 `drafts/8499654-pr-body.md`, `Closes` 없음. V 8464722 merged PR 은 17:59 Mac 이 대신 **#599** 로 제출
 - **10-02 리눅스 — LA 8505716 기록 PR #649** (`261002-add-8505716`, validate·lint 0 오류)
+- **10-02 리눅스 — LB 8505776 기록 PR #651** (`261002-add-8505776`, validate·lint 0 오류)

@@ -47,3 +47,5 @@
 통합 검증 브랜치 `verify-vzxw`(4개 cherry-pick) → 4단계 `verify_vzxw_linux.sh`
 
 **10-02 리눅스 — LA** 브랜치 `arc-nearby-share-expired-histograms` (cros-base `49ad5ff`) 커밋 `4ce9a1a41688f` — 10파일 −253: helper .h/.cc 삭제·BUILD.gn 2줄·호출 20곳·`file_streaming_started_`(지속 시간 지표 전용)·고아 주석·xml 6항목·enum 3개. 최신 main(ad845e3)·열린 CL 8302314 모두 병합 충돌 없음
+
+**10-02 리눅스 — LB** 브랜치 `hps-expired-histograms` (cros-base `49ad5ff`) 커밋 `96b28b0e52a52`(업로드 뒤 제목만 줄여 amend) — 10파일 +1/−448: `human_presence_metrics.h` 삭제·BUILD.gn 1줄, 컨트롤러 기록 3곳·`LogPresenceWindow()`·`last_presence_report_time_`, 알림 차단기 지표 전용 pref 읽기, `PowerPrefs`의 `UpdatePowerPolicyFromPrefsChange()`·`quick_dim_pref_enabled_`(2022 지표 CL 3361618 이 끼워 넣은 것 → 콜백을 `UpdatePowerPolicyFromPrefs()` 직결로 복원), 지표 전용 테스트 6개, xml 5항목(플랫폼 기록 TurnOn·Update·Image 는 유지). 최신 main 병합 충돌 없음

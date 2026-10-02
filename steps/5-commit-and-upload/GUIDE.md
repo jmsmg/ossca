@@ -200,3 +200,8 @@ smcgruer는 월~목 근무(금요일 활동 2%)이므로 회신 지연을 셀 �
 회신이 없으면, evanstade@에게 보내는 것이 자연스럽다.
 
 
+
+
+## 제목 72자 (2026-10-02)
+
+Gerrit 은 커밋 제목이 72자를 넘으면 업로드 때 `remote: WARNING: … subject longer than 72 characters` 를 낸다(8505776). 접두어(`[ash] `)까지 세서 72자 안으로 쓴다. 이미 올렸다면 리뷰 전에 `git cl description -d` → 첫 줄만 고쳐 `git cl description -n -` (설명 전용 PS 생성) + 로컬 커밋도 같은 제목으로 amend → `track.py verify`.
