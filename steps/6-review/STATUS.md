@@ -147,3 +147,10 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - 빌드: `browser_tests` 성공 → main `9143293` 에서 6개 타깃 모두 빌드 완료
 - **HH sync 후 점검 완료**: 새 main 에서 HH 가 지우는 enum 6개(`BackgroundSync{FiredEvents,Status,WakeupTask}`, `Boolean{CouldFireImmediately,InForeground,RegistrationIsDuplicate}`)를 쓰는 곳은 여전히 HH 가 지우는 히스토그램뿐(사용 수 09-24 와 동일) → 리베이스 불필요
 
+
+**10-02 22:50 KST — 리눅스 전체 점검 (사용자 할 일 정리)**
+- 코멘트 3건: **HC 8505477** nhiroki@ +1 «LGTM, thanks!»(17:43) — code-owners 세 파일 APPROVED, Review-Enforcement·Code-Review 미충족 → 두 번째 커미터 +1 필요(ricea@ 제안: 히스토그램 작성자·K 공동 리뷰어) · **LB 8505776** blundell@ «-> oshima@ as reviewer with more domain expertise»(18:11, 본인 제외) → oshima@ 대기 · **LD 8505916** oshima@ «+hidehiko@ to make sure we don't have to salvage this»(12:47) → hidehiko@ 판단 대기, 답변 불필요
+- HG 8496107 제출 가능·CQ 대기 · 나머지(Z·X·LA·LE·HJ·HH·HB·HD) 반응 없음
+- 기록: Gerrit 49 = upstream 기록 49, 불일치 0 · 열린 기록 PR 0(멘토가 20:26~20:33 KST 8건 머지: #646 #649 #651 #653 #654 #656 #660 #661) · 닫을 이슈 없음(열린 14 = umbrella #282·시리즈 #416·리뷰 중 12)
+- **사용자 몫**: 보드 Status(09-27 보류) — 09-21 이후 닫힌 26건 → 반영 완료, 리뷰 중 12건 → gerrit 리뷰 중 (`gh auth refresh -s project` 받으면 에이전트 대행 가능) · `git cl creds-check`(gitcookies 폐지 경고, 양쪽 머신) · tryjob 추천인 결정(머지 36건, 07-28~; 커미터 지명 검토 가능) · Y 포기·LC/LF/LG 보류 확정
+- README «밀린 것» E·G·I·6 은 종결된 항목 → 정리 필요
