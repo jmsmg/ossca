@@ -222,3 +222,22 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
   - **HJ** `code-sign-clone-expired-histograms` `0ed4a25` — 4파일 +1/−226: 기록 helper·`RecordCloneCount()`(getattrlist)·`MacCloneExists`/`CloneExists()`·일일 존재 확인 타이머(기록만 함)·생성 시간 측정·include 5개, 헤더는 `timer.h` 대신 `sequenced_task_runner.h`(멤버 `scoped_refptr<SequencedTaskRunner>` 의 선언이 timer.h 경유였음). 컴파일 전 자체 점검으로 **안 쓰게 된 `kContentsInfoPlist`** 발견 → 같이 삭제(-Werror 의 unused-const-variable)
   - 검증 러너 `scripts/hc_hj_test_mac.sh` — sync 러너가 돌고 있으면 바로 멈춤. 초안 `drafts/prefetch-manager-expired-histograms.md`·`drafts/code-sign-clone-expired-histograms.md`. OSSCA 중복 0
 
+## 2026-10-02 리눅스 몫 후보 (Mac 에서 스캔 — ChromeOS·리눅스 전용 경로만)
+
+**방법**: 위 «파일 전체 만료» 판정(`scan3.py`)을 `chromeos|ash|linux|ozone|evdev|wayland|x11` 경로로 한정. 트리 `9143293`(10-01 main). 리눅스 `out/cros` 에 이미 있는 `unit_tests`·`ash_unittests`·`remoting_unittests` 로 검증 가능한 것을 앞에 둠(4코어라 새 타깃 빌드가 비쌈). **착수 전 리눅스에서 파일을 직접 읽어 조합 이름·지표 전용 코드를 다시 확인할 것** (HH 교훈)
+
+| 후보 | 파일 | 만료 | 검증 타깃 | 리뷰어 | 비고 |
+|---|---|---|---|---|---|
+| **LA** | `chrome/browser/ash/arc/nearby_share/arc_nearby_share_uma.cc` | 6 (전부 2025-03-28) | `unit_tests` ✓ | 히스토그램 owner alanding@ (14일 12건) · 상위 `chrome/browser/ash` jamescook@·hidehiko@ (각 80+) | UMA 전용 파일로 보임 → 파일째 삭제 가능성. 열린 CL 0 |
+| **LB** | `ash/system/human_presence/human_presence_metrics.h` | 4 (2023-05 ~ 2024-03) | `ash_unittests` ✓ | `ash/system` tbarzic@(7)·amehfooz@(5) → 상위 `ash` jamescook@ | HPS(사람 감지 센서) 지표. 열린 CL 0 |
+| **LC** | `chrome/browser/ash/arc/vmm/arcvm_working_set_trim_executor.cc` | 4 (2024-10 ~ 2025-12) | `unit_tests` ✓ | sstan@(1) → 상위 jamescook@·hidehiko@ | 열린 CL 0 |
+| **LD** | `chrome/browser/ash/schedqos/dbus_schedqos_state_handler.cc` | 5 (2025-10 ~ 11) | `unit_tests` ✓ | 상위 `chrome/browser/ash` jamescook@·hidehiko@ | 같은 디렉터리 테스트 4곳이 참조 → 테스트 수정. 열린 CL 0 |
+| **LE** | `chrome/browser/ash/api/tasks/tasks_client_impl.cc` | 4 (2025-12-31) | `unit_tests` ✓ | `ash/glanceables` jamescook@·tbarzic@ | 테스트 4곳 참조. 열린 CL 0 |
+| LF | `ui/events/ozone/evdev/touch_event_converter_evdev.cc` | 12 (2023-09 ~ 2025-04) | `events_unittests` (새 빌드) | 히스토그램 owner jiwan@·robsc@ 0 · `ui/events/ozone` spang@(1) → 상위 `ui/events` hidehiko@ | 가장 크지만 새 타깃 빌드 필요 |
+| LG | `chrome/browser/ash/login/screens/encryption_migration_screen.cc` | 6 (2024-10-01) | 로그인 화면 → `browser_tests` 가능성 | dlunev@ | 4코어에서 browser_tests 는 비쌈 → 뒤로 |
+| ✗ | `ash/system/time/calendar_{metrics,view}.cc` | 17 (+살아 있음 2) | — | — | 열린 CL 8423922(09-26, 캘린더 만료 플래그 제거) 진행 중 → 보류 |
+| ✗ | `ash/clipboard/clipboard_history.cc` | 4 | — | — | 열린 CL 8219249(09-25) 진행 중 → 보류 |
+
+- 추천 순서 **LA → LB → LC**: 이미 빌드된 타깃, 테스트 참조 0, 활발한 상위 OWNER. 리눅스 진행 중인 Z(8464683)·X(8467023) 리뷰가 느린 점을 고려해 리뷰어는 jamescook@·hidehiko@ 쪽을 우선
+- 히스토그램 xml 은 각 `metadata/<dir>/OWNERS` 승인이 따로 필요(HA 교훈) — 업로드 전에 code-owner 구성을 확인
+
