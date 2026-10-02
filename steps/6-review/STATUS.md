@@ -137,3 +137,5 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - ✅ **10-02 10:45 KST — Z·X 리뷰어 추가**(에이전트, 사용자 «진행하자»): **Z 8464683** jamescook@ 추가(ash OWNER, tbarzic@ 10-01 추가 뒤 무응답) «Adding jamescook@ as an ash owner, since tbarzic@ and the input_device_settings owners seem to be busy. Thanks!» · **X 8467023** hidehiko@ 추가(두 번째 +1, khmel@ 7일 무응답) «Adding hidehiko@ for the second approval, since khmel@ seems to be busy. diwux@ has already approved this as the shelf owner. Thanks!»
 - ✅ **10-02 11:22 KST — HG 8496107 제출 요청 게시**(리눅스 세션 에이전트, 사용자 «올려»): «Both approvals are in. Could one of you submit this? Thanks!» → attention mdjones@·meiliang@ 직접 지정. 다음 리눅스 작업 후보 LD(schedqos) — 사용자 지시 대기
 - **10-02 11:01 — 8291668(jpgravel@, sql batching mode)에서 attention**: 09-07 우리 드라이브바이 질문에 답 — FaviconDatabase·deprecated API 삭제는 본인이 함, 대신 8282239 의 QuotaDatabase TODO 의도를 질문 → 답변 문안 전달(`issues/40831207.md`)
+- ✅ **10-02 11:57 — 8291668 답변 게시**(에이전트, 사용자 «니가 달아줘») → attention jpgravel@·grt@. QuotaDatabase batching 이전 후속을 제안해 둠
+
