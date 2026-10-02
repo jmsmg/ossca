@@ -217,4 +217,8 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 | HK | `components/discardable_memory/client/client_discardable_shared_memory_manager.cc` | 6 (2023) | lizeb@ (thiabaud@ 계정 없음) | 열린 CL 8033386(08-16)이 같은 파일 |
 | HL | `chrome/browser/predictors/lcp_critical_path_predictor/lcp_critical_path_predictor_util.cc` | 17 (+ 살아 있음 2) | yyanagisawa@ (Q 리뷰어) | 가장 크지만 yuje@ 의 8473211(09-28, 같은 파일 현대화) 리뷰 중 → 그 뒤 |
 | (리눅스) | `ui/events/ozone/evdev/touch_event_converter_evdev.cc` | 12 | — | ozone/evdev 는 Mac 빌드 불가 → 리눅스 몫 후보 |
+- **10-02 HC·HJ 로컬 커밋** (사용자 «두개 하자») — 밤샘 sync 빌드가 `out/Default` 를 쓰는 중이라 **작업 트리·인덱스를 건드리지 않고** git plumbing(임시 `GIT_INDEX_FILE` + `hash-object`/`write-tree`/`commit-tree`)으로 main `9143293` 위에 커밋·브랜치 생성. 스크립트 scratchpad `plumb.py`·`hc_edit.py`·`hj_edit.py`
+  - **HC** `prefetch-manager-expired-histograms` `02e6fa3` — 3파일 −87: 기록 3곳+설명 주석(큐 길이 주석은 2022 blundell@ CL 에서 히스토그램과 함께 들어옴), `PrefetchJob::creation_time`, histogram include 2개(파일의 마지막 히스토그램), `QueueingMetricsRecorded` 테스트·`HistogramTester` include, xml 3
+  - **HJ** `code-sign-clone-expired-histograms` `0ed4a25` — 4파일 +1/−226: 기록 helper·`RecordCloneCount()`(getattrlist)·`MacCloneExists`/`CloneExists()`·일일 존재 확인 타이머(기록만 함)·생성 시간 측정·include 5개, 헤더는 `timer.h` 대신 `sequenced_task_runner.h`(멤버 `scoped_refptr<SequencedTaskRunner>` 의 선언이 timer.h 경유였음). 컴파일 전 자체 점검으로 **안 쓰게 된 `kContentsInfoPlist`** 발견 → 같이 삭제(-Werror 의 unused-const-variable)
+  - 검증 러너 `scripts/hc_hj_test_mac.sh` — sync 러너가 돌고 있으면 바로 멈춤. 초안 `drafts/prefetch-manager-expired-histograms.md`·`drafts/code-sign-clone-expired-histograms.md`. OSSCA 중복 0
 
