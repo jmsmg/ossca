@@ -78,3 +78,4 @@
 
 | (LA arc nearby_share 만료 히스토그램, **리눅스**) | `out/cros` 증분 `unit_tests` · `gn check` · `validate_format.py` | `la_test_linux.sh` | `la_{gn,gncheck,xml,build,test}.log`, `la_done.marker` | ✅ 10-02 — 29스텝 4m04s, `*NearbyShare*:ShareInfoFileStreamAdapterTest.*` **149/149** |
 | (LB HPS 만료 히스토그램, **리눅스**) | `out/cros` 증분 `ash_unittests` · `gn check //ash:ash //ash:ash_unittests` · `validate_format.py` | `lb_test_linux.sh` | `lb_baseline_test.log`, `lb_{gn,gncheck,xml,build,test}.log`, `lb_done.marker` | ✅ 10-02 — 13스텝 1m58s, `SnoopingProtection*:PowerPrefs*` 대조군 48/48 → **42/42**(빠진 6개 = 지표 전용 테스트, 이름 대조) |
+| (LD schedqos 만료 히스토그램, **리눅스**) | `out/cros` 증분 `unit_tests` · `gn check '//chrome/browser/ash/schedqos/*'` · `validate_format.py` | `ld_test_linux.sh` | `ld_baseline_test.log`, `ld_{gn,gncheck,xml,build,test}.log`, `ld_done.marker` | ✅ 10-02 — 29스텝 2m51s, `DBusSchedQOSStateHandlerTest.*` 대조군 21/21 → **15/15**(빠진 6개 = 지표 전용, 이름 대조) |

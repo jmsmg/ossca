@@ -69,3 +69,4 @@
 - ✅ **09-25 리눅스 — X #544 · W #545 등록**(에이전트가 `gh`로, 라벨 2026·chromium-issues·self-issues, assignee jmsmg). X는 crbug 350769496이 접근 제한이라 #443처럼 직접 찾은 이슈 형식(`drafts/shelf-cleanup-preload-prefs.md`로 이름 변경). 프로젝트 Status는 수동
 - ✅ **10-02 리눅스 — LA #648 등록**(에이전트, 사용자 «진행하자»): `drafts/arc-nearby-share-expired-histograms.md`
 - ✅ **10-02 리눅스 — LB #650 등록**(에이전트, 사용자 «LB 진행해»): `drafts/hps-expired-histograms.md`
+- ✅ **10-02 리눅스 — LD #652 등록**(에이전트, 사용자 «진행해»): `drafts/schedqos-expired-histograms.md`
