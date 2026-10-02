@@ -154,3 +154,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - 기록: Gerrit 49 = upstream 기록 49, 불일치 0 · 열린 기록 PR 0(멘토가 20:26~20:33 KST 8건 머지: #646 #649 #651 #653 #654 #656 #660 #661) · 닫을 이슈 없음(열린 14 = umbrella #282·시리즈 #416·리뷰 중 12)
 - **사용자 몫**: 보드 Status(09-27 보류) — 09-21 이후 닫힌 26건 → 반영 완료, 리뷰 중 12건 → gerrit 리뷰 중 (`gh auth refresh -s project` 받으면 에이전트 대행 가능) · `git cl creds-check`(gitcookies 폐지 경고, 양쪽 머신) · tryjob 추천인 결정(머지 36건, 07-28~; 커미터 지명 검토 가능) · Y 포기·LC/LF/LG 보류 확정
 - README «밀린 것» E·G·I·6 은 종결된 항목 → 정리 필요
+- ✅ **10-02 22:55 KST — HC 8505477 ricea@ 추가 + 댓글**(리눅스 세션 에이전트, 사용자 «HC에 ricea 추가하고 댓글 올려»): «Thanks, Hiroki! Adding ricea@, who added these histograms and reviewed the first prefetch_manager cleanup (crrev.com/c/8461862), for a second review.» → attention ricea@. +1 오면 제출 요청
