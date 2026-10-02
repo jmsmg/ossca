@@ -11,7 +11,7 @@
   - `RecordCloneCount()` — clone 이 만들어질 때마다 clone 임시 디렉터리에 `getattrlist()` 호출해 항목 수를 셈
   - clone 존재 확인 타이머 — 하루에 한 번 깨어나 clone 의 main executable 과 Info.plist 존재를 확인하고, 사라졌으면 기록한 뒤 멈춤. 기록 외에 하는 일 없음
 - 수정: 기록 helper 4개와 호출, `RecordCloneCount()`, `MacCloneExists` enum·`CloneExists()`·타이머 3메서드와 멤버, clone 생성 시간 측정, 그 검사에만 쓰이던 `kContentsInfoPlist` 상수, 안 쓰게 된 include 5개 삭제(헤더는 `base/timer/timer.h` 대신 실제로 쓰는 `base/task/sequenced_task_runner.h`). histograms.xml 5항목과 `MacCloneExists` enum 삭제(`MacErrno` 는 다른 히스토그램이 써서 유지). 4파일 +1/−226, clone 생성·정리 동작 불변
-- 검증: `unit_tests --gtest_filter='CodeSignCloneManagerTest.*'` (빌드 후, `scripts/hc_hj_test_mac.sh`)
+- 검증: main `9143293`(10-01) 위 `unit_tests` 증분 13스텝 24초(경고 없이 컴파일 — 미리 지운 `kContentsInfoPlist` 확인), `--gtest_filter='CodeSignCloneManagerTest.*'` **10/10**. presubmit 통과, `pretty_print`·`validate_format` ✓
 - 선점: 열린 CL 은 DO NOT SUBMIT 대량 CL 뿐 · OSSCA 0
 - 리뷰어: avi@ (`chrome/browser/mac` → `ui/base/cocoa/OWNERS`, 그리고 `metadata/mac` OWNER — 한 명으로 전부. 히스토그램 owner 이기도 함). CC amoseui@
 
