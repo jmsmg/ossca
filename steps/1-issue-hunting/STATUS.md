@@ -204,3 +204,17 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - **10-01 HH 로컬 커밋** — 브랜치 `background-sync-expired-histograms` (bed8289, 커밋 `30f3215`) 10파일 +43/−638. 처음 «literal 7개 전부 만료»로 골랐지만 StrCat 으로 조합되는 이름까지 세니 20개 중 `OneShotResultPattern` 하나가 살아 있었음 → 클래스 통째 삭제가 아니라 그 하나만 남기는 정리로 범위 수정. 지표 전용 코드(배치 시작 시각·이벤트 시작 때 main frame 조회·could-fire/duplicate enum) 삭제, 완료 콜백 barrier 는 동작용이라 유지(`BindPostTaskToCurrentDefault`), `CountRegisterSuccess()` 의 min_interval CHECK 는 `Register()` 입구 CHECK 와 중복이라 제거. `validate_format` 이 «안 쓰게 된 Boolean enum 3개»를 잡아 enum 6개 삭제. 바뀐 소스 4개 개별 컴파일(`autoninja … file.cc^`) ✓ — `content_unittests` 는 이 Mac 첫 빌드라 `scripts/hh_test_mac.sh` 를 tmux 로. main 최신 `enums.xml`·`others/histograms.xml` 과 3-way 병합 시뮬레이션 충돌 0 (sync 뒤 리베이스해서 `validate_format` 재확인 필요 — 09-24 이후 새 히스토그램이 지운 enum 을 쓰는지). 열린 CL 은 arthursonzogni@ WIP 8419176(815파일)뿐. OSSCA 초안 `drafts/background-sync-expired-histograms.md`
 - **교훈**: 히스토그램 스캔은 `StrCat`·접두/접미 조합 이름을 놓친다 — 후보 확정 전에 그 파일의 **모든** `UmaHistogram*` 호출을 읽고 조합 이름까지 XML 에서 만료 여부 확인
 - **10-01 17:19 HH 검증 완료** — `hh_test_mac.sh`(사용자 tmux 17:03 시작): `content_unittests` 647스텝 16m03s(첫 빌드지만 content 본체는 이미 있어 짧음), `*BackgroundSync*` **118/118**, presubmit 0 경고. OSSCA 등록·업로드 허가 대기
+
+## 2026-10-02 재스캔 (트리 `9143293`, M157) — 조합 이름까지 따지는 «파일 전체 만료» 판정
+
+**방법 개선** (HH 교훈): 만료(2026-01-01 이전 날짜 또는 M151 미만, `expired_intentionally` 제외) 히스토그램 1,531개를 비테스트 코드에서 literal 로 찾은 뒤, 각 파일의 **모든 문자열 조각**을 XML 이름의 접두어로 대조해 살아 있는 히스토그램이 하나라도 있으면 «부분 만료»로 분류. 검증: `background_sync_metrics.cc` 를 live=1(`OneShotResultPattern`)로 정확히 잡음. 스크립트 scratchpad `scan2.py`
+
+| 후보 | 파일 | 만료 | 리뷰어 | 비고 |
+|---|---|---|---|---|
+| **HC** | `chrome/browser/predictors/prefetch_manager.cc` | 3 (`Navigation.Prefetch.{IsHttps,PrefetchJobQueueLength,PrefetchJobQueueingTime}`, 2023-03·2025-04) | nhiroki@ (K 리뷰어) | K 머지로 착수 가능, unit_tests |
+| **HJ** (Mac 전용) | `chrome/browser/mac/code_sign_clone_manager.mm` | 5 (`Mac.App{HardLinkError,ClonefileError,CodeSignCloneCount,CodeSignCloneExists,CodeSignCloneCreationTime}`, 2025-08~10) | avi@ (7일 43건) | 전부 literal, 테스트 참조 0, 실질 열린 CL 0. clone 개수 기록은 그것만 위해 시작 때 `getattrlist()` 호출 → 지우면 작업도 줄어듦 |
+| **HI** | `content/browser/web_package/signed_exchange_{handler,signature_verifier}.cc` | 10 (전부 2023-03-29) | kouhei@ (web_package OWNER; 히스토그램 owner ksakamoto@ 는 계정 없음) | 테스트 7개가 참조 → 테스트 수정 필요, content_unittests |
+| HK | `components/discardable_memory/client/client_discardable_shared_memory_manager.cc` | 6 (2023) | lizeb@ (thiabaud@ 계정 없음) | 열린 CL 8033386(08-16)이 같은 파일 |
+| HL | `chrome/browser/predictors/lcp_critical_path_predictor/lcp_critical_path_predictor_util.cc` | 17 (+ 살아 있음 2) | yyanagisawa@ (Q 리뷰어) | 가장 크지만 yuje@ 의 8473211(09-28, 같은 파일 현대화) 리뷰 중 → 그 뒤 |
+| (리눅스) | `ui/events/ozone/evdev/touch_event_converter_evdev.cc` | 12 | — | ozone/evdev 는 Mac 빌드 불가 → 리눅스 몫 후보 |
+
