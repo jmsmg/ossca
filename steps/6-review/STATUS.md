@@ -139,3 +139,11 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - **10-02 11:01 — 8291668(jpgravel@, sql batching mode)에서 attention**: 09-07 우리 드라이브바이 질문에 답 — FaviconDatabase·deprecated API 삭제는 본인이 함, 대신 8282239 의 QuotaDatabase TODO 의도를 질문 → 답변 문안 전달(`issues/40831207.md`)
 - ✅ **10-02 11:57 — 8291668 답변 게시**(에이전트, 사용자 «니가 달아줘») → attention jpgravel@·grt@. QuotaDatabase batching 이전 후속을 제안해 둠
 
+**10-02 16:13 KST — Mac 점검**
+- **HG 8496107**: meiliang@ +1 · mdjones@ +1 → 리눅스가 제출 요청 게시(11:22) → CQ+2 대기(attention 둘)
+- **LD 8505916**(리눅스): oshima@ «+hidehiko@ to make sure we don't have to salvage this.»(12:47, resolved) → hidehiko@ 판단 대기, 우리 답변 불필요(attention 은 작성자 자동)
+- 대기: HH(peter@) · HC(nhiroki@) · HJ(avi@) · HB(ricea@)·HD(mattm@, 09:50 핑) · LA(hidehiko@) · LB(blundell@) · LE(achuith@) · Z(jamescook@ 추가)·X(hidehiko@ 추가)
+- OSSCA: 열린 PR 6개(#646·#649·#651·#653·#654·#656), 오늘 머지 0
+- 빌드: `browser_tests` 성공 → main `9143293` 에서 6개 타깃 모두 빌드 완료
+- **HH sync 후 점검 완료**: 새 main 에서 HH 가 지우는 enum 6개(`BackgroundSync{FiredEvents,Status,WakeupTask}`, `Boolean{CouldFireImmediately,InForeground,RegistrationIsDuplicate}`)를 쓰는 곳은 여전히 HH 가 지우는 히스토그램뿐(사용 수 09-24 와 동일) → 리베이스 불필요
+
