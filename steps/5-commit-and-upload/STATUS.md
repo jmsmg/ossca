@@ -53,6 +53,8 @@
 | [8482211](https://crrev.com/c/8482211) | [net] Remove the expired Net.CertVerifier.Mac* histograms | M (−224, 3파일) | (없음) | mattm@ (1차) · CC amoseui@ | ✅ 업로드 2026-09-29 (Mac, Mac 전용 코드) |
 | [8496107](https://crrev.com/c/8496107) | [Commerce] Remove the expired Commerce.Heuristics.* histograms | M (−223, 8파일) | (없음) | mdjones@ (1차) · CC amoseui@ | ✅ 업로드 2026-10-01 11:33 (Mac, 커밋 `cb24584`, presubmit 0 경고, OSSCA #591). 첫 시도는 HTTP 503 으로 실패 → 재시도 성공 |
 | [8499654](https://crrev.com/c/8499654) | [Background Sync] Remove the expired BackgroundSync histograms | L (+43/−638, 10파일) | (없음) | peter@ (1차) · CC amoseui@ | ✅ 업로드 2026-10-01 17:2x (Mac, 커밋 `30f3215`, presubmit 0, OSSCA #597). 업로드 직후 사용자가 sync 시작 → 로컬 HEAD 가 main 으로 바뀌어 `track.py verify` 대신 서버 PS1 numstat 을 **브랜치 ref**(`git diff --numstat bed8289 background-sync-expired-histograms`) 와 대조: 10파일 일치 |
+| [8505477](https://crrev.com/c/8505477) | [predictors] Remove the remaining expired Navigation.Prefetch histograms | M (−87, 3파일) | (없음) | nhiroki@ · CC amoseui@ | ✅ 업로드 2026-10-02 13:2x (Mac, main `9143293` 기준, `*PrefetchManager*` 40/40, presubmit ✓, OSSCA #657). 서버 PS1 = 브랜치(numstat 3파일) |
+| [8505617](https://crrev.com/c/8505617) | [mac] Remove the expired Mac.AppCodeSignClone* histograms | M (+1/−226, 4파일) | (없음) | avi@ · CC amoseui@ | ✅ 업로드 2026-10-02 13:2x (Mac 전용 코드, main `9143293` 기준, `CodeSignCloneManagerTest.*` 10/10, presubmit ✓, OSSCA #658). 서버 PS1 = 브랜치(numstat 4파일) |
 | [8377550](https://crrev.com/c/8377550) | [storage] Remove expired NotFatalUntil::M148 from quota CHECKs | L (+154/−160, 10파일) | `Bug: none` | evanstade@ (CC stevebe@) | ✅ 업로드 2026-09-10 (커밋 `cee29292ec148`, verify 동일 ✓) |
 
 사이즈 = Gerrit 뱃지 기준(변경 줄 수 합계): XS <10 · S 10–49 · M 50–249 · L 250–999 · XL ≥1000.

@@ -17,6 +17,8 @@
 
 **다음 액션**
 
+- ✅ **#657**(HC) · **#658**(HJ) 등록 (10-02, `gh issue create`, 라벨 3개, self-assign, 사용자 «올려») → CL 8505477 · 8505617 같은 날 업로드
+
 - ✅ **#597** 등록 (10-01, `gh issue create`, 라벨 3개, self-assign, 사용자 «올려») — HH `drafts/background-sync-expired-histograms.md` → CL 8499654 같은 날 업로드
 
 - ✅ **#591** 등록 (10-01, `gh issue create`, 라벨 2026+chromium-issues+self-issues, self-assign, 사용자 «올려») — HG `drafts/commerce-heuristics-expired-histograms.md` → CL 8496107 같은 날 업로드. 보드 Status 갱신은 보류 중
