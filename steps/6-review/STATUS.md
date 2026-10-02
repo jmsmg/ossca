@@ -163,3 +163,12 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - OSSCA: 열린 기록 PR 0, 닫을 이슈 0, 우리 이슈 새 댓글 0
 - README «밀린 것» E·G·I·6 원격 실측 뒤 종결 표시(리눅스 지적) · gitcookies 경고는 Mac 해당 없음
 
+
+**10-03 08:25 KST — 리눅스 전체 점검** (미국 금요일 저녁 결과)
+- **HG 8496107 머지 10-03 01:25 KST** (`308a20785a379`, mdjones@ CQ+2 00:14) → 8단계 남음: merged PR + **#591 손으로 닫기** (기록 1건 불일치: in review)
+- **Z 8464683**: jamescook@ **+1**(01:27) → code-owners 두 파일 APPROVED, 두 번째 커미터 +1 필요 → oshima@ 제안(ash OWNER, 7일 14건, LB·LD 당일 반응)
+- **LB 8505776**: oshima@ **+1**(08:09, PS2) → 코드 9파일 APPROVED, `chromeos_hps/histograms.xml` INSUFFICIENT_REVIEWERS → jimmyxgong@ 추가 제안(xml OWNER + 두 번째 +1 겸)
+- **HB 8482191**(Mac): ricea@ **+1** «lgtm»(23:08) → 코드 APPROVED, `metadata/net/histograms.xml` INSUFFICIENT_REVIEWERS → nidhijaju@ 추가 제안(HA 전례)
+- **HD 8482211**(Mac, Mac 전용 파일): mattm@ **+1**(07:28) + **미해결 코멘트** «you can add `Fixed: 41485528, 41485529` / `Bug: 330166367` to the commit message» → 설명 수정(서버 `PUT /message` 로 가능, Mac 로컬 amend 필요) + 답글·resolve + `metadata/net` xml OWNER(nidhijaju@) 추가
+- 변화 없음: LD(hidehiko@ 판단 대기) · HC(ricea@ attention, 23:08 활동했으나 HC 미처리) · X·LA(hidehiko@) · LE(achuith@) · HJ(avi@) · HH(peter@) · CL 5 8505857(fleimgruber@)
+- OSSCA: 열린 기록 PR 0(#677 포함 머지) · 새 댓글 0 · 사용자 몫(보드 Status·creds-check·tryjob 추천인·Y/LC 결정) 그대로
