@@ -134,3 +134,4 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - OSSCA: 사용자가 #536·#538 닫음(08:32·08:33, 닫는 댓글 포함) · 열린 기록 PR 0
 - 빌드: 사용자가 sync 러너를 `SKIP_SYNC` 없이 다시 돌려 main `9143293` 로 한 번 더 sync → `unit_tests` 19,551/80,436 진행 중
 - **10-02 08:40 — HG meiliang@ 추가**(사용자, «Thanks, Matt! Adding meiliang@, who has been cleaning up the commerce histograms, for a second review.») → attention meiliang@. Code-Owners 8파일 모두 APPROVED(mdjones@), 남은 건 두 번째 +1. HB·HD 핑은 아직
+- ✅ **10-02 10:45 KST — Z·X 리뷰어 추가**(에이전트, 사용자 «진행하자»): **Z 8464683** jamescook@ 추가(ash OWNER, tbarzic@ 10-01 추가 뒤 무응답) «Adding jamescook@ as an ash owner, since tbarzic@ and the input_device_settings owners seem to be busy. Thanks!» · **X 8467023** hidehiko@ 추가(두 번째 +1, khmel@ 7일 무응답) «Adding hidehiko@ for the second approval, since khmel@ seems to be busy. diwux@ has already approved this as the shelf owner. Thanks!»

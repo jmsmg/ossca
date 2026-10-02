@@ -241,3 +241,5 @@ blame 날짜는 2025-09 BASE_FEATURE 2-인자 마이그레이션 커밋에 오�
 - 추천 순서 **LA → LB → LC**: 이미 빌드된 타깃, 테스트 참조 0, 활발한 상위 OWNER. 리눅스 진행 중인 Z(8464683)·X(8467023) 리뷰가 느린 점을 고려해 리뷰어는 jamescook@·hidehiko@ 쪽을 우선
 - 히스토그램 xml 은 각 `metadata/<dir>/OWNERS` 승인이 따로 필요(HA 교훈) — 업로드 전에 code-owner 구성을 확인
 
+
+- **10-02 리눅스 — LA 착수·업로드**: 리눅스에서 파일 재확인 — 6개 전부 literal·`expires_after="2025-03-28"`, XML `Arc.NearbyShare.*`는 이 6개뿐, enum 3개도 이 히스토그램 전용. **LB** 재확인: 크롬이 기록하는 HPS 6개(SnoopingProtection.{Enabled,FlakeyDetection,{Result}.Duration}·NotificationSuppression.Enabled·QuickDim.Enabled) 전부 만료, 단 `snooping_protection_controller_unittest.cc` 500~680행 지표 테스트와 `power_prefs_unittest.cc` QuickDim 테스트 수정 필요, 같은 xml의 TurnOn·Update·Image는 플랫폼 데몬 기록이라 범위 밖. **LC** 재확인: 4개 전부 만료지만 Mac 표와 달리 `performance_manager/mechanisms/working_set_trimmer_chromeos_unittest.cc`가 이 히스토그램으로 회수 동작을 검증 → 테스트 재설계·OWNER 영역 추가 필요해 뒤로

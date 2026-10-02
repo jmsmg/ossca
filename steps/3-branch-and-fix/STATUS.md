@@ -45,3 +45,5 @@
 | W Adobe Express 마이그레이션 | `adobe-express-oem-migration-removal` | `44a0e2b8a081c` | −225, 7파일 · `Bug: b:314865744` |
 
 통합 검증 브랜치 `verify-vzxw`(4개 cherry-pick) → 4단계 `verify_vzxw_linux.sh`
+
+**10-02 리눅스 — LA** 브랜치 `arc-nearby-share-expired-histograms` (cros-base `49ad5ff`) 커밋 `4ce9a1a41688f` — 10파일 −253: helper .h/.cc 삭제·BUILD.gn 2줄·호출 20곳·`file_streaming_started_`(지속 시간 지표 전용)·고아 주석·xml 6항목·enum 3개. 최신 main(ad845e3)·열린 CL 8302314 모두 병합 충돌 없음

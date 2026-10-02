@@ -75,3 +75,5 @@
 공용 로그(`cbuild.log`, `gclient_sync.log`)와 완료 마커(`*_done.marker`)는 계속 재사용.
 
 **09-25 트리 최신화 완료 (Mac)** — `sync_rebuild_mac.sh`: main=`bed8289` (09-24), gclient sync ✓, unit_tests 4h11m/61,212 · browser_tests 1h01m/2,579 · media_unittests 1m37s · components_unittests ✓. 이후 새 CL·PS2 는 이 트리에서 시작(구 2ca4848 브랜치는 리베이스해서 사용)
+
+| (LA arc nearby_share 만료 히스토그램, **리눅스**) | `out/cros` 증분 `unit_tests` · `gn check` · `validate_format.py` | `la_test_linux.sh` | `la_{gn,gncheck,xml,build,test}.log`, `la_done.marker` | ✅ 10-02 — 29스텝 4m04s, `*NearbyShare*:ShareInfoFileStreamAdapterTest.*` **149/149** |
