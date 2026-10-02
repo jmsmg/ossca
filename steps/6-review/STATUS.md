@@ -155,3 +155,11 @@ python3 ~/ossca/scripts/track.py cl 8377550
 - **사용자 몫**: 보드 Status(09-27 보류) — 09-21 이후 닫힌 26건 → 반영 완료, 리뷰 중 12건 → gerrit 리뷰 중 (`gh auth refresh -s project` 받으면 에이전트 대행 가능) · `git cl creds-check`(gitcookies 폐지 경고, 양쪽 머신) · tryjob 추천인 결정(머지 36건, 07-28~; 커미터 지명 검토 가능) · Y 포기·LC/LF/LG 보류 확정
 - README «밀린 것» E·G·I·6 은 종결된 항목 → 정리 필요
 - ✅ **10-02 22:55 KST — HC 8505477 ricea@ 추가 + 댓글**(리눅스 세션 에이전트, 사용자 «HC에 ricea 추가하고 댓글 올려»): «Thanks, Hiroki! Adding ricea@, who added these histograms and reviewed the first prefetch_manager cleanup (crrev.com/c/8461862), for a second review.» → attention ricea@. +1 오면 제출 요청
+
+**10-02 23:06 KST — Mac 점검** (리눅스 22:50 점검 이후 재조회)
+- 변화 없음: HG 제출 가능·CQ+2 대기(제출 요청 11:22, 미국 금요일 아침 기대) · HC nhiroki@ +1 → ricea@ attention(리눅스 22:55 추가) · HJ avi@(3일 27건 활동) · HH peter@(30h, 3일 12건 활동 → 월요일까지 없으면 핑) · HB·HD 09:50 핑 뒤 무응답 → 월요일 재판단 · LA·LE·Z·X 대기
+- 사용자 attention: LB(blundell@ → oshima@ 교체)·LD(oshima@ 가 hidehiko@ 추가) 두 곳뿐, 둘 다 답변 불필요
+- 8291668: 우리 답글(11:57) 뒤 jpgravel@ 응답 없음
+- OSSCA: 열린 기록 PR 0, 닫을 이슈 0, 우리 이슈 새 댓글 0
+- README «밀린 것» E·G·I·6 원격 실측 뒤 종결 표시(리눅스 지적) · gitcookies 경고는 Mac 해당 없음
+

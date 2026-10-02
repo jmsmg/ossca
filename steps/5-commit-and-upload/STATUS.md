@@ -78,7 +78,7 @@
 
 **함정 (8429522, 09-18) — `git fetch origin` 뒤 presubmit이 50건 `AttributeError: 'InputApi' object has no attribute 'AffectedExtensions'`로 전멸.** 원인은 트리가 아니라 **depot_tools가 오래됨**(09-14판) — 새 main의 PRESUBMIT.py가 depot_tools 09-17판에 추가된 API를 쓴다. `~/depot_tools/update_depot_tools` 한 번이면 끝. `git cl upload`는 presubmit 실패 시 아무것도 올리지 않으므로(`git cl issue` = None) 부작용은 없다. 교훈: **origin/main을 당겼으면 depot_tools도 같이 갱신**한다.
 
-**미해결** — gitcookies 인증 경고 (→ `git cl creds-check` 전환 필요).
+**gitcookies 경고** — depot_tools `newauth.py`: «depot_tools will soon stop using the .gitcookies file for authentication … run `git cl creds-check`». 경고는 `~/.gitcookies` 가 있을 때만 뜬다 → **Mac 은 파일 없음(10-02 확인) = 이미 새 인증 스택, 할 일 없음**. 리눅스는 그쪽에서 `test -e ~/.gitcookies` 로 확인하고, 있으면 사용자가 `git cl creds-check`(대화형).
 **tryjob 권한** — 09-07 smcgruer@ 요청은 09-24 무응답 종결 → 다음 추천인 미정(멘토 제외). 그때까지 CQ는 리뷰어가 실행.
 
 **함정 (8496107, 10-01) — `git cl upload` 가 push 단계에서 `HTTP 503` + «Failed to create a change» 로 실패.** presubmit 은 통과했고, git cl 은 traces 를 남긴다. 실패 메시지가 나와도 원격에 일부가 생겼을 수 있으니 재시도 전에 Gerrit 을 조회한다(이번엔 Change-Id 없음·최근 1시간 내 새 CL 없음·`git cl issue` None → 미생성 확인). 같은 명령 1회 재시도로 성공. 같은 시간대에 `track.py verify` 의 fetch 도 HTTP 502 로 실패 → 대신 REST `revisions/1/files` 의 파일별 변경 줄 수와 부모 커밋을 로컬 `git diff --numstat` 과 대조(8파일 일치, 부모 bed8289)
